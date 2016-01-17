@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Clienti:</strong>
+  <%= @contratti.clienti_id %>
+</p>
+
+<p>
+  <strong>Acquisto:</strong>
+  <%= @contratti.acquisto %>
+</p>
+
+<p>
+  <strong>Ore:</strong>
+  <%= @contratti.ore %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @contratti.note %>
+</p>
+
+<%= link_to 'Edit', edit_clienti_contratti_path(:id => @contratti) %> |
+<%= link_to 'Back', clienti_contrattis_path %>

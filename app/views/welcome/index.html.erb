@@ -1,0 +1,27 @@
+<h1>Welcome#index</h1>
+<p>Find me in app/views/welcome/idex.html.erb</p>
+
+
+<p>Clicca <%= link_to 'quì', controller: 'clienti' %> per la lista dei clienti</p>
+<hr>
+<p>Ci sono <%= @conta_aperti %> interventi aperti. Clicca <%= link_to 'quì', welcome_aperti_path %> per visualizzarli</p>
+<hr>
+<p>Hai un credito residuo per gli sms di €<%= @credito_skebby.round(2) %></p>
+<hr>
+
+<p>Locale = <%= I18n.locale %></p>
+<p><%= l Time.now, format: :short %></p>
+<p><%= l Time.now, format: :solodata %>
+<p><%= l Time.now, format: :soloora %>
+
+
+<% flash.each do |key, value| %>
+		<hr>
+        <div class="alert alert-<%= key %>">
+        	<%= key %> : <%= value %>
+        </div>
+        <hr>
+      <% end %>
+
+
+<%= debug(params) %>

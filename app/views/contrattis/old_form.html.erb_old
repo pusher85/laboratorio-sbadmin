@@ -1,0 +1,33 @@
+<%= form_for :contratti, url: clienti_contrattis_path do |f| %>
+  <% if @contratti.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@contratti.errors.count, "error") %> prohibited this contratti from being saved:</h2>
+
+      <ul>
+      <% @contratti.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :clienti_id %><br>
+    <%= f.number_field :clienti_id, :value => @clienti.id, readonly: true %>
+  </div>
+  <div class="field">
+    <%= f.label :acquisto %><br>
+    <%= f.date_select :acquisto %>
+  </div>
+  <div class="field">
+    <%= f.label :ore %><br>
+    <%= f.number_field :ore %>
+  </div>
+  <div class="field">
+    <%= f.label :note %><br>
+    <%= f.text_area :note %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  clienti_id: 1
+  acquisto: 2016-01-12
+  ore: 1
+  note: MyText
+
+two:
+  clienti_id: 1
+  acquisto: 2016-01-12
+  ore: 1
+  note: MyText

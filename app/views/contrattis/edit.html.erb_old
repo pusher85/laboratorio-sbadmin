@@ -1,0 +1,6 @@
+<h1>Editing contratti</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', clienti_contratti_path %> |
+<%= link_to 'Back', clienti_contrattis_path %>

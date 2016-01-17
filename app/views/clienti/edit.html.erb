@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col s12 center-align">
+    <h3>Modifica Cliente</h3>
+  </div>
+</div>
+<div class="divider"></div>
+
+
+<%= render'gestione_errori' %>
+
+<%= render 'form', {url: clienti_path(@clienti), method: 'patch'} %>
+
+<div class="divider"></div>
+
+
+
+<%= debug(params) %>

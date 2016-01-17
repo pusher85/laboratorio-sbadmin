@@ -1,0 +1,31 @@
+<h1>Listing contrattis</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Clienti</th>
+      <th>Acquisto</th>
+      <th>Ore</th>
+      <th>Note</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contrattis.each do |contratti| %>
+      <tr>
+        <td><%= contratti.clienti_id %></td>
+        <td><%= contratti.acquisto %></td>
+        <td><%= contratti.ore %></td>
+        <td><%= contratti.note %></td>
+        <td><%= link_to 'Show', clienti_contratti_path(:id => contratti.id) %></td>
+        <td><%= link_to 'Edit', edit_clienti_contratti_path(:id => contratti.id) %></td>
+        <td><%= link_to 'Destroy', clienti_contratti_path(:id => contratti.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Contratti', new_clienti_contratti_path %>

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cliente_id: 
+  data: 2015-12-29
+  apparecchiatura: MyString
+  intervento: MyText
+  durata: 1
+  note: MyText
+
+two:
+  cliente_id: 
+  data: 2015-12-29
+  apparecchiatura: MyString
+  intervento: MyText
+  durata: 1
+  note: MyText

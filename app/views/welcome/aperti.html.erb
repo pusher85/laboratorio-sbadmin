@@ -1,0 +1,30 @@
+<div class="row">
+	<div class="col s8 offset-s2">
+		<span class="flow-text"><h2>Elenco interventi in corso</h2></span>
+	</div>
+</div>
+
+
+<div class="row">
+	<div class="col s12">
+		<table class="highlight centered">
+			<thead>
+			  <tr>
+				<th>Cliente</th>
+				<th>Data Apertura</th>
+				<th>Visualizza</th>
+			  </tr>
+		  	</thead>
+
+		  	<tbody>
+		  <% @aperti.each do |intervento| %>
+			<tr>
+			  <td><%= intervento.nome %></td>
+			  <td><%= intervento.data %></td>
+			  <td><%= link_to '<i class="material-icons">pageview</i>'.html_safe, clienti_interventi_path(:clienti_id => intervento.cliente_id, :id => intervento.id) %></td>
+			</tr>
+		  <% end %>
+		  	</tbody>
+		</table>
+	</div>
+</div>

@@ -1,0 +1,17 @@
+<div class="row">
+	<div class="col s12 center-align">
+		<h3>Nuovo Cliente</h3>
+	</div>
+</div>
+<div class="divider"></div>
+
+<%= render'gestione_errori' %>
+
+
+<%#= render 'form' %>
+<%= render 'form', {url: clienti_index_path, method: 'nessuno'} %>
+
+
+<div class="divider"></div>
+
+<%= debug(params) %>

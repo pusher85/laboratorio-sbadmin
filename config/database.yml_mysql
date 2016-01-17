@@ -1,0 +1,25 @@
+default: &default
+   adapter: mysql
+   #pool: 5
+   timeout: 5000
+
+test:
+   <<: *default
+   database: ruby_laboratorio
+   username: ruby
+   password: password
+   host: 192.168.1.42
+
+development:
+   <<: *default
+   database: ruby_laboratorio
+   username: ruby
+   password: password
+   host: 192.168.1.42
+
+production:
+   <<: *default
+   database: ruby_laboratorio
+   username: ruby
+   password: password
+   host: 192.168.1.42
