@@ -5,6 +5,18 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag "/assets/plugins/bootstrap/css/bootstrap.min" %>
+  <%= stylesheet_link_tag "/assets/plugins/font-awesome/css/font-awesome.min" %>
+  <%= stylesheet_link_tag "/assets/fonts/style" %>
+  <%= stylesheet_link_tag "/assets/css/main" %>
+  <%= stylesheet_link_tag "/assets/css/main-responsive" %>
+  <% stylesheet_link_tag "/assets/plugins/iCheck/skins/all" %>
+  <%= stylesheet_link_tag "/assets/plugins/bootstrap-colorpalette/css/bootstrap-colorpalette" %>
+  <%= stylesheet_link_tag "/assets/plugins/perfect-scrollbar/src/perfect-scrollbar" %>
+  <%= stylesheet_link_tag "/assets/css/theme_light" %>
+  <%= stylesheet_link_tag "/assets/css/print" %>
+
+
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
@@ -13,23 +25,40 @@
 
 <%= render "layouts/header" %>
 
+<div class="main-container">
+	<%= render "layouts/navbar" %>
+	<!-- start: PAGE -->
+	<div class="main-content">
 
-<div id="wrapper">	
-	<div id="page-wrapper">
-		<div class="container-fluid">
 
 			<%= yield %>
 
-		</div>		<!-- /.container-fluid -->
-	</div><!-- /#page-wrapper -->
-
-	<div id="push"></div>
-	
-	
-</div><!-- /#wrapper -->
-    
+	</div>
+	<!-- end: PAGE -->
+</div>
 	<%= render "layouts/footer" %>
 
+
+
+
+
+	<%= javascript_include_tag "/assets/plugins/jquery-ui/jquery-ui-1.10.2.custom.min" %>
+	<%= javascript_include_tag "/assets/plugins/bootstrap/js/bootstrap.min" %>
+	<%= javascript_include_tag "/assets/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min" %>
+	<%= javascript_include_tag "/assets/plugins/blockUI/jquery.blockUI" %>
+	<%= javascript_include_tag "/assets/plugins/iCheck/jquery.icheck.min" %>
+	<%= javascript_include_tag "/assets/plugins/perfect-scrollbar/src/jquery.mousewheel" %>
+	<%= javascript_include_tag "/assets/plugins/perfect-scrollbar/src/perfect-scrollbar" %>
+	<%= javascript_include_tag "/assets/plugins/less/less-1.5.0.min" %>
+	<%= javascript_include_tag "/assets/plugins/jquery-cookie/jquery.cookie" %>
+	<%= javascript_include_tag "/assets/plugins/bootstrap-colorpalette/js/bootstrap-colorpalette" %>
+	<%= javascript_include_tag "/assets/js/main" %>
+	
+	<script>
+			jQuery(document).ready(function() {
+				Main.init();
+			});
+		</script>
 
 </body>
 </html>
