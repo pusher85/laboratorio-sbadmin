@@ -2,19 +2,32 @@
 <html>
 <head>
   <title>Laboratorio</title>
+  <!-- start: META -->
+	<meta charset="utf-8" />
+	<!--[if IE]><meta http-equiv='X-UA-Compatible' content="IE=edge,IE=9,IE=8,chrome=1" /><![endif]-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta content="" name="description" />
+	<meta content="" name="author" />
+	<!-- end: META -->
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <%= stylesheet_link_tag "/assets/plugins/bootstrap/css/bootstrap.min" %>
-  <%= stylesheet_link_tag "/assets/plugins/font-awesome/css/font-awesome.min" %>
-  <%= stylesheet_link_tag "/assets/fonts/style" %>
-  <%= stylesheet_link_tag "/assets/css/main" %>
-  <%= stylesheet_link_tag "/assets/css/main-responsive" %>
-  <% stylesheet_link_tag "/assets/plugins/iCheck/skins/all" %>
-  <%= stylesheet_link_tag "/assets/plugins/bootstrap-colorpalette/css/bootstrap-colorpalette" %>
-  <%= stylesheet_link_tag "/assets/plugins/perfect-scrollbar/src/perfect-scrollbar" %>
-  <%= stylesheet_link_tag "/assets/css/theme_light" %>
-  <%= stylesheet_link_tag "/assets/css/print" %>
+  <%= stylesheet_link_tag "/assets/plugins/bootstrap/css/bootstrap.min", media: "all" %>
+  <%= stylesheet_link_tag "/assets/plugins/font-awesome/css/font-awesome.min", media: "all" %>
+  <%= stylesheet_link_tag "/assets/fonts/style", media: "all" %>
+  <%= stylesheet_link_tag "/assets/css/main", media: "all" %>
+  <%= stylesheet_link_tag "/assets/css/main-responsive", media: "all" %>
+  <%= stylesheet_link_tag "/assets/plugins/iCheck/skins/all", media: "all" %>
+  <%= stylesheet_link_tag "/assets/plugins/bootstrap-colorpalette/css/bootstrap-colorpalette", media: "all" %>
+  <%= stylesheet_link_tag "/assets/plugins/perfect-scrollbar/src/perfect-scrollbar", media: "all" %>
+  <%= stylesheet_link_tag "/assets/css/theme_light", media: "all" %>
+  <%= stylesheet_link_tag "/assets/plugins/datepicker/css/datepicker", media: "all" %>
+  <%= stylesheet_link_tag "/assets/plugins/bootstrap-daterangepicker/daterangepicker-bs3", media: "all" %>
+
+  <%= stylesheet_link_tag "/assets/css/print", media: "print" %>
+ 
 
 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -26,13 +39,44 @@
 <%= render "layouts/header" %>
 
 <div class="main-container">
+
 	<%= render "layouts/navbar" %>
+
+
 	<!-- start: PAGE -->
 	<div class="main-content">
+		<div class="container">
+			<div class="row">
 
+				<!-- start: PAGE HEADER -->
+				<div class="col-sm-12">
+					<!-- start: PAGE TITLE & BREADCRUMB -->
+					<ol class="breadcrumb">
+						<li>
+							<i class="clip-file"></i>
+							<a href="#">
+								<%= controller_name %>
+							</a>
+						</li>
+						<li class="active">
+							<%= action_name %>
+						</li>
 
+					</ol>
+					<div class="page-header">
+						<h1><%= @titolo %> <small><%= @titolo2 %></small></h1>
+					</div>
+					<!-- end: PAGE TITLE & BREADCRUMB -->
+				</div>
+			</div>
+			<!-- end: PAGE HEADER -->
+
+			<!-- start: PAGE CONTENT -->
 			<%= yield %>
+			
+			<!-- end: PAGE CONTENT-->
 
+		</div>
 	</div>
 	<!-- end: PAGE -->
 </div>
@@ -41,7 +85,7 @@
 
 
 
-
+	<%= javascript_include_tag "/assets/plugins/jQuery-lib/2.0.3/jquery.min" %>
 	<%= javascript_include_tag "/assets/plugins/jquery-ui/jquery-ui-1.10.2.custom.min" %>
 	<%= javascript_include_tag "/assets/plugins/bootstrap/js/bootstrap.min" %>
 	<%= javascript_include_tag "/assets/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min" %>
@@ -53,7 +97,16 @@
 	<%= javascript_include_tag "/assets/plugins/jquery-cookie/jquery.cookie" %>
 	<%= javascript_include_tag "/assets/plugins/bootstrap-colorpalette/js/bootstrap-colorpalette" %>
 	<%= javascript_include_tag "/assets/js/main" %>
+	<!-- DatePicker Vari -->
+	<%= javascript_include_tag "/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker" %>
+	<%= javascript_include_tag "/assets/plugins/bootstrap-daterangepicker/moment.min" %>
+	<%= javascript_include_tag "/assets/plugins/bootstrap-daterangepicker/moment.min" %>
+	<%= javascript_include_tag "/assets/plugins/bootstrap-daterangepicker/daterangepicker" %>
+
+	<%= javascript_include_tag "/assets/plugins/bootstrap-colorpalette/js/bootstrap-colorpalette" %>
 	
+	
+
 	<script>
 			jQuery(document).ready(function() {
 				Main.init();

@@ -2,9 +2,11 @@ class ClientiController < ApplicationController
 	
 	def index
 		@clienti = Clienti.all
+		@titolo = "Anagrafica Clienti"
 	end
 
 	def show
+		@titolo = "Dettagli Anagrafica"
 		@clienti = Clienti.find(params[:id])
 		
 		rescue ActiveRecord::RecordNotFound  
@@ -14,6 +16,7 @@ class ClientiController < ApplicationController
 	end
 
 	def new
+		@titolo = "Nuovo Cliente"
 		@clienti = Clienti.new
 	end
 
@@ -27,6 +30,7 @@ class ClientiController < ApplicationController
 	end
 
 	def create
+		@titolo = "Nuovo Cliente"
 		@clienti = Clienti.new(clienti_params)
 		if @clienti.save
 			redirect_to @clienti, notice: "Cliente aggiunto"

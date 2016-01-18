@@ -15,5 +15,5 @@
 //= require turbolinks
 //= require_tree .
 // require bootstrap-sprockets
-//= require bootstrap
-//= require bootstrap_sb_admin_base_v2
+// require bootstrap
+// require bootstrap_sb_admin_base_v2

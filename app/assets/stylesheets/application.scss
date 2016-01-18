@@ -13,31 +13,4 @@
  *= require_tree .
  *= require_self
  */
-/*
-@import "bootstrap-sprockets";
-@import "bootstrap";
-
-@import "bootstrap_sb_admin_base_v2";
-*/
-
-
-
-
-
-#notice {
-  color: green;
-  }
-
-  #error_explanation {
-    /*width: 450px;*/
-    border: 2px solid red;
-    padding: 7px;
-    padding-bottom: 0;
-    margin-bottom: 20px;
-    background-color: #f0f0f0;
-  }
-
-  .field_with_errors input {
-    background-color: red;
-  }
-
+ 
