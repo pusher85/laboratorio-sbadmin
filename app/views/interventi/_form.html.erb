@@ -70,8 +70,7 @@
 
     <div class="row">
       <div class="col-md-4">
-        <div class="card blue-grey darken-1">
-          <div class="card-content white-text">
+            <!--
             <span class="card-title">Stato Intervento</span>
             <div class="switch">
               <label>
@@ -81,12 +80,19 @@
                 Chiuso
               </label>
             </div>
-          </div>
+            -->
+
+        <div class="make-switch switch-large" data-on-label="<i class='fa fa-check fa-white'></i>" data-off-label="<i class='fa fa-times'></i>">
+          <%= f.check_box :chiuso, {:class => "myclass", :style => "mystyle"}, "1" %>
         </div>
+
+
       </div>
     </div>
 
     <div class="divider"></div>
+
+    
     
     <div class="row">
     <div class="col-md-3">
