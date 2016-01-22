@@ -9,9 +9,19 @@
 		<!-- end: MAIN MENU TOGGLER BUTTON -->
 		<!-- start: MAIN NAVIGATION MENU -->
 		<ul class="main-navigation-menu">
-			<li>
+			<li class="<% if current_page?(:controller => 'welcome', :action => 'index') %> <%= "active open" %> <% end %>" >
 				<%= link_to '<i class="clip-home-3"></i><span class="title"> Dashboard</span>'.html_safe, root_path %>
 			</li>
+
+			<li class="<% if current_page?(:controller => 'clienti', :action => 'index') %> <%= "active open" %> <% end %>">
+				<%= link_to '<i class="clip-cursor"></i><span class="title"> Gestione Clienti</span>'.html_safe, clienti_index_path %>
+			</li>
+
+			<li class="<% if current_page?(:controller => 'welcome', :action => 'aperti') %> <%= "active open" %> <% end %>">
+				<%= link_to '<i class="clip-folder"></i><span class="title"> Interventi Aperti</span>'.html_safe, welcome_aperti_path %>
+			</li>
+
+
 		<!--
 			<li>
 				<a href="javascript:void(0)"><i class="clip-screen"></i>
@@ -47,14 +57,8 @@
 					</li>
 				</ul>
 			</li>
-		-->
-			<li>
-				<%= link_to '<i class="clip-cursor"></i><span class="title"> Gestione Clienti</span>'.html_safe, clienti_index_path %>
-			</li>
-
-			<li>
-				<%= link_to '<i class="clip-folder"></i><span class="title"> Interventi Aperti</span>'.html_safe, welcome_aperti_path %>
-			</li>
+		
+			
 
 
 			<li>
@@ -113,7 +117,7 @@
 				</ul>
 			</li>
 			
-			<li class="active open">
+			<li>
 				<a href="javascript:void(0)"><i class="clip-file"></i>
 					<span class="title">Pages</span><i class="icon-arrow"></i>
 					<span class="selected"></span>
@@ -274,6 +278,7 @@
 					</li>
 				</ul>
 			</li>
+		
 			
 			<li>
 				<a href="maps.html"><i class="clip-location"></i>
@@ -287,6 +292,9 @@
 					<span class="selected"></span>
 				</a>
 			</li>
+		-->
+
+
 		</ul>
 		<!-- end: MAIN NAVIGATION MENU -->
 	</div>
