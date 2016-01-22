@@ -1,68 +1,74 @@
 
 <div class="row">
-	<h3>Nuova Comunicazione per il cliente: <%= @clienti.nome %></h3>
-	<h4>Riferimento intervento del: <%= @interventi.data.strftime("%d/%m/%Y") %> </h4>
-
+	<div class="col-md-12">
+		<h3>Cliente: <%= @clienti.nome %></h3>
+		<h4>Riferimento intervento del: <%= @interventi.data.strftime("%d/%m/%Y") %> </h4>
+	</div>
 </div>
 
 <%= form_for :comunicazioni, url: clienti_interventi_comunicazioni_index_path do |f| %>
 
 <% if @comunicazioni.errors.any? %>
     <div class="row">
-      <div class="col s12">
-        <div id="error_explanation">
-          <h4><%= pluralize(@comunicazioni.errors.count, "error") %> impediscono l'invio della comunicazione: </h4>
-          <ul class="collection">
-            <% @comunicazioni.errors.full_messages.each do |msg| %>
-              <li class="collection-item"><%= msg %></li>
-            <% end %>
-          </ul>
-        </div>
+      <div class="col-md-12">
+      	<blockquote>
+	        <div id="error_explanation">
+	          <h4><%= pluralize(@comunicazioni.errors.count, "error") %> impediscono l'invio della comunicazione: </h4>
+	          <ul class="collection">
+	            <% @comunicazioni.errors.full_messages.each do |msg| %>
+	              <li class="collection-item"><%= msg %></li>
+	            <% end %>
+	          </ul>
+	        </div>
+	      </blockquote>
       </div>
     </div>
     <% end %>
 
 
 <div class="row">
-	<div class="input-field col s4">
-		
-			<i class="material-icons prefix">subtitles</i>
-			<%= f.label :tipo %><br><%= f.select :tipo, [['Sms', 'sms'], ['E-mail', 'email']] %>
-		
+	<div class="col-md-4">		
+
+
+		<div class="form-group">
+			<%= f.label :tipo %>
+			<%= f.select :tipo, [['Sms', 'sms'], ['E-mail', 'email']], {}, {class: 'form-control'} %>
+			
+		</div>
 	</div>
 
-	<div class="input-field col s4">
-		<i class="material-icons prefix">subtitles</i>
-		<%= f.label 'Numero di telefono preceduto da 39' %><br><%= f.text_field :destinatario, :value => '39' + @clienti.telefono %>
+	<div class="col-md-4">
+		<!-- <i class="material-icons prefix">subtitles</i> -->
+		<%= f.label 'Numero di telefono preceduto da 39' %>
+		<div class="form-group input-group">
+			<span class="input-group-addon"><i class="fa clip-mobile-3"></i></span>
+			<%= f.text_field :destinatario, :value => '39' + @clienti.telefono, class: 'form-control' %>
+		</div>
 	</div>
 
 </div>
 
 
 <div class="row">
-	<div class="input-field col s12">
-		<%= f.label "Testo del messaggio" %><br><%= f.text_area :testo, maxlength: 155, class: 'materialize-textarea' %>
+	<div class="col-md-4">
+		<div class="form-group">
+			<%= f.label "Testo del messaggio" %><br><%= f.text_area :testo, maxlength: 155, class: 'form-control' %>
+		</div>
 	</div>
 </div>
 
 	<%= f.text_field :interventi_id, :value => @interventi.id, :hidden => true %>
-	<p><%= f.submit 'Invia Comunicazione' %></p>
 
+	<div class="row">
+    <div class="col-md-3">
+       <div class="form-group">
+       	 <%= link_to 'Indietro', clienti_interventi_path(:id => @interventi ), class: 'btn btn-danger' %>
+       	<%= f.submit 'Invia Messaggio', :class => 'btn btn-success' %>
+       </div>
+     </div>
+   </div>
 
 <% end %>
 
-
-
-
-
-
-<%= link_to 'Indietro', clienti_interventi_path(:id => @interventi ) %>
-
-
 <%= debug(params) %>
 
-<script>
-	$(document).ready(function() {
-    	$('select').material_select();
-	});
-</script>

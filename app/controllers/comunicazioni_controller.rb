@@ -14,6 +14,7 @@ class ComunicazioniController < ApplicationController
 
 
 	def new
+		@titolo = "Nuova Comunicazione"
 		@clienti = Clienti.find(params[:clienti_id])
 		@interventi = Interventi.find(params[:interventi_id])
 		@comunicazioni = Comunicazioni.new
