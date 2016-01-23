@@ -201,12 +201,17 @@ var Main = function() {
 		});
 	};
 	//function to reduce the size of the Main Menu
+	//francesco - modifica per cookie navigation
 	var runNavigationToggler = function() {
 		$('.navigation-toggler').on('click', function() {
 			if(!$('body').hasClass('navigation-small')) {
+				//document.cookie = 'navigation=aperta';
+				$.cookie("navigation", "chiusa");
 				$('body').addClass('navigation-small');
 			} else {
+				document.cookie = 'navigation=chiusa';
 				$('body').removeClass('navigation-small');
+				$.cookie("navigation", "aperta");
 			};
 		});
 	};

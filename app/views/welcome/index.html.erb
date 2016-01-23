@@ -14,7 +14,10 @@
 <p><%= l Time.now, format: :solodata %>
 <p><%= l Time.now, format: :soloora %>
 <p>Stringa random: <%= SecureRandom.hex(2) %></p>
-
+<p>calore cookie per barra: <%= cookies[:navigation] %></p>
+<p><button onclick="cookie_barra_aperta()">barra aperta</button>
+<button onclick="cookie_barra_chiusa()">barra chiusa</button></p>
+<p>stato barra: <% if cookies[:navigation] == "aperta" %><%= "barra aperta"%> <% else %> <%= "barra chiusa" %><% end %> </p>
 
 <% flash.each do |key, value| %>
 		<hr>
@@ -26,3 +29,15 @@
 
 
 <%= debug(params) %>
+
+<script>
+	function cookie_barra_aperta() {
+		document.cookie = 'navigation=aperta'; 
+	}
+
+	function cookie_barra_chiusa() {
+		document.cookie = 'navigation=chiusa'; 
+	}
+
+</script>
+
