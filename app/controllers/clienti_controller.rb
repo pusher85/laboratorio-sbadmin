@@ -1,4 +1,6 @@
 class ClientiController < ApplicationController
+
+	before_action :authenticate_utenti!
 	
 	def index
 		@clienti = Clienti.all

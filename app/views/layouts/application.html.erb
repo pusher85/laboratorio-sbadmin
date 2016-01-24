@@ -106,7 +106,8 @@
 	<%= javascript_include_tag "/assets/plugins/bootstrap-colorpalette/js/bootstrap-colorpalette" %>
 	<!-- 		-->
 
-	<% if current_page?(:controller => 'clienti', :action => 'index') %>
+	<%# if current_page?(:controller => 'clienti', :action => 'index') %>
+	<% if current_page?('/clienti/index') %>
 	<!-- 	JS Specifici per clienti#index	-->
 	<%= javascript_include_tag "/assets/plugins/bootbox/bootbox.min" %>
 	<%= javascript_include_tag "/assets/plugins/jquery-mockjax/jquery.mockjax.js" %>

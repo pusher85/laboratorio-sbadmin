@@ -16,20 +16,19 @@
 					<!-- start: TOP NAVIGATION MENU -->
 					<ul class="nav navbar-right">
 						
+						<% if utenti_signed_in? %>
+
 						<!-- start: USER DROPDOWN -->
 						<li class="dropdown current-user">
+
 							<a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" data-close-others="true" href="#">
 								<%= image_tag("user_blank.gif", size: '25x25', class: "circle-img") %>
-								<span class="username">Peter Clark</span>
+								<span class="username"><%= current_utenti.nome  %></span>
 								<i class="clip-chevron-down"></i>
 							</a>
 							<ul class="dropdown-menu">
 								<li>
-									<a href="pages_user_profile.html">
-										<i class="clip-user-2"></i>
-										&nbsp;My Profile
-									</a>
-								</li>
+									<%= link_to '<i class="clip-user-2"></i> Profilo'.html_safe, edit_utenti_registration_path %>
 								<li>
 									<a href="pages_calendar.html">
 										<i class="clip-calendar"></i>
@@ -47,14 +46,20 @@
 										&nbsp;Lock Screen </a>
 								</li>
 								<li>
-									<a href="login_example1.html">
-										<i class="clip-exit"></i>
-										&nbsp;Log Out
-									</a>
+									<%= link_to '<i class="clip-exit"></i> Log Out'.html_safe, destroy_utenti_session_path, :method => :delete %>
 								</li>
 							</ul>
 						</li>
 						<!-- end: USER DROPDOWN -->
+
+						<% else %>
+
+						<li>
+							<%= link_to 'Login', new_utenti_session_path %>
+						</li>
+
+						<% end %>
+
 					</ul>
 					<!-- end: TOP NAVIGATION MENU -->
 				</div>

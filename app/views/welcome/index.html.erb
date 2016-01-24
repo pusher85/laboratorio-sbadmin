@@ -1,6 +1,10 @@
 <h1>Welcome#index</h1>
 <p>Find me in app/views/welcome/idex.html.erb</p>
 
+<br>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+<br>
 
 <p>Clicca <%= link_to 'quì', controller: 'clienti' %> per la lista dei clienti</p>
 <hr>
@@ -19,13 +23,21 @@
 <button onclick="cookie_barra_chiusa()">barra chiusa</button></p>
 <p>stato barra: <% if cookies[:navigation] == "aperta" %><%= "barra aperta"%> <% else %> <%= "barra chiusa" %><% end %> </p>
 
+<% if utenti_signed_in? %>
+	utente loggato <br>
+	<p>utente: <%= current_utenti.email  %> </p>
+<% end %>
+
+
+
+
 <% flash.each do |key, value| %>
 		<hr>
         <div class="alert alert-<%= key %>">
         	<%= key %> : <%= value %>
         </div>
-        <hr>
-      <% end %>
+		<hr>
+	<% end %>
 
 
 <%= debug(params) %>

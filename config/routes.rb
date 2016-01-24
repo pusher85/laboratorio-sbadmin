@@ -1,13 +1,18 @@
 Rails.application.routes.draw do
   
+  devise_for :utentis
   #resources :contrattis
 
-  root 'welcome#index'
+  root to: "welcome#index"
+  #root 'welcome#index'
   get 'welcome/aperti', :path => "aperti"
   #post 'interventi/sms'
   
 
+
+
   resources :clienti do
+    #devise_for :utentis
     resources :contrattis
     resources :interventi do
       get :sms

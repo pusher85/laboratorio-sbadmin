@@ -46,6 +46,9 @@ gem 'sqlite3'
 #skebby
 gem 'skuby'
 
+# autenticazione utenti
+gem 'devise'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
