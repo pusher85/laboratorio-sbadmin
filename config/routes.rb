@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   
-  devise_for :utentis
-  #resources :contrattis
+  #devise_for :utentis
+  devise_for :utentis, :path_prefix => 'my'
+  resources :utentis
 
   root to: "welcome#index"
   #root 'welcome#index'

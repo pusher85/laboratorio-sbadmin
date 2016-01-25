@@ -3,6 +3,9 @@ class Clienti < ActiveRecord::Base
 	#has_many :interventis, :through => :cliente_id
 	has_many :comunicazionis, :through => :interventis
 	has_many :contrattis, :dependent => :destroy
+
+	#gestione autenticazione
+	has_one :utenti, :class_name => 'Utenti', :foreign_key => 'clienti_id'
 	
 	validates :nome, presence: true, length: {minimum: 5 }
 	validates :telefono, presence: true, length: {minimum: 9}, numericality: true
