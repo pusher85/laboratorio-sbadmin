@@ -1,10 +1,11 @@
 class ComunicazioniController < ApplicationController
+	
+	before_action :authenticate_utenti!
+
 	def index
 		@clienti = Clienti.find(params[:clienti_id])
 		@interventi = Interventi.find(params[:interventi_id])
 
-		
-		
 
 	end
 

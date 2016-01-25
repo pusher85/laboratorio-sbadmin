@@ -1,5 +1,7 @@
 class InterventiController < ApplicationController
 
+	before_action :authenticate_utenti!
+
 	#per ispezionare i valori passati in POST
 	#render plain: params[:intervento].inspect
 	
