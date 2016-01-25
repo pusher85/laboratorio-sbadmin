@@ -1,0 +1,59 @@
+<% if local_assigns.has_key? :url %>
+  <%= form_for :utentis, url: url, method: method, class: "col s12" do |f| %>  
+
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.label :nome %>
+      <div class="form-group input-group">
+        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+        <%= f.text_field :nome, :length=>"254", class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <%= f.label :email %>
+      <div class="form-group input-group">
+        <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
+        <%= f.text_field :email, :length=>"254", class: "form-control" %>
+      </div>
+    </div>
+  </div>
+
+  <!-- -->
+
+  <div class="row">
+
+    <div class="col-md-6">
+      <%= f.label :password %>
+      <div class="form-group input-group">
+        <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+        <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+      </div>
+    </div>
+
+    
+
+  	<div class="col-lg-6">
+  		<div class="form-group">
+        <%= f.label "Cliente Associato" %>
+  			<%= f.select :clienti_id, options_for_select(@clienti.collect{ |cli| [cli.nome, cli.id] }), {include_blank: '--seleziona--'}, class: 'form-control' %>
+  		</div>
+  	</div>
+
+  </div>
+
+  <!--      -->
+
+  <div class="row">
+    <div class="col-md-3">
+       <div class="form-group">
+        <%= link_to 'Indietro', utentis_path, class: 'btn btn-danger' %>
+        <%= f.submit 'Salva', :class => 'btn btn-success' %>
+       </div>
+    </div>
+  </div>
+
+
+  <!--      -->
+  <% end %>
+<% end %>

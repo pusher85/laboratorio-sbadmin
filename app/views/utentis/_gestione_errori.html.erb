@@ -1,0 +1,18 @@
+<% if @utenti.errors.any? %>
+
+<div class="divider"></div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="alert alert-danger">
+        <h4><%= pluralize(@utenti.errors.count, "error") %> impediscono il salvataggio dell'utente: </h4>
+        <ul class="list-unstyled">
+          <% @utenti.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="divider"></div>
+
+<% end %>

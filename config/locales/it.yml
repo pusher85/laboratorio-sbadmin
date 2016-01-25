@@ -7,6 +7,24 @@ it:
         restrict_dependent_destroy:
           has_one: Il record non può essere cancellato perchè esiste un %{record} dipendente
           has_many: Il record non può essere cancellato perchè esistono %{record} dipendenti
+      models:
+        clienti:
+          attributes:
+            nome:
+              blank: Il nome non puo essere lasciato in bianco
+              too_short: Il nome è vuoto o troppo corto
+            telefono:
+              blank:  Il campo "telefono" non puo essere lasciato in bianco
+              too_short: Il campo "telefono" è vuoto o troppo corto
+              not_a_number: Il campo "telefono" deve necessariamente essere numerico
+        utenti:
+          attributes:
+            nome:
+              blank: Ilserire il nome dell'utente
+            email:
+              blank: Il campo email non puo essere lasciato in bianco
+            password:
+              blank: Inserire una password di accesso per l'utente
   date:
     abbr_day_names:
     - dom

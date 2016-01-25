@@ -21,6 +21,10 @@
 				<%= link_to '<i class="clip-folder"></i><span class="title"> Interventi Aperti</span>'.html_safe, welcome_aperti_path %>
 			</li>
 
+			<li class="<% if current_page?(:controller => '/utentis', :action => 'index') %> <%= "active open" %> <% end %>">
+				<%= link_to '<i class="clip-folder"></i><span class="title"> Gestione Accessi</span>'.html_safe, utentis_path %>
+			</li>
+
 
 
 		</ul>
