@@ -106,20 +106,28 @@
 	<%= javascript_include_tag "/assets/plugins/bootstrap-colorpalette/js/bootstrap-colorpalette" %>
 	<!-- 		-->
 
-	<%# if current_page?(:controller => 'clienti', :action => 'index') %>
-	<% if current_page?('/clienti/index') %>
+	<% if current_page?(clienti_index_path) %>
 	<!-- 	JS Specifici per clienti#index	-->
 	<%= javascript_include_tag "/assets/plugins/bootbox/bootbox.min" %>
-	<%= javascript_include_tag "/assets/plugins/jquery-mockjax/jquery.mockjax.js" %>
-	<%= javascript_include_tag "/assets/plugins/select2/select2.min.js" %>
-	<%= javascript_include_tag "/assets/plugins/DataTables/media/js/jquery.dataTables.min.js" %>
-	<%= javascript_include_tag "/assets/plugins/DataTables/media/js/DT_bootstrap.js" %>
-	<%= javascript_include_tag "/assets/js/table-data.js" %>
+	<%= javascript_include_tag "/assets/plugins/jquery-mockjax/jquery.mockjax" %>
+	<%= javascript_include_tag "/assets/plugins/select2/select2.min" %>
+	<%= javascript_include_tag "/assets/plugins/DataTables/media/js/jquery.dataTables.min" %>
+	<%= javascript_include_tag "/assets/plugins/DataTables/media/js/DT_bootstrap" %>
+	<%= javascript_include_tag "/assets/js/table-data" %>
 	<!-- 		-->
 	<% end %>
 
 	<% if current_page?('/utentis/show') %>
 	<%#= javascript_include_tag "/assets/plugins/jquery.pulsate/jquery.pulsate.min" %>
+	<% end %>
+
+	<% if !current_page?(utentis_path) %>
+	<%= javascript_include_tag "/assets/plugins/bootbox/bootbox.min" %>
+	<%= javascript_include_tag "/assets/plugins/jquery-mockjax/jquery.mockjax" %>
+	<%= javascript_include_tag "/assets/plugins/select2/select2.min" %>
+	<%= javascript_include_tag "/assets/plugins/DataTables/media/js/jquery.dataTables.min" %>
+	<%= javascript_include_tag "/assets/plugins/DataTables/media/js/DT_bootstrap" %>
+	<%= javascript_include_tag "/assets/js/table-data" %>
 	<% end %>
 
 

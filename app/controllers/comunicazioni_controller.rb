@@ -1,6 +1,8 @@
 class ComunicazioniController < ApplicationController
 	
-	before_action :authenticate_utenti!
+	#before_action :authenticate_utenti!
+	before_filter :authenticate_utenti!
+	before_filter :is_admin?
 
 	def index
 		@clienti = Clienti.find(params[:clienti_id])

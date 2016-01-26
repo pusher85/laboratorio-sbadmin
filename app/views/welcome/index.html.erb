@@ -6,26 +6,16 @@
 <p class="alert"><%= alert %></p>
 <br>
 
-<p>Clicca <%= link_to 'quì', controller: 'clienti' %> per la lista dei clienti</p>
-<hr>
+
 <p>Ci sono <%= @conta_aperti %> interventi aperti. Clicca <%= link_to 'quì', welcome_aperti_path %> per visualizzarli</p>
 <hr>
 <p>Hai un credito residuo per gli sms di €<%= @credito_skebby.round(2) %></p>
 <hr>
 
-<p>Locale = <%= I18n.locale %></p>
-<p><%= l Time.now, format: :short %></p>
-<p><%= l Time.now, format: :solodata %>
-<p><%= l Time.now, format: :soloora %>
-<p>Stringa random: <%= SecureRandom.hex(2) %></p>
-<p>calore cookie per barra: <%= cookies[:navigation] %></p>
-<p><button onclick="cookie_barra_aperta()">barra aperta</button>
-<button onclick="cookie_barra_chiusa()">barra chiusa</button></p>
-<p>stato barra: <% if cookies[:navigation] == "aperta" %><%= "barra aperta"%> <% else %> <%= "barra chiusa" %><% end %> </p>
+
 
 <% if utenti_signed_in? %>
-	utente loggato <br>
-	<p>utente: <%= current_utenti.email  %> </p>
+	<p>Sei loggato come:<%= current_utenti.email  %> </p>
 <% end %>
 
 

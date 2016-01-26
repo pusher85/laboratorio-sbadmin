@@ -34,7 +34,7 @@
 								<tr>
 									<td><%= u.nome %></td>
 									<td><%= u.email %></td>
-									<td><%= u.clienti_id %></td>
+									<td><% if u.clienti_id? %><%= link_to u.nomecliente, clienti_path(:id => u.clienti_id) %><% end %></td>
 									<td align="center"><% if u.admin? %><%= 'amministratore' %><% else %><%= "user" %><% end %></td>
 									<td align="center"><%= link_to '<i class="fa fa-arrow-circle-right"></i>'.html_safe, utenti_path(u), class: "btn-xs btn-blue" %></td>
 								</tr>
@@ -51,3 +51,23 @@
 <div class="divider"></div>
 
 <%= debug(params) %>
+
+<script>
+	$(document).ready(function() {
+		$('#dataTables-utenti').DataTable({
+              responsive: true,
+              "order": [[ 0, "asc" ]],
+				 "language": {
+								"lengthMenu": "Visualizza _MENU_ records per pagina",
+								"zeroRecords": "Nessun risultato - spiacente",
+								"info": "Sei a pagina _PAGE_ di _PAGES_",
+								"infoEmpty": "Nessun record disponibile",
+								"infoFiltered": "(filtrati fra _MAX_ record totali)",
+								"paginate": {
+											  "next": "Successiva",
+											  "previous": "Precedente"
+											}
+							}
+      });
+	});
+</script>

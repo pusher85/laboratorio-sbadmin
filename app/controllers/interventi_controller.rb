@@ -1,6 +1,8 @@
 class InterventiController < ApplicationController
 
-	before_action :authenticate_utenti!
+	#before_action :authenticate_utenti!
+	before_filter :authenticate_utenti!
+	before_filter :is_admin?
 
 	#per ispezionare i valori passati in POST
 	#render plain: params[:intervento].inspect

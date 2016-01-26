@@ -1,7 +1,10 @@
 class ContrattisController < ApplicationController
 
   before_action :set_contratti, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_utenti!
+  #before_action :authenticate_utenti!
+  before_filter :authenticate_utenti!
+  before_filter :is_admin?
+  
 
   # GET /contrattis
   # GET /contrattis.json

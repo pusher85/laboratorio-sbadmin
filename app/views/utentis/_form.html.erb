@@ -6,7 +6,7 @@
       <%= f.label :nome %>
       <div class="form-group input-group">
         <span class="input-group-addon"><i class="fa fa-user"></i></span>
-        <%= f.text_field :nome, :length=>"254", class: "form-control" %>
+        <%= f.text_field :nome, :length=>"254", class: "form-control", :value => @utenti.nome %>
       </div>
     </div>
 
@@ -14,7 +14,7 @@
       <%= f.label :email %>
       <div class="form-group input-group">
         <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
-        <%= f.text_field :email, :length=>"254", class: "form-control" %>
+        <%= f.text_field :email, :length=>"254", class: "form-control", :value => @utenti.email %>
       </div>
     </div>
   </div>
@@ -36,7 +36,8 @@
   	<div class="col-lg-6">
   		<div class="form-group">
         <%= f.label "Cliente Associato" %>
-  			<%= f.select :clienti_id, options_for_select(@clienti.collect{ |cli| [cli.nome, cli.id] }), {include_blank: '--seleziona--'}, class: 'form-control' %>
+  			<%#= f.select :clienti_id, options_for_select(@clienti.collect{ |cli| [cli.nome, cli.id] }), {include_blank: '--nessuno--'}, class: 'form-control' %>
+        <%= f.select :clienti_id, options_for_select(@clienti.collect{ |cli| [cli.nome, cli.id] }, @utenti.clienti_id), {include_blank: '--nessuno--'}, class: 'form-control' %>
   		</div>
   	</div>
 

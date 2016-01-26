@@ -1,0 +1,9 @@
+
+<%= render'gestione_errori' %>
+
+<%= render 'form', {url: utenti_path(@utenti), method: 'patch'} %>
+
+<div class="divider"></div>
+<%= @utenti.nome %>
+
+<%= debug(params) %>

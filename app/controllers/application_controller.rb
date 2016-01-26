@@ -15,4 +15,14 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:account_update) <<:nome
   end
 
+
+  #funzione per verificare se l'utente loggato è amministratore - utilizzata nei controller protetti
+  def is_admin?
+    if current_utenti.admin?
+      true
+    else
+      redirect_to root_path
+    end
+  end
+
 end

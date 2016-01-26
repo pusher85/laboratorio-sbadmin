@@ -32,9 +32,9 @@ gem 'sass', '~> 3.4'
 
 ###################################################
 # Gemme per selezione DataBase
-#gem 'mysql'
+gem 'mysql'
 #gem 'mysql2', '~> 0.4.2'
-gem 'sqlite3'
+#gem 'sqlite3'
 ###################################################
 
 

@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 20160125180950) do
     t.string   "codice"
   end
 
-  add_index "interventis", ["cliente_id"], name: "index_interventis_on_cliente_id"
+  add_index "interventis", ["cliente_id"], name: "index_interventis_on_cliente_id", using: :btree
 
   create_table "utentis", force: true do |t|
     t.string   "email",                  default: "",    null: false
@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 20160125180950) do
     t.integer  "clienti_id"
   end
 
-  add_index "utentis", ["email"], name: "index_utentis_on_email", unique: true
-  add_index "utentis", ["reset_password_token"], name: "index_utentis_on_reset_password_token", unique: true
+  add_index "utentis", ["email"], name: "index_utentis_on_email", unique: true, using: :btree
+  add_index "utentis", ["reset_password_token"], name: "index_utentis_on_reset_password_token", unique: true, using: :btree
 
 end
