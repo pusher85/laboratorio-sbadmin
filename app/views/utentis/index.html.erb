@@ -36,7 +36,7 @@
 									<td><%= u.email %></td>
 									<td><%= u.clienti_id %></td>
 									<td align="center"><% if u.admin? %><%= 'amministratore' %><% else %><%= "user" %><% end %></td>
-									<td align="center"></td>
+									<td align="center"><%= link_to '<i class="fa fa-arrow-circle-right"></i>'.html_safe, utenti_path(u), class: "btn-xs btn-blue" %></td>
 								</tr>
 						  <% end %>
 					  </tbody>

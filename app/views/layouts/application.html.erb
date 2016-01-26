@@ -118,10 +118,16 @@
 	<!-- 		-->
 	<% end %>
 
+	<% if current_page?('/utentis/show') %>
+	<%#= javascript_include_tag "/assets/plugins/jquery.pulsate/jquery.pulsate.min" %>
+	<% end %>
+
+
 	<script>
 			jQuery(document).ready(function() {
 				Main.init();
 			//	TableData.init();
+				UIElements.init();
 			});
 	</script>
 

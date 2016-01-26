@@ -26,6 +26,11 @@ class UtentisController < ApplicationController
 		end
 	end
 
+	def show
+		@titolo = "Dettagli Login"
+		@utenti = Utenti.find(params[:id])
+	end
+
 
 	private
 		def utenti_params
