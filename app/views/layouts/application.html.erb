@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
+<% if !current_page?('/welcome/prelogin') %>
 <head>
-  <title>Laboratorio</title>
+  <title>Gestione Assistenza</title>
   <!-- start: META -->
 	<meta charset="utf-8" />
 	<!--[if IE]><meta http-equiv='X-UA-Compatible' content="IE=edge,IE=9,IE=8,chrome=1" /><![endif]-->
@@ -33,6 +34,8 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body <% if cookies[:navigation] == 'chiusa' %><%= "class=navigation-small" %><% end %>> <!-- class="navigation-small" -->
+
+
 
 
 
@@ -208,6 +211,11 @@
 
 			});
 	</script>
-
 </body>
+<% else %>
+
+<%= yield %>
+
+<% end %>
+
 </html>

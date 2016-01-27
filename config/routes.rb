@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   root to: "welcome#index"
   #root 'welcome#index'
   get 'welcome/aperti', :path => "aperti"
+  get 'welcome/prelogin'
   #post 'interventi/sms'
   
 
