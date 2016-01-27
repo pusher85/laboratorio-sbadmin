@@ -48,8 +48,8 @@ class InterventiController < ApplicationController
 
 
 	def create
+		@titolo = "Nuovo Intervento"
 		@clienti = Clienti.find(params[:clienti_id])
-
 		@interventi = Interventi.new(parametri_intervento)
 		@interventi.codice = SecureRandom.hex(2)
 		if @interventi.save

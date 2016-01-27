@@ -25,8 +25,8 @@
 
       <div class="col-md-4">
         <%= f.label :data, 'Data (YYY - MM - DD)' %>
-        <div class="form-group input-group">
-          <%= f.text_field :data, :class => "form-control date-picker",  :value => Time.now.strftime("%Y/%m/%d"), readonly: true %>
+        <div class="input-group">
+          <%= f.text_field :data, :class => "date-picker form-control", :value => Time.now.strftime("%Y/%m/%d"), readonly: true %>
         </div>
       </div>
     </div>
@@ -70,50 +70,38 @@
 
     <div class="row">
       <div class="col-md-4">
-            <!--
-            <span class="card-title">Stato Intervento</span>
-            <div class="switch">
-              <label>
-                Aperto
-                <%= f.check_box :chiuso, {:class => "myclass", :style => "mystyle"}, "1" %>
-                <span class="lever"></span>
-                Chiuso
-              </label>
-            </div>
-            -->
-
-        <div class="make-switch switch-large" data-on-label="<i class='fa fa-check fa-white'></i>" data-off-label="<i class='fa fa-times'></i>">
-          <%= f.check_box :chiuso, {:class => "myclass", :style => "mystyle"}, "1" %>
+        <div class="panel-body buttons-widget">
+          <h4>Stato Intervento</h4>
+          <div class="make-switch has-switch" data-on="primary" data-off="info" data-on-label="chiuso" data-off-label="aperto">
+            <%= f.check_box :chiuso %>
+          </div>
         </div>
-
-
       </div>
     </div>
 
     <div class="divider"></div>
-
-    
     
     <div class="row">
-    <div class="col-md-3">
+      <div class="col-md-3">
        <div class="form-group">
         <%= link_to 'Indietro', clienti_path(:id => @clienti.id), class: 'btn btn-danger' %>
         <%= f.submit 'Salva', :class => 'btn btn-success' %>
        </div>
     </div>
+
+
+
+
   </div>
 
 <% end %>
 
-<script type="text/javascript">
-$('.datepicker').pickadate({
-    selectMonths: true, // Creates a dropdown to control month
-    selectYears: 3, // Creates a dropdown of 15 years to control year
-    format: 'yyyy/mm/dd',
-    onSet: function() {
-        setTimeout(this.close, 0);
-    }
-  });
-</script>
+
+
+
+
+
 
 <% end %>
+
+

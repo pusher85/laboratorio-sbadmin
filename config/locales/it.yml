@@ -5,8 +5,9 @@ it:
       messages:
         record_invalid: 'Validazione fallita: %{errors}'
         restrict_dependent_destroy:
-          has_one: Il record non può essere cancellato perchè esiste un %{record} dipendente
-          has_many: Il record non può essere cancellato perchè esistono %{record} dipendenti
+          has_one: Il record non può essere cancellato perchè ci sono %{record} dipendenti
+          has_many: Il record non può essere cancellato perchè ci sono %{record} dipendenti
+
       models:
         clienti:
           attributes:
@@ -17,14 +18,23 @@ it:
               blank:  Il campo "telefono" non puo essere lasciato in bianco
               too_short: Il campo "telefono" è vuoto o troppo corto
               not_a_number: Il campo "telefono" deve necessariamente essere numerico
+
         utenti:
           attributes:
             nome:
-              blank: Ilserire il nome dell'utente
+              blank: Inserire il nome dell'utente
             email:
               blank: Il campo email non puo essere lasciato in bianco
             password:
               blank: Inserire una password di accesso per l'utente
+
+        interventi:
+          attributes:
+            intervento:
+              blank: Inserire una descrizione per l'intervento
+              too_short: La descrizione è troppo corta
+            durata:
+              blank: Definire la durata dell'intervento
   date:
     abbr_day_names:
     - dom

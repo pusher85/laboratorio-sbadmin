@@ -66,25 +66,24 @@
 <%= debug(params) %>
 
 
+
 <script>
 	$(document).ready(function() {
-		$('#dataTables-clienti').DataTable({
-              responsive: true,
-              "order": [[ 0, "asc" ]],
-				 "language": {
-								"lengthMenu": "Visualizza _MENU_ records per pagina",
-								"zeroRecords": "Nessun risultato - spiacente",
-								"info": "Sei a pagina _PAGE_ di _PAGES_",
-								"infoEmpty": "Nessun record disponibile",
-								"infoFiltered": "(filtrati fra _MAX_ record totali)",
-								"paginate": {
-											  "next": "Successiva",
-											  "previous": "Precedente"
+		$( '#dataTables-clienti' ).dataTable({
+				responsive: true,
+				//sort: "Proprietario"
+				//"order": [[ 0, "desc" ]],
+				 "oLanguage": {
+								"sLengthMenu": "Visualizza _MENU_ records per pagina",
+								"sZeroRecords": "Nessun risultato - spiacente",
+								"sInfo": "Stai visualizzando i record da _START_ a _END_ (_TOTAL_ in totale)",
+								"sInfoEmpty": "Nessun record disponibile",
+								"sInfoFiltered": "(filtrati fra _MAX_ record totali)",
+								"oPaginate": {
+											  "sNext": "Successiva",
+											  "sPrevious": "Precedente"
 											}
 							}
-      });
+		});
 	});
 </script>
-
-
-
