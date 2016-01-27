@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<% if !current_page?('/welcome/prelogin') %>
+<% if !current_page?('/welcome/prelogin') && !current_page?(welcome_login_path) %>
 <head>
   <title>Gestione Assistenza</title>
   <!-- start: META -->

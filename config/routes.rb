@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   #root 'welcome#index'
   get 'welcome/aperti', :path => "aperti"
   get 'welcome/prelogin'
+  get 'welcome/login', :path => 'login'
+  get 'welcome/login'
   #post 'interventi/sms'
   
 
