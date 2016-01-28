@@ -13,6 +13,19 @@
 <hr>
 <p><%= link_to "Nuova pagina di login", welcome_login_path %></p>
 
+<hr>
+
+<%= form_for :utenti, url: utenti_session_path do |f| %>
+  <%= f.text_field :email %><br>
+  <%= f.password_field :password %><br>
+  <%= f.check_box :remember_me %><br>
+  <%= f.label :remember_me %><br>
+  <%= f.submit 'Sign in' %>
+  <%= link_to "Forgot your password?", new_utenti_password_path %>
+<% end %>
+
+
+<hr>
 
 <% if utenti_signed_in? %>
 	<p>Sei loggato come:<%= current_utenti.email  %> </p>
