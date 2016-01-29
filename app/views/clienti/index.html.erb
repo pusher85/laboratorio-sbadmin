@@ -35,9 +35,10 @@
 								<th><i class="material-icons">drafts</i>Email</th>
 								<th><i class="material-icons">phone</i>Telefono</th>
 								<th>Visualizza</th>
-								<th>Modifica</th>
-								<th>Elimina</th>
+								<!--<th>Modifica</th>
+								<th>Elimina</th> -->
 								<th>Contratti</th>
+								<th>Login</th>
 						  </tr>
 					  </thead>
 					 
@@ -48,11 +49,14 @@
 									<td><%= cliente.email %></td>
 									<td><%= cliente.telefono %></td>
 									<td align="center"><%= link_to '<i class="material-icons" title="visualizza">pageview</i>'.html_safe, clienti_path(cliente), class: 'btn-floating btn-small waves-effect waves-light green' %></td>
-									<td align="center"><%= link_to '<i class="material-icons" title="modifica">open_in_browser</i>'.html_safe, edit_clienti_path(cliente), class: 'btn-floating btn-small waves-effect waves-light orange' %></td>
+									
+									<!--<td align="center"><%= link_to '<i class="material-icons" title="modifica">open_in_browser</i>'.html_safe, edit_clienti_path(cliente), class: 'btn-floating btn-small waves-effect waves-light orange' %></td> 
 									<td align="center"><%= link_to '<i class="material-icons" title="elimina">delete</i>'.html_safe, clienti_path(cliente),
 									  method: :delete,
-									  data: { confirm: 'Sicuro di voler eliminare il cliente? Non è reversibile' }, class: 'btn-floating btn-small waves-effect waves-light red' %></td>
+									  data: { confirm: 'Sicuro di voler eliminare il cliente? Non è reversibile' }, class: 'btn-floating btn-small waves-effect waves-light red' %></td>-->
+
 									<td align="center"><%= link_to '<i class="material-icons" title="contratti">book</i>'.html_safe, clienti_contrattis_path(cliente), class: 'btn-floating btn-small waves-effect waves-light green' %></td>  
+									<td><%= cliente.utenti ? cliente.utenti.id : (link_to 'associa', root_path) %></td>
 								</tr>
 						  <% end %>
 					  </tbody>

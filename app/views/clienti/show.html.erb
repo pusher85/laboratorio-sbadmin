@@ -2,13 +2,29 @@
 	<div class="col-lg-12">
 		<div class="well well-lg">
 
-				<h4>Cliente: <%= @clienti.nome %></h4>
-			 	
+				
+				<!-- -->
+					<div class="dropdown pull-right">
+					  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+					    Actions
+					    <span class="caret"></span>
+					  </button>
+					  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+					    <li><%= link_to 'Modifica', edit_clienti_path(@clienti) %></li>
+					    <li><%= link_to 'Elimina', clienti_path(@clienti), method: :delete, data: { confirm: 'Sicuro di voler eliminare il cliente? Non è reversibile' } %></li>
+					    <!--<li><%= link_to 'Invia Comunicazione', root_path %></li> -->
+					  </ul>
+					</div>
+
+			 	<!-- 	-->
+			 	<h4>Cliente: <%= @clienti.nome %></h4>
+
 			 	<ul class="list-unstyled">
 					<li><span>P.iva: </span><%= @clienti.piva%></li>
 					<li><span>C.F.: </span><%= @clienti.codfisc%></li>
 					<li><span>E-Mail: </span><%= @clienti.email%></li>
 					<li><span>Telefono: </span><%= @clienti.telefono%></li>
+					<li><span>Login: </span><% if	@clienti.utenti %><%= @clienti.utenti.id %><% else %><%= "---ATTENZIONE--- Nessuna login associata !!" %> <% end %></li>
 				</ul>
 
 		</div>

@@ -20,8 +20,6 @@
 		    <li><%= link_to 'Modifica', edit_clienti_interventi_path(:id => @interventi.id) %></li>
 		    <li><%= link_to 'Elimina', clienti_interventi_path(:id => @interventi.id), method: :delete, data: { confirm: 'Sicuro di voler eliminare?' } %></li>
 		    <li><%= link_to 'Invia Comunicazione', new_clienti_interventi_comunicazioni_path(:interventi_id => @interventi.id) %></li>
-		    <li role="separator" class="divider"></li>
-		    <li><a href="#">Separated link</a></li>
 		  </ul>
 		</div>
 

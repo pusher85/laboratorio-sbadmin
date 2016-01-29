@@ -12,7 +12,7 @@ class ClientiController < ApplicationController
 	def show
 		@titolo = "Dettagli Anagrafica"
 		@clienti = Clienti.find(params[:id])
-		
+
 		rescue ActiveRecord::RecordNotFound  
 		 flash[:errore] = "Errore nella query - clienti"
 		 redirect_to :controller => "welcome", :action => "index"
