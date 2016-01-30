@@ -70,12 +70,14 @@
 
     <div class="row">
       <div class="col-md-4">
-        <div class="panel-body buttons-widget">
-          <h4>Stato Intervento</h4>
-          <div class="make-switch has-switch" data-on="primary" data-off="info" data-on-label="chiuso" data-off-label="aperto">
-            <%= f.check_box :chiuso %>
-          </div>
-        </div>
+        
+        
+                <label class="checkbox-inline">
+          
+         <%= f.check_box :chiuso, class: 'flat-green' %>
+          Intervento Chiuso ?
+        </label>
+
       </div>
     </div>
 

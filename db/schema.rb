@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160125180950) do
+ActiveRecord::Schema.define(version: 20160130151935) do
 
   create_table "clientis", force: true do |t|
     t.string   "nome"
@@ -54,9 +54,19 @@ ActiveRecord::Schema.define(version: 20160125180950) do
     t.datetime "updated_at"
     t.boolean  "chiuso"
     t.string   "codice"
+    t.integer  "operator_id"
   end
 
   add_index "interventis", ["cliente_id"], name: "index_interventis_on_cliente_id", using: :btree
+
+  create_table "operators", force: true do |t|
+    t.string   "nome"
+    t.string   "email"
+    t.string   "tel"
+    t.text     "note"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "utentis", force: true do |t|
     t.string   "email",                  default: "",    null: false
@@ -74,6 +84,7 @@ ActiveRecord::Schema.define(version: 20160125180950) do
     t.boolean  "admin",                  default: false
     t.string   "nome"
     t.integer  "clienti_id"
+    t.boolean  "operatore",              default: false
   end
 
   add_index "utentis", ["email"], name: "index_utentis_on_email", unique: true, using: :btree

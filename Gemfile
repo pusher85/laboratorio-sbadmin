@@ -33,7 +33,7 @@ gem 'sass', '~> 3.4'
 ###################################################
 # Gemme per selezione DataBase
 gem 'mysql'
-#gem 'mysql2', '~> 0.4.2'
+#gem install mysql --platform=ruby -- --with-mysql-dir=C:/mysql-connector-c-noinstall-6.0.2-win32
 #gem 'sqlite3'
 ###################################################
 
@@ -49,6 +49,7 @@ gem 'skuby'
 
 # autenticazione utenti
 gem 'devise'
+gem 'devise-i18n'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

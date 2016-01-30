@@ -1,12 +1,12 @@
 <% if local_assigns.has_key? :url %>
   <%= form_for :utentis, url: url, method: method, class: "col s12" do |f| %>  
-
+<%#= @miocliente.nome if @miocliente %>
   <div class="row">
     <div class="col-md-6">
       <%= f.label :nome %>
       <div class="form-group input-group">
         <span class="input-group-addon"><i class="fa fa-user"></i></span>
-        <%= f.text_field :nome, :length=>"254", class: "form-control", :value => @utenti.nome %>
+        <%= f.text_field :nome, :length=>"254", class: "form-control", :value => @miocliente ? @miocliente.nome : @utenti.nome %>
       </div>
     </div>
 
@@ -14,7 +14,8 @@
       <%= f.label :email %>
       <div class="form-group input-group">
         <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
-        <%= f.text_field :email, :length=>"254", class: "form-control", :value => @utenti.email %>
+        <%#= f.text_field :email, :length=>"254", class: "form-control", :value => @utenti.email %>
+        <%= f.text_field :email, :length=>"254", class: "form-control", :value => @miocliente ? @miocliente.email : @utenti.email %>
       </div>
     </div>
   </div>
@@ -31,13 +32,25 @@
       </div>
     </div>
 
-    
+    <%= f.hidden_field :clienti_id, :value => @miocliente.id if @miocliente %>
 
   	<div class="col-lg-6">
   		<div class="form-group">
-        <%= f.label "Cliente Associato" %>
-  			<%#= f.select :clienti_id, options_for_select(@clienti.collect{ |cli| [cli.nome, cli.id] }), {include_blank: '--nessuno--'}, class: 'form-control' %>
-        <%= f.select :clienti_id, options_for_select(@clienti.collect{ |cli| [cli.nome, cli.id] }, @utenti.clienti_id), {include_blank: '--nessuno--'}, class: 'form-control' %>
+        <p>Tipologia</p>
+
+        <label class="checkbox-inline">
+          <!-- <input type="checkbox" class="square-red" value="" checked="checked"> -->
+          <%= f.check_box :paid, class: 'square-green', checked: false %>
+          Operatore
+        </label>
+        <label class="checkbox-inline">
+          <!-- <input type="checkbox" class="square-green" value="" checked="checked"> -->
+          <%= f.check_box :admin, class: 'square-red', :checked => @utenti.admin ? true : false %>
+          Amministratore
+        </label>
+       
+
+        <%#= f.select :clienti_id, options_for_select(@clienti.collect{ |cli| [cli.nome, cli.id] }, @utenti.clienti_id), {include_blank: '--nessuno--'}, class: 'form-control' %>
   		</div>
   	</div>
 

@@ -24,7 +24,7 @@
 								<th><i class="material-icons">perm_identity</i>Nome</th>
 								<th><i class="material-icons">drafts</i>Email (login)</th>
 								<th><i class="material-icons">phone</i>Rif_Cliente</th>
-								<th>Livello</th>
+								<th>Privilegi</th>
 								<th>Visualizza</th>
 						  </tr>
 					  </thead>
@@ -35,7 +35,9 @@
 									<td><%= u.nome %></td>
 									<td><%= u.email %></td>
 									<td><% if u.clienti_id? %><%= link_to u.nomecliente, clienti_path(:id => u.clienti_id) %><% end %></td>
-									<td align="center"><% if u.admin? %><%= 'amministratore' %><% else %><%= "user" %><% end %></td>
+									<td align="center">
+										<%= u.admin ? "<span class='label label-danger'>Amministratore</span>".html_safe : u.operatore ? "<span class='label label-warning'>Operatore</span>".html_safe : "<span class='label label-success'>User</span>".html_safe %>
+									</td>
 									<td align="center"><%= link_to '<i class="fa fa-arrow-circle-right"></i>'.html_safe, utenti_path(u), class: "btn-xs btn-blue" %></td>
 								</tr>
 						  <% end %>

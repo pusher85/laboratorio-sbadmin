@@ -8,7 +8,7 @@ test:
    database: ruby_assistenza
    username: ruby
    password: password
-   host: 192.168.1.42
+   host: 10.0.0.1
    port: 3306
 
 development:
@@ -16,7 +16,7 @@ development:
    database: ruby_assistenza
    username: ruby
    password: password
-   host: 127.0.0.1
+   host: 192.168.1.42
    port: 3306
 
 production:

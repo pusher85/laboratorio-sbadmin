@@ -28,6 +28,9 @@
 							</a>
 							<ul class="dropdown-menu">
 								<li>
+									<i class="clip-steam"></i><%= current_utenti.admin ? ' Amministratore' : current_utenti.operatore ? ' Operatore' : ' User' %>
+								</li>
+								<li>
 									<%= link_to '<i class="clip-user-2"></i> Profilo'.html_safe, edit_utenti_registration_path %>
 								<li>
 									<a href="pages_calendar.html">

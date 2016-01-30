@@ -24,7 +24,9 @@
 					<li><span>C.F.: </span><%= @clienti.codfisc%></li>
 					<li><span>E-Mail: </span><%= @clienti.email%></li>
 					<li><span>Telefono: </span><%= @clienti.telefono%></li>
-					<li><span>Login: </span><% if	@clienti.utenti %><%= @clienti.utenti.id %><% else %><%= "---ATTENZIONE--- Nessuna login associata !!" %> <% end %></li>
+					<li><span>Login: </span>
+						<%= @clienti.utenti ? @clienti.utenti.id : "---ATTENZIONE--- Nessuna login associata !!".html_safe %>
+					</li>
 				</ul>
 
 		</div>
@@ -41,8 +43,19 @@
 		<%= link_to 'Indietro', clienti_index_path, class: 'btn btn-danger' %>
 		<%= link_to 'Elenco Interventi', clienti_interventi_index_path(:clienti_id => @clienti.id), class: 'btn btn-primary' %>
 		<%= link_to 'Nuovo Intervento', new_clienti_interventi_path(:clienti_id => @clienti.id), class: 'btn btn-success' %>
+		<%= link_to '<i class="fa clip-user-3"></i> Associa Login'.html_safe, new_utenti_path( :varcliente => @clienti.id), class: 'btn btn-bricky' if !@clienti.utenti %>
 	</div>
 </div>
 <div class="divider"></div>
 
 <%= debug(params) %>
+
+<script>
+			jQuery(document).ready(function() {
+				Main.init();
+				//TableData.init();
+				//UIElements.init();
+				//FormElements.init();
+				UIButtons.init();
+			});
+	</script>

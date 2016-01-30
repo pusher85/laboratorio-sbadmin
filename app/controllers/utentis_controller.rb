@@ -7,12 +7,16 @@ class UtentisController < ApplicationController
 	def index
 		@titolo = "Login utenti censite"
 		#@utenti = Utenti.all
-		@utenti = Utenti.select('utentis.id, utentis.nome, utentis.email, utentis.admin, utentis.clienti_id, clientis.nome AS nomecliente').joins('LEFT OUTER JOIN clientis ON utentis.clienti_id = clientis.id')
+		@utenti = Utenti.select('utentis.id, utentis.nome, utentis.email, utentis.admin, utentis.operatore, utentis.clienti_id, clientis.nome AS nomecliente').joins('LEFT OUTER JOIN clientis ON utentis.clienti_id = clientis.id')
 	end
 
 	def new
 		@titolo = "Creazione nuova login"
 		@utenti = Utenti.new
+
+		#params[:varcliente] ? @miocliente = Clienti.find(params[:varcliente]) : end #@miocliente = '0'
+		@miocliente = Clienti.find(params[:varcliente]) if params[:varcliente]
+
 		#@clienti = Clienti.all
 		@clienti = Clienti.where('clientis.id not in ( select clienti_id from utentis where clienti_id is not null )')
 	end
@@ -60,7 +64,7 @@ class UtentisController < ApplicationController
 
 	private
 		def utenti_params
-			params.require(:utentis).permit(:nome, :email, :clienti_id, :password)
+			params.require(:utentis).permit(:nome, :email, :clienti_id, :password, :admin, :operatore)
 		end
 
 end

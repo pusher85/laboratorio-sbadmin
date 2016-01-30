@@ -7,6 +7,10 @@ class ApplicationController < ActionController::Base
 
   #I18n.locale = :it
 	
+  #pagina custom per devise login
+  layout :layout_by_resource
+
+
 	#per login con nome
 	before_action :configure_permitted_parameters, if: :devise_controller?  
 
@@ -24,5 +28,18 @@ class ApplicationController < ActionController::Base
       redirect_to root_path
     end
   end
+
+  protected
+
+    def layout_by_resource
+      if devise_controller?
+        "login_layout"
+      else
+        "application"
+      end
+    end
+
+
+
 
 end

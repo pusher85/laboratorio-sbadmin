@@ -13,26 +13,9 @@
 <hr>
 <p><%= link_to "Nuova pagina di login", welcome_login_path %></p>
 
-<hr>
-
-<%= form_for :utenti, url: utenti_session_path do |f| %>
-  <%= f.text_field :email %><br>
-  <%= f.password_field :password %><br>
-  <%= f.check_box :remember_me %><br>
-  <%= f.label :remember_me %><br>
-  <%= f.submit 'Sign in' %>
-  <%= link_to "Forgot your password?", new_utenti_password_path %>
-<% end %>
-
-
-<hr>
-
 <% if utenti_signed_in? %>
 	<p>Sei loggato come:<%= current_utenti.email  %> </p>
 <% end %>
-
-
-
 
 <% flash.each do |key, value| %>
 		<hr>
@@ -41,6 +24,22 @@
         </div>
 		<hr>
 	<% end %>
+
+<hr>
+<!-- 	-->
+
+<h4>Da fare</h4>
+
+<p>Permessi per operatore<br>
+da operatore: elenco interventi assegnati con evidenza per nuovi e aperti<br></p>
+
+<p>Togliere "interventi aperti" da controller welcome</p>
+
+
+<!-- 	-->
+<hr>
+
+
 
 
 <%= debug(params) %>
