@@ -6,6 +6,7 @@ class Clienti < ActiveRecord::Base
 
 	#gestione autenticazione
 	has_one :utenti, :class_name => 'Utenti', :foreign_key => 'clienti_id'
+	has_many :interventis
 	
 	validates :nome, presence: true, length: {minimum: 5 }
 	validates :telefono, presence: true, length: {minimum: 9}, numericality: true

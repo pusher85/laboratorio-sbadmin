@@ -1,16 +1,36 @@
-<div class="row">
-	<div class="col-md-6 col-md-offset-3" align="center">
-		<h2>Cliente: <%= @clienti.nome %></h2>
-		<hr>
-	</div>
+<div class="row space12">
+	<ul class="mini-stats col-sm-12">
+		<li class="col-sm-4">
+			<div class="values">
+				<i class="clip-user-4 circle-icon circle-green"></i>
+				<strong>Cliente</strong>
+				<%= @clienti.nome %>
+			</div>
+		</li>
+
+		<li class="col-sm-4">
+			<div class="values">
+				<i class="clip-settings circle-icon circle-bricky"></i>
+				<strong>Codice Cliente</strong>
+				<%= @interventi.cliente_id %>
+			</div>
+		</li>
+
+		<li class="col-sm-4">
+			<div class="values">
+				<i class="clip-target circle-icon circle-teal"></i>
+				<strong>Codice Intervento</strong>
+				<%= @interventi.codice %>
+			</div>
+		</li>
+	</ul>
+	
 </div>
 
 <div class="divider"></div>
 
 <div class="row">
 	<div class="col-lg-12">
-
-
 		<div class="dropdown pull-right">
 		  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 		    Actions
@@ -22,41 +42,70 @@
 		    <li><%= link_to 'Invia Comunicazione', new_clienti_interventi_comunicazioni_path(:interventi_id => @interventi.id) %></li>
 		  </ul>
 		</div>
-
-
 	</div>
 </div>
 
 <!-- 		-->
 <div class="row">
 	<div class="col-lg-6">
-		<p>Codice Cliente: <%= @interventi.cliente_id %> </p>
-		<p>Codice Intervento: <%= @interventi.codice %> </p>
-		<blockquote>
-			<p>
-				<strong>Data Intervento: </strong>
-				<%= @interventi.data.strftime("%d/%m/%Y") %>
-			</p>
+		<div class="well well-sm">
+			<div class="row center">
+				<h3>Descrizione Intevento</h3>
+			</div>
+			<div class="row">
+				<dl class="dl-horizontal">	
+					<dt><strong>Data Intervento: </strong></dt>
+					<dd><%= @interventi.data.strftime("%d/%m/%Y") %></dd>
+					
+					<dt><strong>Durata: </strong></dt>
+					<dd><%= @interventi.durata %> ore</dd>
 
-			<p>
-				<strong>Durata: </strong>
-				<%= @interventi.durata %> ore
-			</p>
+					<dt><strong>Descrizione: </strong></dt>
+					<dd><%= @interventi.intervento %></dd>
 
-			<p>
-				<strong>Descrizione: </strong>
-				<%= @interventi.intervento %>
-			</p>
+					<dt><strong>Annotazioni: </strong></dt>
+					<dd><%= @interventi.note %></dd>
+				</dl>
+			</div>
+		</div>
+	</div>
 
-			<p>
-				<strong>Annotazioni: </strong>
-				<%= @interventi.note %>
-			</p>
+	<div class="col-lg-6">
+		<div class="well well-sm">
 
 
-		</blockquote>
+			<!-- <div class="row center">
+				<h3>Tecnico</h3>
+			</div>-->
+
+			<div class="row">
+				<div class="col-lg-3">
+					<%= image_tag("operator-256.png", size: '128x128') %>
+				</div>
+
+				<div class="col-lg-9">
+					<div class="row center">
+						<h3>Tecnico</h3>
+					</div>
+					<div class="row">
+						<h2>pulsante</h2>
+						<div>
+							<span>operator_id = <%= @interventi.operator_id %></span>
+							<p>tecnico = <%= @tecnico ? @tecnico.nome : "non assegnato" %></p>
+						</div>
+					</div>
+
+					
+				</div>
+
+			</div>
+
+
+		</div>
 	</div>
 </div>
+
+
 
 	
 

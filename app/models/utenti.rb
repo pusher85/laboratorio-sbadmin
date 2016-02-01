@@ -5,6 +5,7 @@ class Utenti < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
 	belongs_to :clienti
+	belongs_to :interventi
 
 	validates :nome, presence: true
 	validates :email, presence: true, uniqueness: true
