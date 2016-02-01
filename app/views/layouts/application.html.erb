@@ -26,9 +26,14 @@
   <%= stylesheet_link_tag "/assets/css/theme_light", media: "all" %>
   <%= stylesheet_link_tag "/assets/plugins/datepicker/css/datepicker", media: "all" %>
   <%= stylesheet_link_tag "/assets/plugins/bootstrap-daterangepicker/daterangepicker-bs3", media: "all" %>
-
   <%= stylesheet_link_tag "/assets/css/print", media: "print" %>
- 
+
+
+  <% if params[:controller] == 'interventi' && params[:action] == 'show' %>
+		<!-- 	CSS Specifici per modal in show per tecnico	-->
+	 	<%= stylesheet_link_tag "/assets/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css", media: "all" %>
+	 	<%= stylesheet_link_tag "/assets/plugins/bootstrap-modal/css/bootstrap-modal.css", media: "all" %>
+	<% end %>
 
 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -171,6 +176,58 @@
 
 
 
+	<% if params[:controller] == 'interventi' && params[:action] == 'index' %>
+	<%= javascript_include_tag "/assets/plugins/bootbox/bootbox.min" %>
+	<%= javascript_include_tag "/assets/plugins/jquery-mockjax/jquery.mockjax" %>
+	<%= javascript_include_tag "/assets/plugins/select2/select2.min" %>
+	<%= javascript_include_tag "/assets/plugins/DataTables/media/js/jquery.dataTables.min" %>
+	<%= javascript_include_tag "/assets/plugins/DataTables/media/js/DT_bootstrap" %>
+	<%= javascript_include_tag "/assets/js/table-data" %>
+	<% end %>
+
+
+	<% if params[:controller] == 'interventi' && params[:action] == 'show' %>
+	<!-- 	JS Specifici per modal in show per tecnico	-->
+
+	<!--		Inizio Modal -->
+	<div id="responsive" class="modal fade" tabindex="-1" data-width="760" style="display: none;">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+				&times;
+			</button>
+			<h4 class="modal-title">Seleziona il tecnico per l'intervento</h4>
+		</div>
+		<div class="modal-body">
+			<div class="row">
+				<div class="col-md-12">
+					<%= form_for :interventi, url: clienti_interventi_path(@clienti, @interventi), method: :patch do |f| %>
+					<%= f.select :operator_id, options_for_select(@tecnici.collect{ |tec| [tec.nome, tec.id] }, @interventi.operator_id ), {include_blank: '--seleziona--'}, class: 'form-control' %>
+				</div>
+			</div>	
+		</div>
+		<div class="modal-footer">
+					<%= f.submit 'Salva', :class => 'btn btn-success' %>
+					<% end %>
+		</div>
+	</div>
+	<!-- 	Fine Modal -->
+
+
+	<%= javascript_include_tag "/assets/plugins/bootstrap-modal/js/bootstrap-modal.js" %>
+	<%= javascript_include_tag "/assets/plugins/bootstrap-modal/js/bootstrap-modalmanager" %>
+	<%= javascript_include_tag "/assets/js/ui-modals" %>
+	<script>
+			jQuery(document).on('page:change', function() {
+			Main.init();
+			UIModals.init();
+		});
+	</script>
+
+
+	<% end %>
+
+
+
 
 	<% if params[:controller] == 'interventi' && params[:action] == 'new' || params[:action] =='create'  %>
 	<!-- personalizzazioni calendario per interventi -->
@@ -194,6 +251,8 @@
 
 
 
+
+
 <script>
 			jQuery(document).ready(function() {
 				Main.init();
@@ -211,6 +270,8 @@
 
 			});
 	</script>
+
+
 </body>
 <% else %>
 

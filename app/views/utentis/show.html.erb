@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="col-lg-12">
 
-		<%if !@utenti.clienti_id? %>
+		<%if !@utenti.clienti_id? && !@utenti.admin && !@utenti.operatore %>
 			<div class="alert alert-danger">
 				<button data-dismiss="alert" class="close">		×	</button>
 				<i class="fa fa-times-circle"></i>

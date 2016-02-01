@@ -21,10 +21,9 @@ class InterventiController < ApplicationController
 		@titolo = "Dettaglio Intervento"
 		@clienti = Clienti.find(params[:clienti_id])
 		@interventi = Interventi.where(cliente_id: @clienti).find(params[:id])
-		#@tecnico = Utenti.find(@interventi.operator_id)
-		if @interventi.operator_id 
-			@tecnico = Utenti.find(@interventi.operator_id) 
-		end
+		@tecnico = Utenti.find(@interventi.operator_id) if @interventi.operator_id 
+
+		@tecnici = Utenti.where(operatore: '1')
 
 		rescue ActiveRecord::RecordNotFound  
 		 flash[:errore] = "Errore nella query - interventi"
@@ -97,7 +96,11 @@ class InterventiController < ApplicationController
 	
 	private
 		def parametri_intervento
-			params.require(:interventi).permit(:cliente_id, :data, :apparecchiatura, :intervento, :durata, :note, :chiuso, :codice)
+			params.require(:interventi).permit(:cliente_id, :data, :apparecchiatura, :intervento, :durata, :note, :chiuso, :codice, :operator_id)
+		end
+
+		def parametri_tecnico
+			params.require(interventi).permit(operator_id)
 		end
 
 		
