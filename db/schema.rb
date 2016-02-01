@@ -54,19 +54,9 @@ ActiveRecord::Schema.define(version: 20160130151935) do
     t.datetime "updated_at"
     t.boolean  "chiuso"
     t.string   "codice"
-    t.integer  "operator_id"
   end
 
   add_index "interventis", ["cliente_id"], name: "index_interventis_on_cliente_id", using: :btree
-
-  create_table "operators", force: true do |t|
-    t.string   "nome"
-    t.string   "email"
-    t.string   "tel"
-    t.text     "note"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "utentis", force: true do |t|
     t.string   "email",                  default: "",    null: false

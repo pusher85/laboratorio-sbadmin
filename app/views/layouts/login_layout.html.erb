@@ -177,7 +177,8 @@
 	<%= javascript_include_tag "/assets/js/login" %>
 	<!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 	<script>
-		jQuery(document).ready(function() {
+		//jQuery(document).ready(function() {
+			jQuery(document).on('page:change', function() {
 			Main.init();
 			Login.init();
 			//FormElements.init();
