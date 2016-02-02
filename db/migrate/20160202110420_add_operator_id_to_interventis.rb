@@ -1,5 +1,7 @@
 class AddOperatorIdToInterventis < ActiveRecord::Migration
   def change
-    add_column :interventis, :operator_id, :integer
+  	unless column_exists? :interventis, :operator_id
+    	add_column :interventis, :operator_id, :integer
+  	end
   end
 end

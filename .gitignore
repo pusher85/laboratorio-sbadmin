@@ -17,3 +17,6 @@
 
 # Ignora i file di ambiente 
 /config/environments/*.rb
+
+#ignora il file di configurazione db
+#/config/database.yml
