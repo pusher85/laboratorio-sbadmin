@@ -6,13 +6,16 @@ class WelcomeController < ApplicationController
   end
 
 
-
   def aperti
-
   	@titolo =" Interventi in corso"
   	@aperti = Interventi.select("interventis.data, interventis.intervento, clientis.nome, interventis.cliente_id, interventis.id").joins('INNER JOIN clientis ON interventis.cliente_id = clientis.id').where(chiuso: false).order("data ASC")
   end
 
+
+	def assegnati
+		@assegnati = Interventi.where(operator_id: current_utenti.id)
+		@cliente = Clienti.find(@assegnati.cliente_id)
+	end
   
 
 end

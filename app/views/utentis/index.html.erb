@@ -1,3 +1,11 @@
+<% if !flash[:notice].blank? %>
+   <div class = "alert alert-info">
+   	<button data-dismiss="alert" class="close">&times;</button>
+      <%= flash[:notice] %>
+ </div>
+<% end %>
+
+
 <div class="row">
 	<div class="col-md-3">
 		<%= link_to 'Nuovo Login', new_utenti_path, class: "btn btn-primary" %>

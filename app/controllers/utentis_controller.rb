@@ -60,6 +60,11 @@ class UtentisController < ApplicationController
 		end
 	end
 
+	def destroy
+		@utenti = Utenti.find(params[:id])
+		@utenti.destroy
+		redirect_to utentis_path, notice: "Login eliminata con successo!"
+	end
 
 
 	private

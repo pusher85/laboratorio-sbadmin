@@ -40,7 +40,7 @@
 
         <label class="checkbox-inline">
           <!-- <input type="checkbox" class="square-red" value="" checked="checked"> -->
-          <%= f.check_box :paid, class: 'square-green', checked: false %>
+          <%= f.check_box :operatore, class: 'square-green', checked: false %>
           Operatore
         </label>
         <label class="checkbox-inline">
@@ -63,6 +63,7 @@
        <div class="form-group">
         <%= link_to 'Indietro', utentis_path, class: 'btn btn-danger' %>
         <%= f.submit 'Salva', :class => 'btn btn-success' %>
+        <%= link_to 'Elimina', utenti_path(@utenti), class: 'btn btn-purple', method: :delete, data: { confirm: 'Sicuro di voler eliminare la login?' } if method == 'patch' %> 
        </div>
     </div>
   </div>

@@ -1,278 +1,268 @@
 <!DOCTYPE html>
 <html>
+
 <% if !current_page?('/welcome/prelogin') && !current_page?(welcome_login_path) %>
-<head>
-  <title>Gestione Assistenza</title>
-  <!-- start: META -->
-	<meta charset="utf-8" />
-	<!--[if IE]><meta http-equiv='X-UA-Compatible' content="IE=edge,IE=9,IE=8,chrome=1" /><![endif]-->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-	<meta content="" name="description" />
-	<meta content="" name="author" />
-	<!-- end: META -->
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-  <%= stylesheet_link_tag "/assets/plugins/bootstrap/css/bootstrap.min", media: "all" %>
-  <%= stylesheet_link_tag "/assets/plugins/font-awesome/css/font-awesome.min", media: "all" %>
-  <%= stylesheet_link_tag "/assets/fonts/style", media: "all" %>
-  <%= stylesheet_link_tag "/assets/css/main", media: "all" %>
-  <%= stylesheet_link_tag "/assets/css/main-responsive", media: "all" %>
-  <%= stylesheet_link_tag "/assets/plugins/iCheck/skins/all", media: "all" %>
-  <%= stylesheet_link_tag "/assets/plugins/bootstrap-colorpalette/css/bootstrap-colorpalette", media: "all" %>
-  <%= stylesheet_link_tag "/assets/plugins/perfect-scrollbar/src/perfect-scrollbar", media: "all" %>
-  <%= stylesheet_link_tag "/assets/css/theme_light", media: "all" %>
-  <%= stylesheet_link_tag "/assets/plugins/datepicker/css/datepicker", media: "all" %>
-  <%= stylesheet_link_tag "/assets/plugins/bootstrap-daterangepicker/daterangepicker-bs3", media: "all" %>
-  <%= stylesheet_link_tag "/assets/css/print", media: "print" %>
+	<!--	Se non siamo nella pagina di login (welcome#prelogin o welcome#login)	-->
+	<head>
+	  <title>Gestione Assistenza</title>
+	  <!-- start: META -->
+		<meta charset="utf-8" />
+		<!--[if IE]><meta http-equiv='X-UA-Compatible' content="IE=edge,IE=9,IE=8,chrome=1" /><![endif]-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta content="" name="description" />
+		<meta content="" name="author" />
+		<!-- end: META -->
+	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	  <%= csrf_meta_tags %>
+	  <%= stylesheet_link_tag "/assets/plugins/bootstrap/css/bootstrap.min", media: "all" %>
+	  <%= stylesheet_link_tag "/assets/plugins/font-awesome/css/font-awesome.min", media: "all" %>
+	  <%= stylesheet_link_tag "/assets/fonts/style", media: "all" %>
+	  <%= stylesheet_link_tag "/assets/css/main", media: "all" %>
+	  <%= stylesheet_link_tag "/assets/css/main-responsive", media: "all" %>
+	  <%= stylesheet_link_tag "/assets/plugins/iCheck/skins/all", media: "all" %>
+	  <%= stylesheet_link_tag "/assets/plugins/bootstrap-colorpalette/css/bootstrap-colorpalette", media: "all" %>
+	  <%= stylesheet_link_tag "/assets/plugins/perfect-scrollbar/src/perfect-scrollbar", media: "all" %>
+	  <%= stylesheet_link_tag "/assets/css/theme_light", media: "all" %>
+	  <%= stylesheet_link_tag "/assets/plugins/datepicker/css/datepicker", media: "all" %>
+	  <%= stylesheet_link_tag "/assets/plugins/bootstrap-daterangepicker/daterangepicker-bs3", media: "all" %>
+	  <%= stylesheet_link_tag "/assets/css/print", media: "print" %>
 
 
-  <% if params[:controller] == 'interventi' && params[:action] == 'show' %>
-		<!-- 	CSS Specifici per modal in show per tecnico	-->
-	 	<%= stylesheet_link_tag "/assets/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css", media: "all" %>
-	 	<%= stylesheet_link_tag "/assets/plugins/bootstrap-modal/css/bootstrap-modal.css", media: "all" %>
-	<% end %>
+	  <% if params[:controller] == 'interventi' && params[:action] == 'show' %>
+			<!-- 	CSS Specifici per modal in show per tecnico	-->
+		 	<%= stylesheet_link_tag "/assets/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css", media: "all" %>
+		 	<%= stylesheet_link_tag "/assets/plugins/bootstrap-modal/css/bootstrap-modal.css", media: "all" %>
+		<% end %>
 
 
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-</head>
-<body <% if cookies[:navigation] == 'chiusa' %><%= "class=navigation-small" %><% end %>> <!-- class="navigation-small" -->
+	  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	</head>
+	<body <% if cookies[:navigation] == 'chiusa' %><%= "class=navigation-small" %><% end %>> <!-- class="navigation-small" -->
 
 
 
 
 
-<%= render "layouts/header" %>
+	<%= render "layouts/header" %>
 
-<div class="main-container">
+	<div class="main-container">
 
-	<%= render "layouts/navbar" %>
+		<%= render "layouts/navbar" %>
 
 
-	<!-- start: PAGE -->
-	<div class="main-content">
-		<div class="container">
-			<div class="row">
+		<!-- start: PAGE -->
+		<div class="main-content">
+			<div class="container">
+				<div class="row">
 
-				<!-- start: PAGE HEADER -->
-				<div class="col-sm-12">
-					<!-- start: PAGE TITLE & BREADCRUMB -->
-					<ol class="breadcrumb">
-						<li>
-							<i class="clip-file"></i>
-							<a href="#">
-								<%= controller_name %>
-							</a>
-						</li>
-						<li class="active">
-							<%= action_name %>
-						</li>
+					<!-- start: PAGE HEADER -->
+					<div class="col-sm-12">
+						<!-- start: PAGE TITLE & BREADCRUMB -->
+						<ol class="breadcrumb">
+							<li>
+								<i class="clip-file"></i>
+								<a href="#">
+									<%= controller_name %>
+								</a>
+							</li>
+							<li class="active">
+								<%= action_name %>
+							</li>
 
-					</ol>
-					<div class="page-header">
-						<h1><%= @titolo %> <small><%= @titolo2 %></small></h1>
+						</ol>
+						<div class="page-header">
+							<h1><%= @titolo %> <small><%= @titolo2 %></small></h1>
+						</div>
+						<!-- end: PAGE TITLE & BREADCRUMB -->
 					</div>
-					<!-- end: PAGE TITLE & BREADCRUMB -->
+				</div>
+				<!-- end: PAGE HEADER -->
+
+				<!-- start: PAGE CONTENT -->
+				<%= yield %>
+				
+				<!-- end: PAGE CONTENT-->
+
+			</div>
+		</div>
+		<!-- end: PAGE -->
+	</div>
+		<%= render "layouts/footer" %>
+
+
+
+		<!-- JS Generici -->
+		<%= javascript_include_tag "/assets/plugins/jQuery-lib/2.0.3/jquery.min" %>
+		<%= javascript_include_tag "/assets/plugins/jquery-ui/jquery-ui-1.10.2.custom.min" %>
+		<%= javascript_include_tag "/assets/plugins/bootstrap/js/bootstrap.min" %>
+		<%= javascript_include_tag "/assets/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min" %>
+		<%= javascript_include_tag "/assets/plugins/blockUI/jquery.blockUI" %>
+		<%= javascript_include_tag "/assets/plugins/iCheck/jquery.icheck.min" %>
+		<%= javascript_include_tag "/assets/plugins/perfect-scrollbar/src/jquery.mousewheel" %>
+		<%= javascript_include_tag "/assets/plugins/perfect-scrollbar/src/perfect-scrollbar" %>
+		<%= javascript_include_tag "/assets/plugins/less/less-1.5.0.min" %>
+		<%= javascript_include_tag "/assets/plugins/jquery-cookie/jquery.cookie" %>
+		<%= javascript_include_tag "/assets/plugins/bootstrap-colorpalette/js/bootstrap-colorpalette" %>
+		<%= javascript_include_tag "/assets/js/main" %>
+
+		<%#= javascript_include_tag "/assets/js/form-elements" %>
+		<%#= javascript_include_tag "/assets/plugins/jquery-inputlimiter/jquery.inputlimiter.1.3.1.min" %>
+
+		<!-- JS Generici FINE -->
+
+		<!-- DatePicker Vari -->
+		<%#= javascript_include_tag "/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker" %>
+		<%#= javascript_include_tag "/assets/plugins/bootstrap-daterangepicker/moment.min" %>
+		<%#= javascript_include_tag "/assets/plugins/bootstrap-daterangepicker/moment.min" %>
+		<%#= javascript_include_tag "/assets/plugins/bootstrap-daterangepicker/daterangepicker" %>
+		<%#= javascript_include_tag "/assets/plugins/bootstrap-colorpalette/js/bootstrap-colorpalette" %>
+		<!-- 		-->
+
+
+		<!-- Javascript specifici per la pagina -->
+
+		<% if params[:controller] == 'clienti' && params[:action] == 'index' %>
+			<!-- 	JS Specifici per clienti#index	-->
+			<%= javascript_include_tag "/assets/plugins/bootbox/bootbox.min" %>
+			<%= javascript_include_tag "/assets/plugins/jquery-mockjax/jquery.mockjax" %>
+			<%= javascript_include_tag "/assets/plugins/select2/select2.min" %>
+			<%= javascript_include_tag "/assets/plugins/DataTables/media/js/jquery.dataTables.min" %>
+			<%= javascript_include_tag "/assets/plugins/DataTables/media/js/DT_bootstrap" %>
+			<%= javascript_include_tag "/assets/js/table-data" %>
+			<!-- 		-->
+		<% end %>
+
+
+		<% if current_page?('/utentis/show') %>
+			<!-- 	JS Specifici per utentis#show	-->
+			<%#= javascript_include_tag "/assets/plugins/jquery.pulsate/jquery.pulsate.min" %>
+		<% end %>
+
+
+		<% if params[:controller] == 'utentis' && params[:action] == 'index' %>
+			<!-- 	JS Specifici per utentis_path	-->
+			<%= javascript_include_tag "/assets/plugins/bootbox/bootbox.min" %>
+			<%= javascript_include_tag "/assets/plugins/jquery-mockjax/jquery.mockjax" %>
+			<%= javascript_include_tag "/assets/plugins/select2/select2.min" %>
+			<%= javascript_include_tag "/assets/plugins/DataTables/media/js/jquery.dataTables.min" %>
+			<%= javascript_include_tag "/assets/plugins/DataTables/media/js/DT_bootstrap" %>
+			<%= javascript_include_tag "/assets/js/table-data" %>
+		<% end %>
+
+
+
+
+		<% if params[:controller] == 'interventi' && params[:action] == 'new' %>
+			<!-- 	JS Specifici per new_clienti_interventi_path	-->
+			<%= javascript_include_tag "/assets/js/form-elements" %>
+			<%= javascript_include_tag "/assets/plugins/jquery-inputlimiter/jquery.inputlimiter.1.3.1.min" %>
+			<%= javascript_include_tag "/assets/plugins/autosize/jquery.autosize.min" %>
+			<%= javascript_include_tag "/assets/plugins/select2/select2.min" %>
+			<%= javascript_include_tag "/assets/plugins/jquery.maskedinput/src/jquery.maskedinput" %>
+			<%= javascript_include_tag "/assets/plugins/jquery-maskmoney/jquery.maskMoney" %>
+			<%= javascript_include_tag "/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker" %>
+			<%= javascript_include_tag "/assets/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min" %>
+			<%= javascript_include_tag "/assets/plugins/bootstrap-daterangepicker/moment.min" %>
+			<%= javascript_include_tag "/assets/plugins/bootstrap-daterangepicker/daterangepicker" %>
+			<%= javascript_include_tag "/assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker" %>
+			<%= javascript_include_tag "/assets/plugins/bootstrap-colorpicker/js/commits" %>
+			<%= javascript_include_tag "/assets/plugins/jQuery-Tags-Input/jquery.tagsinput" %>
+			<%= javascript_include_tag "/assets/plugins/bootstrap-fileupload/bootstrap-fileupload.min" %>
+			<%= javascript_include_tag "/assets/plugins/summernote/build/summernote.min" %>
+			<%= javascript_include_tag "/assets/plugins/ckeditor/ckeditor" %>
+			<%= javascript_include_tag "/assets/plugins/ckeditor/adapters/jquery" %>
+		<% end %>
+
+
+
+		<% if params[:controller] == 'interventi' && params[:action] == 'index' %>
+			<%= javascript_include_tag "/assets/plugins/bootbox/bootbox.min" %>
+			<%= javascript_include_tag "/assets/plugins/jquery-mockjax/jquery.mockjax" %>
+			<%= javascript_include_tag "/assets/plugins/select2/select2.min" %>
+			<%= javascript_include_tag "/assets/plugins/DataTables/media/js/jquery.dataTables.min" %>
+			<%= javascript_include_tag "/assets/plugins/DataTables/media/js/DT_bootstrap" %>
+			<%= javascript_include_tag "/assets/js/table-data" %>
+		<% end %>
+
+
+		<% if params[:controller] == 'interventi' && params[:action] == 'show' %>
+			<!-- 	JS Specifici per modal in show per tecnico	-->
+			<!--		Inizio Modal -->
+			<div id="responsive" class="modal fade" tabindex="-1" data-width="760" style="display: none;">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						&times;
+					</button>
+					<h4 class="modal-title">Seleziona il tecnico per l'intervento</h4>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-md-12">
+							<%= form_for :interventi, url: clienti_interventi_path(@clienti, @interventi), method: :patch do |f| %>
+								<%= f.select :operator_id, options_for_select(@tecnici.collect{ |tec| [tec.nome, tec.id] }, @interventi.operator_id ), {include_blank: '--seleziona--'}, class: 'form-control' %>
+						</div>
+					</div>	
+				</div>
+				<div class="modal-footer">
+								<%= f.submit 'Salva', :class => 'btn btn-success' %>
+							<% end %>
 				</div>
 			</div>
-			<!-- end: PAGE HEADER -->
-
-			<!-- start: PAGE CONTENT -->
-			<%= yield %>
-			
-			<!-- end: PAGE CONTENT-->
-
-		</div>
-	</div>
-	<!-- end: PAGE -->
-</div>
-	<%= render "layouts/footer" %>
+			<!-- 	Fine Modal -->
 
 
-
-	<!-- JS Generici -->
-	<%= javascript_include_tag "/assets/plugins/jQuery-lib/2.0.3/jquery.min" %>
-	<%= javascript_include_tag "/assets/plugins/jquery-ui/jquery-ui-1.10.2.custom.min" %>
-	<%= javascript_include_tag "/assets/plugins/bootstrap/js/bootstrap.min" %>
-	<%= javascript_include_tag "/assets/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min" %>
-	<%= javascript_include_tag "/assets/plugins/blockUI/jquery.blockUI" %>
-	<%= javascript_include_tag "/assets/plugins/iCheck/jquery.icheck.min" %>
-	<%= javascript_include_tag "/assets/plugins/perfect-scrollbar/src/jquery.mousewheel" %>
-	<%= javascript_include_tag "/assets/plugins/perfect-scrollbar/src/perfect-scrollbar" %>
-	<%= javascript_include_tag "/assets/plugins/less/less-1.5.0.min" %>
-	<%= javascript_include_tag "/assets/plugins/jquery-cookie/jquery.cookie" %>
-	<%= javascript_include_tag "/assets/plugins/bootstrap-colorpalette/js/bootstrap-colorpalette" %>
-	<%= javascript_include_tag "/assets/js/main" %>
-
-	<%#= javascript_include_tag "/assets/js/form-elements" %>
-	<%#= javascript_include_tag "/assets/plugins/jquery-inputlimiter/jquery.inputlimiter.1.3.1.min" %>
-
-	<!-- JS Generici FINE -->
-
-	<!-- DatePicker Vari -->
-	<%#= javascript_include_tag "/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker" %>
-	<%#= javascript_include_tag "/assets/plugins/bootstrap-daterangepicker/moment.min" %>
-	<%#= javascript_include_tag "/assets/plugins/bootstrap-daterangepicker/moment.min" %>
-	<%#= javascript_include_tag "/assets/plugins/bootstrap-daterangepicker/daterangepicker" %>
-	<%#= javascript_include_tag "/assets/plugins/bootstrap-colorpalette/js/bootstrap-colorpalette" %>
-	<!-- 		-->
-
-
-	<!-- Javascript specifici per la pagina -->
-
-	<% if params[:controller] == 'clienti' && params[:action] == 'index' %>
-	<!-- 	JS Specifici per clienti#index	-->
-	<%= javascript_include_tag "/assets/plugins/bootbox/bootbox.min" %>
-	<%= javascript_include_tag "/assets/plugins/jquery-mockjax/jquery.mockjax" %>
-	<%= javascript_include_tag "/assets/plugins/select2/select2.min" %>
-	<%= javascript_include_tag "/assets/plugins/DataTables/media/js/jquery.dataTables.min" %>
-	<%= javascript_include_tag "/assets/plugins/DataTables/media/js/DT_bootstrap" %>
-	<%= javascript_include_tag "/assets/js/table-data" %>
-	<!-- 		-->
-	<% end %>
-
-
-	<% if current_page?('/utentis/show') %>
-	<!-- 	JS Specifici per utentis#show	-->
-	<%#= javascript_include_tag "/assets/plugins/jquery.pulsate/jquery.pulsate.min" %>
-	<% end %>
-
-
-	<% if params[:controller] == 'utentis' && params[:action] == 'index' %>
-	<!-- 	JS Specifici per utentis_path	-->
-	<%= javascript_include_tag "/assets/plugins/bootbox/bootbox.min" %>
-	<%= javascript_include_tag "/assets/plugins/jquery-mockjax/jquery.mockjax" %>
-	<%= javascript_include_tag "/assets/plugins/select2/select2.min" %>
-	<%= javascript_include_tag "/assets/plugins/DataTables/media/js/jquery.dataTables.min" %>
-	<%= javascript_include_tag "/assets/plugins/DataTables/media/js/DT_bootstrap" %>
-	<%= javascript_include_tag "/assets/js/table-data" %>
-	<% end %>
+			<%= javascript_include_tag "/assets/plugins/bootstrap-modal/js/bootstrap-modal.js" %>
+			<%= javascript_include_tag "/assets/plugins/bootstrap-modal/js/bootstrap-modalmanager" %>
+			<%= javascript_include_tag "/assets/js/ui-modals" %>
+			<script>
+					jQuery(document).on('page:change', function() {
+					Main.init();
+					UIModals.init();
+				});
+			</script>
+		<% end %>
 
 
 
 
-	<% if params[:controller] == 'interventi' && params[:action] == 'new' %>
-	<!-- 	JS Specifici per new_clienti_interventi_path	-->
-	<%= javascript_include_tag "/assets/js/form-elements" %>
-	<%= javascript_include_tag "/assets/plugins/jquery-inputlimiter/jquery.inputlimiter.1.3.1.min" %>
-	<%= javascript_include_tag "/assets/plugins/autosize/jquery.autosize.min" %>
-	<%= javascript_include_tag "/assets/plugins/select2/select2.min" %>
-	<%= javascript_include_tag "/assets/plugins/jquery.maskedinput/src/jquery.maskedinput" %>
-	<%= javascript_include_tag "/assets/plugins/jquery-maskmoney/jquery.maskMoney" %>
-	<%= javascript_include_tag "/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker" %>
-	<%= javascript_include_tag "/assets/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min" %>
-	<%= javascript_include_tag "/assets/plugins/bootstrap-daterangepicker/moment.min" %>
-	<%= javascript_include_tag "/assets/plugins/bootstrap-daterangepicker/daterangepicker" %>
-	<%= javascript_include_tag "/assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker" %>
-	<%= javascript_include_tag "/assets/plugins/bootstrap-colorpicker/js/commits" %>
-	<%= javascript_include_tag "/assets/plugins/jQuery-Tags-Input/jquery.tagsinput" %>
-	<%= javascript_include_tag "/assets/plugins/bootstrap-fileupload/bootstrap-fileupload.min" %>
-	<%= javascript_include_tag "/assets/plugins/summernote/build/summernote.min" %>
-	<%= javascript_include_tag "/assets/plugins/ckeditor/ckeditor" %>
-	<%= javascript_include_tag "/assets/plugins/ckeditor/adapters/jquery" %>
-	<% end %>
+		<% if params[:controller] == 'interventi' && params[:action] == 'new' || params[:action] =='create'  %>
+			<!-- personalizzazioni calendario per interventi -->
+			<script>
+		    $('.date-picker').datepicker({
+		    //selectMonths: true, // Creates a dropdown to control month
+		    //selectYears: 3, // Creates a dropdown of 15 years to control year
+		    format: 'yyyy/mm/dd',
+		    weekStart: 1,
+		    todayBtn: "linked",
+		    language: "it",
+		    autoclose: true
+		    //onSet: function() {
+		    //    setTimeout(this.close, 0);
+		    //}
+		  });
+		  </script>
+	  <% end %>
 
 
 
-	<% if params[:controller] == 'interventi' && params[:action] == 'index' %>
-	<%= javascript_include_tag "/assets/plugins/bootbox/bootbox.min" %>
-	<%= javascript_include_tag "/assets/plugins/jquery-mockjax/jquery.mockjax" %>
-	<%= javascript_include_tag "/assets/plugins/select2/select2.min" %>
-	<%= javascript_include_tag "/assets/plugins/DataTables/media/js/jquery.dataTables.min" %>
-	<%= javascript_include_tag "/assets/plugins/DataTables/media/js/DT_bootstrap" %>
-	<%= javascript_include_tag "/assets/js/table-data" %>
-	<% end %>
-
-
-	<% if params[:controller] == 'interventi' && params[:action] == 'show' %>
-	<!-- 	JS Specifici per modal in show per tecnico	-->
-
-	<!--		Inizio Modal -->
-	<div id="responsive" class="modal fade" tabindex="-1" data-width="760" style="display: none;">
-		<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-				&times;
-			</button>
-			<h4 class="modal-title">Seleziona il tecnico per l'intervento</h4>
-		</div>
-		<div class="modal-body">
-			<div class="row">
-				<div class="col-md-12">
-					<%= form_for :interventi, url: clienti_interventi_path(@clienti, @interventi), method: :patch do |f| %>
-					<%= f.select :operator_id, options_for_select(@tecnici.collect{ |tec| [tec.nome, tec.id] }, @interventi.operator_id ), {include_blank: '--seleziona--'}, class: 'form-control' %>
-				</div>
-			</div>	
-		</div>
-		<div class="modal-footer">
-					<%= f.submit 'Salva', :class => 'btn btn-success' %>
-					<% end %>
-		</div>
-	</div>
-	<!-- 	Fine Modal -->
-
-
-	<%= javascript_include_tag "/assets/plugins/bootstrap-modal/js/bootstrap-modal.js" %>
-	<%= javascript_include_tag "/assets/plugins/bootstrap-modal/js/bootstrap-modalmanager" %>
-	<%= javascript_include_tag "/assets/js/ui-modals" %>
 	<script>
-			jQuery(document).on('page:change', function() {
+		jQuery(document).ready(function() {
 			Main.init();
-			UIModals.init();
+			//TableData.init();
+			//UIElements.init();
+			
+			<% if params[:controller] == 'interventi' && params[:action] == 'new' || params[:action] =='create'  %>
+				FormElements.init();
+				//UIButtons.init();
+			<% end %>
 		});
 	</script>
 
 
-	<% end %>
-
-
-
-
-	<% if params[:controller] == 'interventi' && params[:action] == 'new' || params[:action] =='create'  %>
-	<!-- personalizzazioni calendario per interventi -->
-		<script>
-	    $('.date-picker').datepicker({
-	    //selectMonths: true, // Creates a dropdown to control month
-	    //selectYears: 3, // Creates a dropdown of 15 years to control year
-	    format: 'yyyy/mm/dd',
-	    weekStart: 1,
-	    todayBtn: "linked",
-	    language: "it",
-	    autoclose: true
-	    //onSet: function() {
-	    //    setTimeout(this.close, 0);
-	    //}
-	  });
-	  </script>
-  <% end %>
-
-
-
-
-
-
-
-<script>
-			jQuery(document).ready(function() {
-				Main.init();
-						//TableData.init();
-						//UIElements.init();
-				
-				<% if params[:controller] == 'interventi' && params[:action] == 'new' || params[:action] =='create'  %>
-				FormElements.init();
-				//UIButtons.init();
-				<% end %>
-
-
-
-
-
-			});
-	</script>
-
-
-</body>
+	</body>
 <% else %>
 
 <%= yield %>

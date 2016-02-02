@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160130151935) do
+ActiveRecord::Schema.define(version: 20160202110420) do
 
   create_table "clientis", force: true do |t|
     t.string   "nome"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20160130151935) do
     t.datetime "updated_at"
     t.boolean  "chiuso"
     t.string   "codice"
+    t.integer  "operator_id"
   end
 
   add_index "interventis", ["cliente_id"], name: "index_interventis_on_cliente_id", using: :btree

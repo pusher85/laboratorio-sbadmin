@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get 'welcome/prelogin'
   get 'welcome/login', :path => 'login'
   get 'welcome/login'
+  get 'welcome/assegnati', :path => 'assegnati'
   #post 'interventi/sms'
   
 

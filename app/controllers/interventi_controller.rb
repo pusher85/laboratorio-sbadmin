@@ -94,6 +94,8 @@ class InterventiController < ApplicationController
 	end
 
 	
+
+	
 	private
 		def parametri_intervento
 			params.require(:interventi).permit(:cliente_id, :data, :apparecchiatura, :intervento, :durata, :note, :chiuso, :codice, :operator_id)
