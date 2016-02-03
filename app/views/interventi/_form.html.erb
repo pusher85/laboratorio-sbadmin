@@ -8,42 +8,30 @@
     </div>
 
 
+
     <div class="row">
-      <div class="col-md-2">
-        <%= f.label :cliente_id %>
-        <div class="form-group input-group">
-          <%= f.text_field :cliente_id, :value => @clienti.id, readonly: true, class: 'form-control' %>
-        </div>
-      </div>
-
-      <div class="col-md-6">
-        <%= f.label "Cliente" %>
-        <div class="form-group input-group">
-          <%= f.text_field :cliente_nome, :value => @clienti.nome, readonly: true, class: 'form-control' %>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <%= f.label :data, 'Data (YYY - MM - DD)' %>
-        <div class="input-group">
+      <div class="col-lg-2">
+        <div class="form-group">
+          <%= f.label :data, 'Data (YYY - MM - DD)' %>
           <%= f.text_field :data, :class => "date-picker form-control", :value => Time.now.strftime("%Y/%m/%d"), readonly: true %>
         </div>
       </div>
+
+      <div class="col-lg-1">
+        <div class="form-group"> 
+        <%= f.label "Durata (H)" %>
+          <%= f.text_field :durata, maxlength: 2, class: 'form-control' %>
+        </div>
+      </div>
+
     </div>
 
 
     <div class="row">
-      <div class="col-md-10">
+      <div class="col-md-12">
         <div class="form-group">
           <%= f.label "Descrizione Intervento" %>
           <%= f.text_area :intervento, maxlength: 200, class: 'form-control limited' %>
-        </div>
-      </div>
-
-      <div class="col-md-2">
-        <div class="form-group"> 
-        <%= f.label "Durata (H)" %>
-          <%= f.text_field :durata, maxlength: 2, class: 'form-control' %>
         </div>
       </div>
     </div>
@@ -60,8 +48,8 @@
     </div
      <!-- --> 
 
-
-
+<%= f.hidden_field :cliente_nome, :value => @clienti.nome, readonly: true, class: 'form-control' %>
+<%= f.hidden_field :cliente_id, :value => @clienti.id %>
 
 
 <div class="divider"></div>

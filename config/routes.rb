@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   
   #devise_for :utentis
-  devise_for :utentis, :path_prefix => 'my'
+  devise_for :utentis, :path_prefix => 'my'#, :skip => [:registrations]
+  #as :utentis do
+  #  get 'utentis/edit' => 'devise/registrations#edit'#, :as => 'edit_utenti_registration'    
+  #  put 'utentis' => 'devise/registrations#update'#, :as => 'utenti_registration'            
+  #end
   resources :utentis
 
   ###################

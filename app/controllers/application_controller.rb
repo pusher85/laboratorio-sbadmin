@@ -32,10 +32,18 @@ class ApplicationController < ActionController::Base
   protected
 
     def layout_by_resource
-      if devise_controller?
+      #se richiesta pagina di login reindirizza a welcome#login_layout
+      #if devise_controller? && params[:action] == 'new'
+      if params[:controller] == 'devise/sessions' && params[:action] == 'new' || params[:action] == 'create'
         "login_layout"
+      
+      #elsif devise_controller? && params[:action] == 'edit'
+      #  redirect_to edit_utenti_password_path
+      #  "password/edit"
+      #edit_utenti_password_path
+      
       else
-        "application"
+       "application"
       end
     end
 

@@ -1,6 +1,6 @@
 <div class="row space12">
 	<ul class="mini-stats col-sm-12">
-		<li class="col-sm-4">
+		<li class="col-sm-4 col-xs-4">
 			<div class="values">
 				<i class="clip-user-4 circle-icon circle-green"></i>
 				<strong>Cliente</strong>
@@ -8,7 +8,7 @@
 			</div>
 		</li>
 
-		<li class="col-sm-4">
+		<li class="col-sm-4 col-xs-4">
 			<div class="values">
 				<i class="clip-settings circle-icon circle-bricky"></i>
 				<strong>Codice Cliente</strong>
@@ -16,7 +16,7 @@
 			</div>
 		</li>
 
-		<li class="col-sm-4">
+		<li class="col-sm-4 col-xs-4">
 			<div class="values">
 				<i class="clip-target circle-icon circle-teal"></i>
 				<strong>Codice Intervento</strong>
@@ -69,19 +69,21 @@
 		</div>
 	</div>
 
-	<div class="col-lg-6">
+	<div class="col-lg-6 col-xs-12">
 		<div class="well well-sm">
 			<div class="row">
-				<div class="col-lg-3">
+				<div class="col-lg-3 col-xs-6">
 					<%= image_tag("operator-256.png", size: '128x128') %>
 				</div>
-				<div class="col-lg-9">
+				<div class="col-lg-9 col-xs-6">
 						<div class="row center">
-							<h3>Tecnico</h3>
+							<div class="col-xs-12">
+								<h3>Tecnico</h3>
+							</div>
 						</div>
 						<div class="row">
 							<div>
-								<div class="col-lg-6">
+								<div class="col-lg-6 col-xs-12">
 								<% if !@tecnico %>
 									<%= link_to 'Assegna', '#responsive', "data-toggle" => "modal", class: 'btn btn-bricky btn-lg' %>
 								<% else %>
