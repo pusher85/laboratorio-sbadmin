@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  
+
   #devise_for :utentis
   devise_for :utentis, :path_prefix => 'my'#, :skip => [:registrations]
   #as :utentis do
@@ -29,6 +31,7 @@ Rails.application.routes.draw do
     #devise_for :utentis
     resources :contrattis
     resources :interventi do
+      resources :works
       get :sms
         resources :comunicazioni
     end

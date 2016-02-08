@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Data:</strong>
+  <%= @work.data %>
+</p>
+
+<p>
+  <strong>Durata:</strong>
+  <%= @work.durata %>
+</p>
+
+<p>
+  <strong>Descrizione:</strong>
+  <%= @work.descrizione %>
+</p>
+
+<%= link_to 'Edit', edit_clienti_interventi_work_path(:interventi_id => @interventi) %> |
+<%= link_to 'Back', clienti_interventi_path(:id => @interventi ) %>
+
+<br>
+<%= debug(params) %>
+
+

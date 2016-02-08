@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  data: 2016-02-08
+  durata: 1
+  descrizione: MyText
+
+two:
+  data: 2016-02-08
+  durata: 1
+  descrizione: MyText

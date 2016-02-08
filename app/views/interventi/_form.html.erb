@@ -1,11 +1,14 @@
-<% if local_assigns.has_key? :url %>
-  <%= form_for :interventi, url: url, method: method do |f| %>
-
     <div class="row">
       <div class="col-md-12">
         <h4>Cliente: <%= @clienti.nome %> - [<%= @clienti.id %>]</h4>
       </div>
     </div>
+
+
+    <% if local_assigns.has_key? :url %>
+      <%= form_for :interventi, url: url, method: method do |f| %>
+
+    
 
 
 
@@ -17,13 +20,14 @@
         </div>
       </div>
 
+      <!--
       <div class="col-lg-1">
         <div class="form-group"> 
-        <%= f.label "Durata (H)" %>
-          <%= f.text_field :durata, maxlength: 2, class: 'form-control' %>
+        <%#= f.label "Durata (H)" %>
+          <%#= f.text_field :durata, maxlength: 2, class: 'form-control' %>
         </div>
       </div>
-
+    -->
     </div>
 
 
@@ -48,7 +52,7 @@
     </div
      <!-- --> 
 
-<%= f.hidden_field :cliente_nome, :value => @clienti.nome, readonly: true, class: 'form-control' %>
+<%#= f.hidden_field :cliente_nome, :value => @clienti.nome, readonly: true, class: 'form-control' %>
 <%= f.hidden_field :cliente_id, :value => @clienti.id %>
 
 
