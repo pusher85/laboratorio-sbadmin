@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160208152836) do
+ActiveRecord::Schema.define(version: 20160209103056) do
 
   create_table "clientis", force: true do |t|
     t.string   "nome"
@@ -48,7 +48,6 @@ ActiveRecord::Schema.define(version: 20160208152836) do
     t.date     "data"
     t.string   "apparecchiatura"
     t.text     "intervento"
-    t.integer  "durata"
     t.text     "note"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -58,15 +57,6 @@ ActiveRecord::Schema.define(version: 20160208152836) do
   end
 
   add_index "interventis", ["cliente_id"], name: "index_interventis_on_cliente_id", using: :btree
-
-  create_table "operators", force: true do |t|
-    t.string   "nome"
-    t.string   "email"
-    t.string   "tel"
-    t.text     "note"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "utentis", force: true do |t|
     t.string   "email",                  default: "",    null: false

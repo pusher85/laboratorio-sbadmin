@@ -13,10 +13,11 @@
 
 
     <div class="row">
-      <div class="col-lg-2">
+      <div class="col-md-2">
         <div class="form-group">
-          <%= f.label :data, 'Data (YYY - MM - DD)' %>
-          <%= f.text_field :data, :class => "date-picker form-control", :value => Time.now.strftime("%Y/%m/%d"), readonly: true %>
+          <%= f.label :data, 'Data creazione' %>
+          <%= f.text_field :data, :class => "date-picker form-control input-mini", :value => Time.now.strftime("%Y/%m/%d"), readonly: true %>
+          <span class="help-block">formato YYY-MM-DD</span>
         </div>
       </div>
 
@@ -34,7 +35,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="form-group">
-          <%= f.label "Descrizione Intervento" %>
+          <%= f.label "Problema dichiarato o riscontrato" %>
           <%= f.text_area :intervento, maxlength: 200, class: 'form-control limited' %>
         </div>
       </div>
@@ -77,10 +78,10 @@
     
     <div class="row">
       <div class="col-md-3">
-       <div class="form-group">
-        <%= link_to 'Indietro', clienti_path(:id => @clienti.id), class: 'btn btn-danger' %>
-        <%= f.submit 'Salva', :class => 'btn btn-success' %>
-       </div>
+        <div class="form-group">
+          <%= link_to 'Indietro', clienti_path(:id => @clienti.id), class: 'btn btn-danger' %>
+          <%= f.submit 'Salva', :class => 'btn btn-success' %>
+        </div>
     </div>
 
 

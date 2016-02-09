@@ -28,46 +28,45 @@
 
 <div class="divider"></div>
 
-<div class="row">
-	<div class="col-lg-6">
-		<div class="dropdown pull-right">
-		  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-		    Actions
-		    <span class="caret"></span>
-		  </button>
-		  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-		    <li><%= link_to 'Modifica', edit_clienti_interventi_path(:id => @interventi.id) %></li>
-		    <li><%= link_to 'Elimina', clienti_interventi_path(:id => @interventi.id), method: :delete, data: { confirm: 'Sicuro di voler eliminare?' } %></li>
-		    <li><%= link_to 'Invia Comunicazione', new_clienti_interventi_comunicazioni_path(:interventi_id => @interventi.id) %></li>
-		  </ul>
-		</div>
-	</div>
-</div>
 
 <!-- 		-->
 <div class="row">
 	<div class="col-lg-6">
 		<div class="well well-sm">
 			<div class="row center">
-				<h3>Descrizione Intevento</h3>
+				<div class="col-lg-10">
+					<h3>Descrizione Intevento</h3>
+				</div>
+				<div class="col-lg-2">
+					<div class="dropdown pull-right">
+					  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Azioni <span class="caret"></span></button>
+					  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+					    <li><%= link_to 'Modifica', edit_clienti_interventi_path(:id => @interventi.id) %></li>
+					    <li><%= link_to 'Elimina', clienti_interventi_path(:id => @interventi.id), method: :delete, data: { confirm: 'Sicuro di voler eliminare?' } %></li>
+					    <li><%= link_to 'Invia Comunicazione', new_clienti_interventi_comunicazioni_path(:interventi_id => @interventi.id) %></li>
+					  </ul>
+					</div>
+				</div>
 			</div>
 			<div class="row">
-				<dl class="dl-horizontal">	
-					<dt><strong>Data Intervento: </strong></dt>
-					<dd><%= @interventi.data.strftime("%d/%m/%Y") %></dd>
-					
-					<dt><strong>Durata: </strong></dt>
-					<dd>
-						<%#= @interventi.durata %>
-						<%= @interventi.works.sum(:durata) %>
-						 ore</dd>
+				<div class="col-lg-12">
+					<dl class="dl-horizontal">	
+						<dt><strong>Data Intervento: </strong></dt>
+						<dd><%= @interventi.data.strftime("%d/%m/%Y") %></dd>
+						
+						<dt><strong>Durata: </strong></dt>
+						<dd>
+							<%#= @interventi.durata %>
+							<%= @interventi.works.sum(:durata) %>
+							 ore</dd>
 
-					<dt><strong>Descrizione: </strong></dt>
-					<dd><%= @interventi.intervento %></dd>
+						<dt><strong>Descrizione: </strong></dt>
+						<dd><%= @interventi.intervento %></dd>
 
-					<dt><strong>Annotazioni: </strong></dt>
-					<dd><%= @interventi.note %></dd>
-				</dl>
+						<dt><strong>Annotazioni: </strong></dt>
+						<dd><%= @interventi.note %></dd>
+					</dl>
+				</div>
 			</div>
 		</div>
 	</div>
