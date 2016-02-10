@@ -6,9 +6,11 @@ class WelcomeController < ApplicationController
   before_filter :authenticate_utenti!, :only => :elenco
   before_filter :is_user?, :only => :elenco
 
+
   def index
   	@conta_aperti = Interventi.where(chiuso: false).count
   	@credito_skebby = Skuby::Credit.balance
+
   end
 
 
@@ -26,5 +28,11 @@ class WelcomeController < ApplicationController
   def elenco
 
   end  
+
+
+
+  ###############################
+
+  
 
 end

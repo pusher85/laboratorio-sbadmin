@@ -27,16 +27,19 @@
 
 <hr>
 
-<p>Sono Guest = <% if !utenti_signed_in? %> <%= 'si' %> <% else  %> <%= 'no' %> 	<% end	%> | </p>
 
-<p>Sono loggato =  <% if utenti_signed_in? %> <%= 'si' %> <% else  %> <%= 'no' %> 	<% end	%> | </p>
+<p>Sono Guest = <% if !utenti_signed_in? %> <%= 'si' %> <% else  %> <%= 'no' %> 	<% end	%> | <%= @sono_guest %> </p>
 
-<p>Amministratore = <% if utenti_signed_in? && current_utenti.admin? %> <%= 'si' %> <% else  %> <%= 'no' %> 	<% end	%> | </p>
+<p>Sono loggato =  <% if utenti_signed_in? %> <%= 'si' %> <% else  %> <%= 'no' %> 	<% end	%> | <%= @sono_loggato %></p>
 
-<p>Sono Operatore = <% if utenti_signed_in? && (current_utenti.admin? || current_utenti.operatore? ) %> <%= 'si' %> <% else  %> <%= 'no' %> 	<% end	%> | </p>
+<p>Amministratore = <% if utenti_signed_in? && current_utenti.admin? %> <%= 'si' %> <% else  %> <%= 'no' %> 	<% end	%> | <%= @sono_admin %></p>
+
+<p>Sono Operatore = <% if utenti_signed_in? && (current_utenti.admin? || current_utenti.operatore? ) %> <%= 'si' %> <% else  %> <%= 'no' %> 	<% end	%> | <%= @sono_operatore %> </p>
 
 
-aa: <%= @sono_operatore %>
+<p>Sono urer = <%= @sono_user %></p>
+
+
 
 <!-- 	-->
 

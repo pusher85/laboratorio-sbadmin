@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
+  #dichiarazione variabili per stato autenticazione
+  before_filter :veriabili
 
   #before_action :authenticate_utenti!
 
@@ -39,7 +41,7 @@ class ApplicationController < ActionController::Base
   end
 
   def is_user?
-    if utenti_signed_in? && current_utenti.operatore || current_utenti.admin
+    if utenti_signed_in? && !current_utenti.admin? && !current_utenti.operatore?
       true
     else
       redirect_to root_path
@@ -65,7 +67,37 @@ class ApplicationController < ActionController::Base
       end
     end
 
+    def veriabili
+      @sono_guest = if !utenti_signed_in?
+                      true
+                    else
+                      false
+                    end
 
+      @sono_loggato = if utenti_signed_in?
+                        true
+                      else
+                        false
+                      end
+
+      @sono_admin = if utenti_signed_in? && current_utenti.admin?
+                      true
+                    else
+                      false
+                    end
+
+      @sono_operatore = if utenti_signed_in? && (current_utenti.admin? || current_utenti.operatore?)
+                          true
+                        else
+                          false
+                        end
+      
+      @sono_user = if utenti_signed_in? && !current_utenti.admin? && !current_utenti.operatore?
+                      true 
+                    else 
+                      false
+                    end
+    end
 
 
 end

@@ -34,7 +34,7 @@
 				</li>
 			<% end %>
 
-			<% if utenti_signed_in? && !current_utenti.operatore?  && !current_utenti.admin? %>
+			<% if @sono_user %>
 				<li>
 					<%= link_to '<i class="clip-folder"></i><span class="title"> Utente-Interventi</span>'.html_safe, welcome_elenco_path %>
 				</li>
