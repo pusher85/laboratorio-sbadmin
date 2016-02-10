@@ -2,7 +2,7 @@ class ClientiController < ApplicationController
 
 	#before_action :authenticate_utenti!
 	before_filter :authenticate_utenti!
-	before_filter :is_admin?
+	before_filter :is_admin?#, :except => :show
 	
 	def index
 		@clienti = Clienti.all

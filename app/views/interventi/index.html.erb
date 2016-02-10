@@ -17,6 +17,7 @@
 							<th>Intervento</th>
 							<th>vedi</th>
 							<th>stato</th>
+							<th>Tecnico Assegnato</th>
 							<th>MSG</th>
 							<th></th>
 						</tr>
@@ -24,6 +25,7 @@
 
 					<tbody>
 						<% @interventi.each do |intervento| %>
+						<% @sms = Comunicazioni.where(interventi_id: intervento.id ).count(:id) if Comunicazioni.where(interventi_id: intervento.id ) %>
 						<tr>
 							<td><%= intervento.data.strftime("%d/%m/%Y") %></td>
 							<td><%= intervento.intervento %></td>
@@ -32,6 +34,7 @@
 								<%= image_tag("warning_32.png", size: '25x25') %>
 								<% end %>
 							</td>
+							<td><%= Utenti.find(intervento.operator_id ).nome if intervento.operator_id?		%></td>
 							<td>
 								<%#= link_to 'spedisci', clienti_interventi_sms_path(:interventi_id => intervento.id) %>
 								<%= link_to '<i class="material-icons" title="Invia Comunicazione">textsms</i>'.html_safe, new_clienti_interventi_comunicazioni_path(:interventi_id => intervento.id) %>
@@ -39,7 +42,7 @@
 							<td>
 								<div class="chip">
 									<%= image_tag("sms_128.png", size: '25x25') %>
-									<%= intervento.tot_comunicazioni %>
+									<%= @sms if @sms > 0 %>
 							  	</div>
 							</td>	
 						</tr>

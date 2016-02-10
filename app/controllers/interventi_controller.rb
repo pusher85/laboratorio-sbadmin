@@ -2,7 +2,8 @@ class InterventiController < ApplicationController
 
 	#before_action :authenticate_utenti!
 	before_filter :authenticate_utenti!
-	before_filter :is_admin?
+	before_filter :is_admin?, :except => :show
+	before_filter :is_operatore?, :only => :show
 
 	#per ispezionare i valori passati in POST
 	#render plain: params[:intervento].inspect
@@ -11,8 +12,8 @@ class InterventiController < ApplicationController
 		
 		@clienti = Clienti.find(params[:clienti_id])
 		@titolo = "Elenco Interventi - #{@clienti.nome}"
-		@interventi = Interventi.select("interventis.id, interventis.data, interventis.intervento, COUNT(comunicazionis.id) AS tot_comunicazioni, interventis.chiuso").joins('LEFT OUTER JOIN comunicazionis ON interventis.id = comunicazionis.interventi_id').where(cliente_id: params[:clienti_id]).group("interventis.id").order("interventis.data DESC")
-		 
+		#@interventi = Interventi.select("interventis.id, interventis.data, interventis.intervento, COUNT(comunicazionis.id) AS tot_comunicazioni, interventis.chiuso").joins('LEFT OUTER JOIN comunicazionis ON interventis.id = comunicazionis.interventi_id').where(cliente_id: params[:clienti_id]).group("interventis.id").order("interventis.data DESC")
+		@interventi = Interventi.where(:cliente_id => @clienti)
 	end
 
 
@@ -92,7 +93,7 @@ class InterventiController < ApplicationController
 		end
 	end
 
-	
+
 
 	
 	private

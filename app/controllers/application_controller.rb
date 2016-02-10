@@ -29,6 +29,24 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def is_operatore?
+    #if current_utenti.operatore? || current_utenti.admin?
+    if utenti_signed_in? && ( current_utenti.operatore? || current_utenti.admin?)
+      true
+    else
+      redirect_to root_path
+    end
+  end
+
+  def is_user?
+    if utenti_signed_in? && current_utenti.operatore || current_utenti.admin
+      true
+    else
+      redirect_to root_path
+    end
+  end
+
+  
   protected
 
     def layout_by_resource

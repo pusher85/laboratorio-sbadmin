@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get 'welcome/login', :path => 'login'
   get 'welcome/login'
   get 'welcome/assegnati', :path => 'assegnati'
+  get 'welcome/elenco', :path => 'elenco'
   #post 'interventi/sms'
   
 

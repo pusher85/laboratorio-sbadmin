@@ -13,19 +13,32 @@
 				<%= link_to '<i class="clip-home-3"></i><span class="title"> Dashboard</span>'.html_safe, root_path %>
 			</li>
 
-			<li class="<% if current_page?(:controller => '/clienti', :action => 'index') %> <%= "active open" %> <% end %>">
-				<%= link_to '<i class="clip-users-2"></i><span class="title"> Gestione Clienti</span>'.html_safe, clienti_index_path %>
-			</li>
+			<% if utenti_signed_in? && current_utenti.admin %>
+				<li class="<% if current_page?(:controller => '/clienti', :action => 'index') %> <%= "active open" %> <% end %>">
+					<%= link_to '<i class="clip-users-2"></i><span class="title"> Gestione Clienti</span>'.html_safe, clienti_index_path %>
+				</li>
 
-			<li class="<% if current_page?(:controller => '/welcome', :action => 'aperti') %> <%= "active open" %> <% end %>">
-				<%= link_to '<i class="clip-folder"></i><span class="title"> Interventi Aperti</span>'.html_safe, welcome_aperti_path %>
-			</li>
+				<li class="<% if current_page?(:controller => '/utentis', :action => 'index') %> <%= "active open" %> <% end %>">
+					<%= link_to '<i class="material-icons">perm_identity</i><span class="title"> Gestione Accessi</span>'.html_safe, utentis_path %>
+				</li>
 
-			<li class="<% if current_page?(:controller => '/utentis', :action => 'index') %> <%= "active open" %> <% end %>">
-				<%= link_to '<i class="material-icons">perm_identity</i><span class="title"> Gestione Accessi</span>'.html_safe, utentis_path %>
-			</li>
+				<li class="<% if current_page?(:controller => '/welcome', :action => 'aperti') %> <%= "active open" %> <% end %>">
+					<%= link_to '<i class="clip-folder"></i><span class="title"> Interventi Aperti</span>'.html_safe, welcome_aperti_path %>
+				</li>
 
+			<% end %>
 
+			<% if utenti_signed_in? && (current_utenti.operatore? || current_utenti.admin) %>
+				<li class="<% if current_page?(:controller => '/welcome', :action => 'assegnati') %> <%= "active open" %> <% end %>">
+					<%= link_to '<i class="clip-folder"></i><span class="title"> I Miei Interventi</span>'.html_safe, welcome_assegnati_path %>
+				</li>
+			<% end %>
+
+			<% if utenti_signed_in? && !current_utenti.operatore?  && !current_utenti.admin? %>
+				<li>
+					<%= link_to '<i class="clip-folder"></i><span class="title"> Utente-Interventi</span>'.html_safe, welcome_elenco_path %>
+				</li>
+			<% end %>
 
 		</ul>
 		<!-- end: MAIN NAVIGATION MENU -->

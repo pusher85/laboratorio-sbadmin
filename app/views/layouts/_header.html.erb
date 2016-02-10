@@ -30,14 +30,17 @@
 								<li>
 									<i class="clip-steam"></i><%= current_utenti.admin ? ' Amministratore' : current_utenti.operatore ? ' Operatore' : ' User' %>
 								</li>
+
 								<li>
 									<%= link_to '<i class="clip-user-2"></i> Profilo'.html_safe, edit_utenti_registration_path %>
 								</li>
+
 								<li>
 									<a href="pages_calendar.html">
 										<i class="clip-calendar"></i>
 										&nbsp;My Calendar
 									</a>
+								</li>
 								<li>
 									<a href="pages_messages.html">
 										<i class="clip-bubble-4"></i>
@@ -59,7 +62,7 @@
 						<% else %>
 
 						<li>
-							<%= link_to 'Login', new_utenti_session_path %>
+							<%= link_to 'Accedi', new_utenti_session_path %>
 						</li>
 
 						<% end %>

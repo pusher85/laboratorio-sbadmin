@@ -18,6 +18,7 @@
 
 				  	<tbody>
 						  <% @assegnati.each do |intervento| %>
+						  <%	@cliente = Clienti.find(intervento.cliente_id) %>
 							<tr>
 							  <td><%= @cliente.nome %></td>
 							  <td><%= intervento.data %></td>

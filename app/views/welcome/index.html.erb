@@ -26,6 +26,18 @@
 	<% end %>
 
 <hr>
+
+<p>Sono Guest = <% if !utenti_signed_in? %> <%= 'si' %> <% else  %> <%= 'no' %> 	<% end	%> | </p>
+
+<p>Sono loggato =  <% if utenti_signed_in? %> <%= 'si' %> <% else  %> <%= 'no' %> 	<% end	%> | </p>
+
+<p>Amministratore = <% if utenti_signed_in? && current_utenti.admin? %> <%= 'si' %> <% else  %> <%= 'no' %> 	<% end	%> | </p>
+
+<p>Sono Operatore = <% if utenti_signed_in? && (current_utenti.admin? || current_utenti.operatore? ) %> <%= 'si' %> <% else  %> <%= 'no' %> 	<% end	%> | </p>
+
+
+aa: <%= @sono_operatore %>
+
 <!-- 	-->
 
 <h4>Da fare</h4>
