@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
+  
   #dichiarazione variabili per stato autenticazione
   before_filter :veriabili
 
@@ -54,9 +55,9 @@ class ApplicationController < ActionController::Base
     def layout_by_resource
       #se richiesta pagina di login reindirizza a welcome#login_layout
       #if devise_controller? && params[:action] == 'new'
-      if params[:controller] == 'devise/sessions' && params[:action] == 'new' || params[:action] == 'create'
+      if params[:controller] == 'devise/sessions' && (params[:action] == 'new' || params[:action] == 'create')
         "login_layout"
-      
+        #logger.info "richiesto login - reindirizzato a nuova pagina login"
       #elsif devise_controller? && params[:action] == 'edit'
       #  redirect_to edit_utenti_password_path
       #  "password/edit"

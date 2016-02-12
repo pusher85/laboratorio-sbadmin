@@ -39,6 +39,7 @@ class ClientiController < ApplicationController
 		if @clienti.save
 			redirect_to @clienti, notice: "Cliente aggiunto"
 		else
+			logger.info "mancano dati - ritorno a new"
 			render 'new'
 		end
 	end
