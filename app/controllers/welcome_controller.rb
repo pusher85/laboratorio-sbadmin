@@ -29,10 +29,22 @@ class WelcomeController < ApplicationController
 
   end  
 
+  def justone
+    @cod_cliente = params[:justone][:cod_cli]
+    @cod_intervento = params[:justone][:cod_int]
+
+    #non funziona
+    if @cod_cliente.nil? || @cod_intervento.nil?
+      flash[:errore] = "Errore nella query - justone"
+      redirect_to :controller => "welcome", :action => "prelogin"
+    end
+
+  end
+
 
 
   ###############################
 
-  
+
 
 end

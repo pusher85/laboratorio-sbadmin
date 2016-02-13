@@ -49,7 +49,10 @@
 <body>
 <%# if current_page?(welcome_prelogin_path) %> 
 <%= render 'header_prelogin' %>
-<%= render 'body_prelogin' %>
+<%= render 'body_justone' %>
+
+
+<%= debug(params) %>
 <%= render 'footer_prelogin' %>
 
 
@@ -94,3 +97,4 @@
 </script>
 
 </body>
+

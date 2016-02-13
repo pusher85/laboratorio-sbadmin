@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   #root 'welcome#index'
   get 'welcome/aperti', :path => "aperti"
   get 'welcome/prelogin'
+  get 'welcome/justone'
+  post 'welcome/justone'
   get 'welcome/login', :path => 'login'
   get 'welcome/login'
   get 'welcome/assegnati', :path => 'assegnati'
