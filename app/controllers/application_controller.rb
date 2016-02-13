@@ -68,6 +68,8 @@ class ApplicationController < ActionController::Base
       end
     end
 
+    ###########################################################################################################
+
     def veriabili
       @sono_guest = if !utenti_signed_in?
                       true
@@ -100,5 +102,6 @@ class ApplicationController < ActionController::Base
                     end
     end
 
+    ###########################################################################################################
 
 end

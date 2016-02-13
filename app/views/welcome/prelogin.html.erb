@@ -12,24 +12,30 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <%= stylesheet_link_tag "/assets/plugins/bootstrap/css/bootstrap.min", media: "all" %>
-  <%= stylesheet_link_tag "/assets/plugins/font-awesome/css/font-awesome.min", media: "all" %>
-  <%= stylesheet_link_tag "/assets/fonts/style", media: "all" %>
-  <%= stylesheet_link_tag "/assets/plugins/animate.css/animate.min", media: "all" %>
-  <%= stylesheet_link_tag "/assets/css/main", media: "all" %>
-  <%= stylesheet_link_tag "/assets/css/main-responsive", media: "all" %>
-  <%= stylesheet_link_tag "/assets/css/theme_blue", media: "all" %>
+                    <%= stylesheet_link_tag "/assets/plugins/bootstrap/css/bootstrap.min", media: "all" %>
+                    <%= stylesheet_link_tag "/assets/plugins/font-awesome/css/font-awesome.min", media: "all" %>
+                    <%= stylesheet_link_tag "/assets/fonts/style", media: "all" %>
+                    <%= stylesheet_link_tag "/assets_fe/plugins/animate.css/animate.min", media: "all" %>
+                    <%= stylesheet_link_tag "/assets_fe/css/main", media: "all" %>
+                    <%= stylesheet_link_tag "/assets_fe/css/main-responsive", media: "all" %>
+                    <%= stylesheet_link_tag "/assets_fe/css/theme_blue", media: "all" %>
+                    <!-- end main js -->
 
-  <%= stylesheet_link_tag "/assets/plugins/revolution_slider/rs-plugin/css/settings" %>
-  <%= stylesheet_link_tag "/assets/plugins/flex-slider/flexslider" %>
-  <%= stylesheet_link_tag "/assets/plugins/colorbox/example2/colorbox" %>
+                    <!-- js specifici -->
+                    <%= stylesheet_link_tag "/assets/plugins/revolution_slider/rs-plugin/css/settings" %>
+                    <%= stylesheet_link_tag "/assets/plugins/flex-slider/flexslider" %>
+                    <%= stylesheet_link_tag "/assets/plugins/colorbox/example2/colorbox" %>
 
-  <%= stylesheet_link_tag "/assets/plugins/iCheck/skins/all", media: "all" %>
-  <%= stylesheet_link_tag "/assets/plugins/bootstrap-colorpalette/css/bootstrap-colorpalette", media: "all" %>
-  <%= stylesheet_link_tag "/assets/plugins/perfect-scrollbar/src/perfect-scrollbar", media: "all" %>
-  <%= stylesheet_link_tag "/assets/css/theme_light", media: "all" %>
-  <%= stylesheet_link_tag "/assets/plugins/datepicker/css/datepicker", media: "all" %>
-  <%= stylesheet_link_tag "/assets/plugins/bootstrap-daterangepicker/daterangepicker-bs3", media: "all" %>
+                    <%= stylesheet_link_tag "/assets/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css", media: "all" %>
+                    <%= stylesheet_link_tag "/assets/plugins/bootstrap-modal/css/bootstrap-modal.css", media: "all" %>
+                    <!-- fine specifici -->
+
+  <%#= stylesheet_link_tag "/assets/plugins/iCheck/skins/all", media: "all" %>
+  <%#= stylesheet_link_tag "/assets/plugins/bootstrap-colorpalette/css/bootstrap-colorpalette", media: "all" %>
+  <%#= stylesheet_link_tag "/assets/plugins/perfect-scrollbar/src/perfect-scrollbar", media: "all" %>
+                  <%#= stylesheet_link_tag "/assets/css/theme_light", media: "all" %>
+  <%#= stylesheet_link_tag "/assets/plugins/datepicker/css/datepicker", media: "all" %>
+  <%#= stylesheet_link_tag "/assets/plugins/bootstrap-daterangepicker/daterangepicker-bs3", media: "all" %>
 
   <!-- start: HTML5SHIV FOR IE8 -->
     <!--[if lt IE 9]>
@@ -47,10 +53,10 @@
 
 <!-- start: MAIN JAVASCRIPTS -->
 <!--[if lt IE 9]>
-<%= javascript_include_tag "/assets/plugins/respond.min" %>
-<%= javascript_include_tag "/assets/plugins/excanvas.min" %>
-<%= javascript_include_tag "/assets/plugins/html5shiv" %>
-<%= javascript_include_tag "/assets/plugins/jQuery-lib/1.10.2/jquery.min" %>
+<%= javascript_include_tag "/assets_fe/plugins/respond.min" %>
+<%= javascript_include_tag "/assets_fe/plugins/excanvas.min" %>
+<%= javascript_include_tag "/assets_fe/plugins/html5shiv" %>
+<%= javascript_include_tag "/assets_fe/plugins/jQuery-lib/1.10.2/jquery.min" %>
 <![endif]-->
 <!--[if gte IE 9]><!-->
 <%= javascript_include_tag "/assets/plugins/jQuery-lib/2.0.3/jquery.min" %>
@@ -61,21 +67,27 @@
 <%= javascript_include_tag "/assets/plugins/jquery.appear/jquery.appear" %>
 <%= javascript_include_tag "/assets/plugins/blockUI/jquery.blockUI" %>
 <%= javascript_include_tag "/assets/plugins/jquery-cookie/jquery.cookie" %>
-<%= javascript_include_tag "/assets/js/main-frontend" %>
+<%= javascript_include_tag "/assets_fe/js/main" %>
 <!-- end: MAIN JAVASCRIPTS -->
 <!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
-<%= javascript_include_tag "/assets/plugins/revolution_slider/rs-plugin/js/jquery.themepunch.plugins.min" %>
-<%= javascript_include_tag "/assets/plugins/revolution_slider/rs-plugin/js/jquery.themepunch.revolution.min" %>
-<%= javascript_include_tag "/assets/plugins/flex-slider/jquery.flexslider" %>
-<%= javascript_include_tag "/assets/plugins/stellar.js/jquery.stellar.min" %>
+<%#= javascript_include_tag "/assets_fe/plugins/revolution_slider/rs-plugin/js/jquery.themepunch.plugins.min" %>
+<%#= javascript_include_tag "/assets_fe/plugins/revolution_slider/rs-plugin/js/jquery.themepunch.revolution.min" %>
+<%= javascript_include_tag "/assets_fe/plugins/flex-slider/jquery.flexslider" %>
+  <%#= javascript_include_tag "/assets_fe/plugins/stellar.js/jquery.stellar.min" %>
 <%= javascript_include_tag "/assets/plugins/colorbox/jquery.colorbox-min" %>
-<%= javascript_include_tag "/assets/js/index-frontend" %>
+<%= javascript_include_tag "/assets_fe/js/index" %>
+
+
+<%= javascript_include_tag "/assets/plugins/bootstrap-modal/js/bootstrap-modal.js" %>
+<%= javascript_include_tag "/assets/plugins/bootstrap-modal/js/bootstrap-modalmanager" %>
+<%= javascript_include_tag "/assets/js/ui-modals" %>
 <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 <script>
 	jQuery(document).ready(function() {
 		Main.init();
-		Index.init();
-		$.stellar();
+    UIModals.init();
+		//Index.init();
+		//$.stellar();
 	});
 </script>
 

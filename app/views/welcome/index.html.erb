@@ -1,7 +1,7 @@
 <h1>Welcome#index</h1>
 <p>Find me in app/views/welcome/idex.html.erb</p>
 
-<br>
+
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 <br>
@@ -11,7 +11,8 @@
 <hr>
 <p>Hai un credito residuo per gli sms di €<%= @credito_skebby.round(2) %></p>
 <hr>
-<p><%= link_to "Nuova pagina di login", welcome_login_path %></p>
+<p><%= link_to "Pagina guest", welcome_prelogin_path %></p>
+<hr>
 
 <% if utenti_signed_in? %>
 	<p>Sei loggato come:<%= current_utenti.email  %> </p>
@@ -47,9 +48,6 @@
 
 <p>Permessi per operatore<br>
 da operatore: elenco interventi assegnati con evidenza per nuovi e aperti<br></p>
-
-<p>Togliere "interventi aperti" da controller welcome</p>
-
 
 
 <!-- 	-->
