@@ -23,11 +23,11 @@
 					</div>
 					<div class="navbar-collapse collapse">
 						<ul class="nav navbar-nav navbar-right">
-							<li class="active">
+							<li class="<%= 'active' if current_page?(welcome_prelogin_path) %>">
 								<%= link_to "home", welcome_prelogin_path %>
 							</li>
 							
-							<li>
+							<li class="<%= 'active' if (params[:controller] == 'welcome' && params[:action] == 'justone') %>">
 								<%= link_to 'Just<i class="clip-seven-segment-1"></i> One'.html_safe, '#responsive', "data-toggle" => "modal" %>
 							</li>
 

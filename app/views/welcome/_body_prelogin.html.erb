@@ -1,6 +1,40 @@
 		<!-- start: MAIN CONTAINER -->
 		<div class="main-container">
-			
+
+			<% if !flash[:notice].blank? %>
+				<section>
+			   <div class = "alert alert-info">
+			      <%= flash[:notice] %>
+			 </div>
+			 </section>
+			<% end %>
+
+			<% if !flash[:error].blank? %>
+				<section>
+			   <div class = "alert alert-info">
+			      <%= alert %>
+			 </div>
+			 </section>
+			<% end %>
+
+
+
+			<% flash.each do |key, value| %>
+				<hr>
+						<section>
+							<div class="container">
+				        <div class="alert alert-<%= key %>">
+				        	<button data-dismiss="alert" class="close">
+										&times;
+									</button>
+									<i class="fa fa-exclamation-triangle"></i>
+				        	<strong>Attenzione!</strong> <%= value %>
+				        </div>
+				      </div>
+			      </section>
+				<hr>
+			<% end %>			
+						
 			
 			<section>
 				<!-- start: CORE BOXES CONTAINER -->
@@ -59,7 +93,7 @@
 					<div class="row">
 						<div class="col-md-12">
 							<h1 class="center">
-								Aumenta le tue performance scegliendo i nosti servizi
+								Aumenta le tue performance scegliendo i nostri servizi
 							</h1>
 							<p class="center">
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rutrum pellentesque imperdiet. Nulla lacinia iaculis nulla non metus. pulvinar. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut eu risus enim, ut pulvinar lectus. Sed hendrerit nibh.

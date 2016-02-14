@@ -33,11 +33,18 @@ class WelcomeController < ApplicationController
     @cod_cliente = params[:justone][:cod_cli]
     @cod_intervento = params[:justone][:cod_int]
 
-    #non funziona
-    if @cod_cliente.nil? || @cod_intervento.nil?
-      flash[:errore] = "Errore nella query - justone"
+    if @cod_cliente.blank? || @cod_intervento.blank?
+      flash[:danger] = 'Controlla i parametri inseriti. La ricerca non ha prodotto risultati'
       redirect_to :controller => "welcome", :action => "prelogin"
     end
+
+    @intervento = Interventi.where(:cliente_id => @cod_cliente, :codice => @cod_intervento ).first
+    
+    if !@intervento
+      flash[:danger] = 'Errore nella query - cerca justone'
+      redirect_to:controller => "welcome", :action => "prelogin"
+    end     
+    
 
   end
 
