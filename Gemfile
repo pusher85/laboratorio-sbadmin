@@ -40,7 +40,7 @@ gem 'mysql'
 
 ###################################################
 # Gemme Server di produzione - vps
-# gem 'therubyracer',  platforms: :ruby
+gem 'therubyracer',  platforms: :ruby
 ###################################################
 
 

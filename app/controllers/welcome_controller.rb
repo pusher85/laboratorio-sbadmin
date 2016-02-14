@@ -36,6 +36,7 @@ class WelcomeController < ApplicationController
     if @cod_cliente.blank? || @cod_intervento.blank?
       flash[:danger] = 'Controlla i parametri inseriti. La ricerca non ha prodotto risultati'
       redirect_to :controller => "welcome", :action => "prelogin"
+	return
     end
 
     @intervento = Interventi.where(:cliente_id => @cod_cliente, :codice => @cod_intervento ).first
@@ -43,6 +44,7 @@ class WelcomeController < ApplicationController
     if !@intervento
       flash[:danger] = 'Errore nella query - cerca justone'
       redirect_to:controller => "welcome", :action => "prelogin"
+	return
     end     
     
 
