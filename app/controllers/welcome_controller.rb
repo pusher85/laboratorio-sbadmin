@@ -8,6 +8,10 @@ class WelcomeController < ApplicationController
 
 
   def index
+    if @sono_guest
+      redirect_to :controller => "welcome", :action => "prelogin"
+      return
+    end
   	@conta_aperti = Interventi.where(chiuso: false).count
   	@credito_skebby = Skuby::Credit.balance
 
@@ -29,25 +33,37 @@ class WelcomeController < ApplicationController
 
   end  
 
+
+  def prelogin
+    if !@sono_guest
+      redirect_to root_path
+      return
+    end    
+
+  end
+
   def justone
+    if !@sono_guest
+      redirect_to root_path
+      return
+    end
+    
     @cod_cliente = params[:justone][:cod_cli]
     @cod_intervento = params[:justone][:cod_int]
 
     if @cod_cliente.blank? || @cod_intervento.blank?
       flash[:danger] = 'Controlla i parametri inseriti. La ricerca non ha prodotto risultati'
       redirect_to :controller => "welcome", :action => "prelogin"
-	return
+      return
     end
 
     @intervento = Interventi.where(:cliente_id => @cod_cliente, :codice => @cod_intervento ).first
     
     if !@intervento
-      flash[:danger] = 'Errore nella query - cerca justone'
-      redirect_to:controller => "welcome", :action => "prelogin"
-	return
+      flash[:danger] = 'Intervento non trovato. Controlla i parametri'
+      redirect_to :controller => "welcome", :action => "prelogin"
+      return
     end     
-    
-
   end
 
 
