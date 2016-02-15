@@ -12,16 +12,22 @@
 						<thead>
 						  <tr>
 								<th>Cliente</th>
+								<th>Descrizione</th>
 								<th>Data Apertura</th>
+								<th>Tecnico</th>
 								<th>Visualizza</th>
 						  </tr>
 				  	</thead>
 
 				  	<tbody>
-						  <% @aperti.each do |intervento| %>
+						  <% @interventi.each do |intervento| %>
+						  <% @cliente = Clienti.find(intervento.cliente_id) %>
+						  <% @tecnico = Utenti.find(intervento.operator_id) if intervento.operator_id? %>
 							<tr>
-							  <td><%= intervento.nome %></td>
+							  <td><%= @cliente.nome %></td>
+							  <td><%= truncate(intervento.intervento, length: 55, omission: '...(continua)...') %></td>
 							  <td><%= intervento.data %></td>
+							  <td><%= @tecnico.nome if intervento.operator_id? %></td>
 							  <td><%= link_to '<i class="material-icons">pageview</i>'.html_safe, clienti_interventi_path(:clienti_id => intervento.cliente_id, :id => intervento.id) %></td>
 							</tr>
 						  <% end %>

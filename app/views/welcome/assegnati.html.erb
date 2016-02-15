@@ -12,6 +12,7 @@
 						  <tr>
 								<th>Cliente</th>
 								<th>Data Apertura</th>
+								<th>Descrizione</th>
 								<th>Visualizza</th>
 						  </tr>
 				  	</thead>
@@ -22,6 +23,7 @@
 							<tr>
 							  <td><%= @cliente.nome %></td>
 							  <td><%= intervento.data %></td>
+							  <td><%= intervento.intervento %></td>
 							  <td><%= link_to '<i class="material-icons">pageview</i>'.html_safe, clienti_interventi_path(:clienti_id => intervento.cliente_id, :id => intervento.id) %></td>
 							</tr>
 						  <% end %>

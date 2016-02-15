@@ -20,7 +20,8 @@ class WelcomeController < ApplicationController
 
   def aperti
   	@titolo =" Interventi in corso"
-  	@aperti = Interventi.select("interventis.data, interventis.intervento, clientis.nome, interventis.cliente_id, interventis.id").joins('INNER JOIN clientis ON interventis.cliente_id = clientis.id').where(chiuso: false).order("data ASC")
+  	#@aperti = Interventi.select("interventis.data, interventis.intervento, clientis.nome, interventis.cliente_id, interventis.id").joins('INNER JOIN clientis ON interventis.cliente_id = clientis.id').where(chiuso: false).order("data ASC")
+    @interventi = Interventi.where(chiuso: false)    
   end
 
 

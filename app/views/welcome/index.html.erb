@@ -2,8 +2,17 @@
 <p>Find me in app/views/welcome/idex.html.erb</p>
 
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<% if !flash[:notice].blank? %>
+   <div class = "alert alert-info">
+      <%= flash[:notice] %>
+ </div>
+<% end %>
+
+<% if !flash[:error].blank? %>
+   <div class = "alert alert-info">
+      <%= alert %>
+ </div>
+<% end %>
 <br>
 
 
@@ -43,12 +52,16 @@
 
 
 <!-- 	-->
-
+<hr>
 <h4>Da fare</h4>
 
 <p>Permessi per operatore<br>
 da operatore: elenco interventi assegnati con evidenza per nuovi e aperti<br></p>
 
+<p>Assegnazione login a cliente (problemi nel controller su azione new renderizzata da create<br>
+Se durante l'assegnazione, non passano le validazioni, correggendo e reinviando non viene legato l'utente al cliente.<br>
+Il problema sta nella variabile url che scompare e di conseguenza la variabile @miocliente non viene dichiarata e la<br>
+form-field-hidden con id 'utentis_clienti_id' non viene renderizzata e compilata.</p>
 
 <!-- 	-->
 <hr>
