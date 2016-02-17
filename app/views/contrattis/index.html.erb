@@ -1,14 +1,16 @@
 <div class="row">
-  <div class="col s8 offset-s2" align="center">
-    <span class="flow-text"><h3>Elenco Contratti: <br><%= @clienti.nome %></h3></span>
-    <hr>
+  <div class="col-ms-12">
+    <div class="col s8 offset-s2" align="center">
+      <span class="flow-text"><h3>Elenco Contratti: <br><%= @clienti.nome %></h3></span>
+      <hr>
+    </div>
   </div>
 </div>
 
 
 <div class="row">
-  <div class="col s12">
-    <table class="highlight centered">
+  <div class="col-md-12">
+    <table class="table  table-hover" id="dataTables-contratti">
       <thead>
         <tr>
           <th>Clienti</th>
@@ -36,21 +38,24 @@
   </div>
 </div>
 
+<br>
 <div class="divider"></div>
 
 <div class="row">
-  <ul class="lista-pulsanti">
-    <li><%= link_to '<i class="material-icons left">fast_rewind</i>Indietro'.html_safe, clienti_path(@clienti.id), class: 'waves-effect waves-light btn' %></li>
-    <li><%= link_to '<i class="material-icons left">playlist_add</i>Nuovo Contratto'.html_safe, new_clienti_contratti_path, class: 'waves-effect waves-light btn green' %></li>
-  </ul>
+  <div class="col-md-12">
+    <%= link_to '<i class="material-icons left">fast_rewind</i>Indietro'.html_safe, clienti_path(@clienti.id), class: 'btn btn-danger' %>
+    <%= link_to '<i class="material-icons left">playlist_add</i>Nuovo Contratto'.html_safe, new_clienti_contratti_path, class: 'btn btn-green' %>
+  </div>
 </div>
 
-Totale ore acquistate = <%= @acquistate %>
 <br>
-Totale ore usate = <%= @ore_usate %>
-<br>
-Ore rimanenti = <%= @ore_rimanenti %>
+<p>Totale ore acquistate = <%= @acquistate %></p>
 
+<p>Totale ore usate = <%= @ore_usate %></p>
+
+<p>Ore rimanenti = <%= @ore_rimanenti %></p>
+
+<br>
 <%= debug(params) %>
 
 <%#= link_to 'New Contratti', new_clienti_contratti_path,  %>

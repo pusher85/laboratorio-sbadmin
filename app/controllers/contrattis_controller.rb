@@ -14,8 +14,11 @@ class ContrattisController < ApplicationController
 
     # Calcolo ore residue per contratti acquistati
     @acquistate = Contratti.where(clienti_id: @clienti).sum(:ore)
-    @ore_usate = Interventi.where(:cliente_id => @clienti).sum(:durata)
-    @ore_rimanenti = @acquistate-@ore_usate
+    #@ore_usate = Interventi.where(:cliente_id => @clienti).sum(:durata)
+    @interventi = Interventi.where(cliente_id: @clienti)
+    #@ore_usate = Interventi.where(cliente_id: @clienti).works
+    #@ore_rimanenti = @acquistate-@ore_usate
+    #@works = @interventi.works.where(:interventi_id => '2')
 
 
   end
