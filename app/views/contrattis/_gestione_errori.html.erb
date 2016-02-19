@@ -1,6 +1,6 @@
 <% if @contratti.errors.any? %>
 <div id="error_explanation">
-  <h2><%= pluralize(@contratti.errors.count, "error") %> prohibited this contratti from being saved:</h2>
+  <h2><%= pluralize(@contratti.errors.count, "error") %> impediscono il salvataggio del contratto:</h2>
 
   <ul>
   <% @contratti.errors.full_messages.each do |message| %>

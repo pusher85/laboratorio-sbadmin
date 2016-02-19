@@ -35,6 +35,11 @@ it:
               too_short: La descrizione è troppo corta
             durata:
               blank: Definire la durata dell'intervento
+
+        contratti:
+          attributes:
+            ore:
+              blank: Definisci le ore acquistate per il contratto che stai inserendo
   date:
     abbr_day_names:
     - dom

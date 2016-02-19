@@ -14,33 +14,16 @@ class ContrattisController < ApplicationController
 
     # Calcolo ore residue per contratti acquistati
     @acquistate = Contratti.where(clienti_id: @clienti).sum(:ore)
-    #@ore_usate = Interventi.where(:cliente_id => @clienti).sum(:durata)
+
     
+    totaleore = Array.new
 
-    #@interventi = Work.sum(:durata)
-    #@ore_usate = Interventi.where(cliente_id: @clienti).works
-    #@ore_rimanenti = @acquistate-@ore_usate
-    
-    #@workscount = Work.where(:interventi_id => '2').count
-    #@ore_usate = Work.sum(:durata)
-    #@ore_usate = Interventi.where(cliente_id: @clienti).Work.sum(:durata)
-    #@ore_usate = Work.where(interventi_id: Work.sum(:durata)).sum(:durata)
-
-    ore_intervento = Array.new
-
-    Interventi.where(cliente_id: @clienti) do |int|
-      @durata_singolo = Work.where(:interventi_id => int.id).sum(:durata)
-      ore_intervento.push(@durata_singolo)
+    Interventi.where(cliente_id: @clienti).each do |int|
+      totaleore.push(Work.where(:interventi_id => int.id).sum(:durata))
     end
 
-    @array = ore_intervento
-
-    #@ore_usate = ore_intervento.inject(0){|sum,x| sum + x }
-    @ore_usate = 0
-    ore_intervento.each { |o| @ore_usate+=o}
-    #@ore_rimanenti = @acquistate-@ore_usate
-
-
+    @ore_usate = totaleore.sum
+    @ore_rimanenti = @acquistate-@ore_usate
 
   end
 
@@ -51,18 +34,21 @@ class ContrattisController < ApplicationController
 
   # GET /contrattis/new
   def new
+    @titolo = 'Nuovo contratto di assistenza'
     @clienti = Clienti.find(params[:clienti_id])
     @contratti = Contratti.new
   end
 
   # GET /contrattis/1/edit
   def edit
-     @clienti = Clienti.find(params[:clienti_id])
+    @titolo = 'Modifica contratto di assistenza'
+    @clienti = Clienti.find(params[:clienti_id])
   end
 
   # POST /contrattis
   # POST /contrattis.json
   def create
+    @titolo = 'Nuovo contratto di assistenza'
     @clienti = Clienti.find(params[:clienti_id])
     @contratti = Contratti.new(contratti_params)
 

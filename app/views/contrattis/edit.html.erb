@@ -1,18 +1,8 @@
-<div class="row">
-	<div class="col s12 center-align">
-		<h3>Modifica Contratto</h3>
-	</div>
-</div>
-<div class="divider"></div>
-
-
 <%= render'gestione_errori' %>
 
 
-<%#= render 'form' %>
 <%= render 'form', {url: clienti_contratti_path, method: 'patch'} %>
 
-<!--
-<%#= link_to 'Show', clienti_contratti_path %> |
-<%#= link_to 'Back', clienti_contrattis_path %>
--->
+<div class="divider"></div>
+
+<%= debug(params) %>

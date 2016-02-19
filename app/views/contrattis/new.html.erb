@@ -1,17 +1,14 @@
-<div class="row">
-	<div class="col s12 center-align">
-		<h3>Nuovo Contratto</h3>
-	</div>
-</div>
-<div class="divider"></div>
-
-
 <%= render'gestione_errori' %>
 
-<%#= render 'form' %>
+<div class="row">
+	<div class="col-md-12">
+		<h3><%= @clienti.nome %></h3>
+	</div>
+</div>
+
+
 <%= render 'form', {url: clienti_contrattis_path, method: 'nessuno'} %>
 
-<%= link_to 'Back', clienti_contrattis_path %>
 
 
 
