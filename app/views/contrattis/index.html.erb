@@ -55,6 +55,13 @@
 
 <p>Ore rimanenti = <%= @ore_rimanenti %></p>
 
+<p>
+  <% @array.each do |o| %>
+    <%= o %>
+    <%end %>
+
+</p>
+
 <br>
 <%= debug(params) %>
 
