@@ -7,7 +7,6 @@
 				<%= @clienti.nome %>
 			</div>
 		</li>
-
 		<li class="col-sm-4 col-xs-4">
 			<div class="values">
 				<i class="clip-settings circle-icon circle-bricky"></i>
@@ -15,7 +14,6 @@
 				<%= @interventi.cliente_id %>
 			</div>
 		</li>
-
 		<li class="col-sm-4 col-xs-4">
 			<div class="values">
 				<i class="clip-target circle-icon circle-teal"></i>
@@ -25,10 +23,7 @@
 		</li>
 	</ul>
 </div>
-
 <div class="divider"></div>
-
-
 <!-- 		-->
 <div class="row">
 	<div class="col-lg-6">
@@ -53,16 +48,10 @@
 					<dl class="dl-horizontal">	
 						<dt><strong>Data Intervento: </strong></dt>
 						<dd><%= @interventi.data.strftime("%d/%m/%Y") %></dd>
-						
 						<dt><strong>Durata: </strong></dt>
-						<dd>
-							<%#= @interventi.durata %>
-							<%= @interventi.works.sum(:durata) %>
-							 ore</dd>
-
+						<dd><%= @interventi.works.sum(:durata) %> ore</dd>
 						<dt><strong>Descrizione: </strong></dt>
 						<dd><%= @interventi.intervento %></dd>
-
 						<dt><strong>Annotazioni: </strong></dt>
 						<dd><%= @interventi.note %></dd>
 					</dl>
@@ -70,7 +59,6 @@
 			</div>
 		</div>
 	</div>
-
 	<div class="col-lg-6 col-xs-12">
 		<div class="well well-sm">
 			<div class="row">
@@ -99,7 +87,6 @@
 		</div>
 	</div>
 </div>
-
 <div class="row"><!-- riga works -->
 	<div class="col-lg-12">
 		<div class="panel panel-default">
@@ -121,7 +108,6 @@
 							<th>fa-edit</th>
 						</tr>
 					</thead>
-
 					<tbody>
 						<% @interventi.works.order("data asc").each do |w| %>
 						<tr>
@@ -140,26 +126,15 @@
 				</table>
 			</div>
 		</div>
-
 	</div>
 </div><!-- fine riga works -->
-
 <div class="divider"></div>
 <br>
-
 <div class="row">
 	<div class="col-lg-12">
 		<%= link_to 'Indietro', clienti_interventi_index_path(@clienti.id), class: 'btn btn-danger' %>
 		<%= link_to "NuovoWork", new_clienti_interventi_work_path(:interventi_id => @interventi.id), class: 'btn btn-green' %>
 	</div>
 </div>
-
-
 <br>
 <%= debug(params) %>
-
-
-
-
-
-

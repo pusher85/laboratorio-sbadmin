@@ -4,18 +4,107 @@
 
 	<section class="wrapper wrapper-grey padding50">
 		<div class="container">
+
+			<!-- intestazione -->
 			<div class="row">
 				<div class="col-md-12">
-					<h3>Cliente: <%= @cliente.nome %></h3>
-					<h4>Data creazione: <%= @intervento.data %></h4>
+					<h3><%= @cliente.nome %></h3>
+					<h4>Intervento del <%= @intervento.data.strftime("%d/%m/%Y") %></h4>
+				</div>
+			</div>
 
-					<hr>
-					Avanzamento
-					<div class="progress progress-striped active progress-sm">
-						<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-							<span class="sr-only"> 40% Complete (success)</span>
+			<!-- barra di progressione -->
+			<div class='row'>
+				<div class='col-md-12'>
+					<div class="swMain">
+						<ul>
+							<li>
+								<a href="#step-1" class="done" isdone="1" rel="1">
+									<div class="stepNumber">
+										1
+									</div>
+									<span class="stepDesc"> Step 1
+										<br />
+										<small>Inserito nel sistema</small> </span>
+								</a>
+							</li>
+							<li>
+								<a href="#step-2" class="selected" isdone="1" rel="2">
+									<div class="stepNumber">
+										2
+									</div>
+									<span class="stepDesc"> Step 2
+										<br />
+										<small>Assegnazione al tecnico</small> </span>
+								</a>
+							</li>
+							<li>
+								<a href="#step-3" class="disabled" isdone="0" rel="3">
+									<div class="stepNumber">
+										3
+									</div>
+									<span class="stepDesc"> Step 3
+										<br />
+										<small>In corso di lavorazione</small> </span>
+								</a>
+							</li>
+							<li>
+								<a href="#step-4" class="disabled" isdone="0" rel="4">
+									<div class="stepNumber">
+										4
+									</div>
+									<span class="stepDesc"> Step 4
+										<br />
+										<small>Intervento chiuso</small> </span>
+								</a>
+							</li>
+						</ul>
+						<div class="progress progress-striped active progress-sm">
+							<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%">
+								<span class="sr-only"> 40% Complete (success)</span>
+							</div>
 						</div>
+					</div> 
+				</div>
+			</div>
+
+			<!-- dati -->
+			<div class="row">
+				<div class="col-lg-6 col-md-12">
+					<div class="well well-sm">
+
+						<div class="row">
+							<div class="col-lg-3 col-xs-6">
+								<%= image_tag("operator-256.png", size: '128x128') %>
+							</div>
+							<div class="col-lg-9 col-xs-6">
+									<div class="row center">
+										<div class="col-xs-12">
+											<h3>Tecnico Assegnato</h3>
+										</div>
+									</div>
+									<div class="row">
+										<div>
+											<div class="col-lg-6 col-xs-12">
+											<% if !@tecnico %>
+												Tecnico non assegnato
+											<% else %>
+											<h3><%= @tecnico.nome %>  </h3>
+											<% end %>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
 					</div>
+				</div>
+			</div>
+
+
+			<!-- dati sporchi -->
+			<div class="row">
+				<div class="col-md-12">
 
 					<p>Stati di avanzamento:</p>
 					<p>Inserito nel sistema</p>
@@ -41,59 +130,10 @@
 				</div>
 			</div>
 
-			<div class='row'>
-				<div class='col-md-12'>
-					<ul>
-						<li>
-							<a href="#step-1">
-								<div class="stepNumber">
-									1
-								</div>
-								<span class="stepDesc"> Step 1
-									<br />
-									<small>Step 1 description</small> </span>
-							</a>
-						</li>
-						<li>
-							<a href="#step-2">
-								<div class="stepNumber">
-									2
-								</div>
-								<span class="stepDesc"> Step 2
-									<br />
-									<small>Step 2 description</small> </span>
-							</a>
-						</li>
-						<li>
-							<a href="#step-3">
-								<div class="stepNumber">
-									3
-								</div>
-								<span class="stepDesc"> Step 3
-									<br />
-									<small>Step 3 description</small> </span>
-							</a>
-						</li>
-						<li>
-							<a href="#step-4">
-								<div class="stepNumber">
-									4
-								</div>
-								<span class="stepDesc"> Step 4
-									<br />
-									<small>Step 4 description</small> </span>
-							</a>
-						</li>
-					</ul>
-					<div class="progress progress-striped active progress-sm">
-						<div aria-valuemax="100" aria-valuemin="0" role="progressbar" class="progress-bar progress-bar-success step-bar">
-							<span class="sr-only"> 0% Complete (success)</span>
-						</div>
-					</div>
+			
 
 
-				</div>
-			</div>	
+
 
 
 		</div>		

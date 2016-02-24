@@ -75,7 +75,8 @@ class WelcomeController < ApplicationController
     @stato_tecnico = Utenti.find(@intervento.operator_id) if @intervento.operator_id 
     @stato_numero_works =  @intervento.works.count
 
-    
+    @tecnico = Utenti.find(@intervento.operator_id) if @intervento.operator_id 
+
   end
 
 
