@@ -16,22 +16,40 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :data %><br>
-    <%= f.date_select :data %>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.label :data %>
+        <%= f.text_field :data, :class => "date-picker form-control input-mini", :value => Time.now.strftime("%Y/%m/%d"), readonly: true %>
+      </div>
+    </div>
+
+    <div class="col-md-2">
+      <div class="form-group">
+        <%= f.label :durata %>
+        <%= f.number_field :durata, maxlength: 2, class: 'form-control limited' %>
+      </div>
+    </div>
+
   </div>
-  <div class="field">
-    <%= f.label :durata %><br>
-    <%= f.number_field :durata %>
+
+  <div class="row">
+    <div class='col-md-8'>
+      <%= f.label :descrizione %>
+      <%= f.text_area :descrizione, maxlength: 200, class: 'form-control limited' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :descrizione %><br>
-    <%= f.text_area :descrizione %>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <%= f.submit 'Salva', :class => 'btn btn-success' %>
+        <%= link_to 'Indietro', clienti_interventi_path(:id => @interventi), class: 'btn btn-danger' %>
+      </div>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-    <%= link_to 'Indietro', clienti_interventi_path(:id => @interventi), class: 'btn btn-danger' %>
-  </div>
+  
+
 <% end %>
 
 

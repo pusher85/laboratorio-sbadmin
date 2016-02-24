@@ -22,7 +22,7 @@ class WorksController < ApplicationController
     @clienti = Clienti.find(params[:clienti_id])
     @interventi = Interventi.find(params[:interventi_id])
     @work = Work.new
-    respond_with(@work)
+    #respond_with(@work)
   end
 
   def edit
@@ -37,9 +37,13 @@ class WorksController < ApplicationController
     @work = Work.new(work_params)
     @work.interventi_id = params[:interventi_id]
     @work.operator_id = current_utenti.id
-    @work.save
-    #respond_with(@interventi)
-    redirect_to clienti_interventi_path(:clienti_id => @clienti, :id => @interventi),  notice: "Lavorazione inserita"
+    if @work.save
+       #respond_with(@interventi)
+      redirect_to clienti_interventi_path(:clienti_id => @clienti, :id => @interventi),  notice: "Lavorazione inserita"
+    else
+      render 'new'
+    end
+    
   end
 
   def update

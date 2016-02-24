@@ -64,7 +64,18 @@ class WelcomeController < ApplicationController
       flash[:danger] = 'Intervento non trovato. Controlla i parametri'
       redirect_to :controller => "welcome", :action => "prelogin"
       return
-    end     
+    end
+
+    @cliente = Clienti.find(@cod_cliente)
+
+    ########### Gestione stati di lavorazione
+
+    @stato_data_inserimento = @intervento.created_at
+    @stato_tecnico_presente = 'assegnato' if @intervento.operator_id
+    @stato_tecnico = Utenti.find(@intervento.operator_id) if @intervento.operator_id 
+    @stato_numero_works =  @intervento.works.count
+
+    
   end
 
 
