@@ -5,15 +5,101 @@
 	<section class="wrapper wrapper-grey padding50">
 		<div class="container">
 
-			<!-- intestazione -->
-			<div class="row">
+			<!-- INIZIO intestazione -->
+			<div class="row center">
 				<div class="col-md-12">
-					<h3><%= @cliente.nome %></h3>
-					<h4>Intervento del <%= @intervento.data.strftime("%d/%m/%Y") %></h4>
+					<h1>Stato della lavorazione</h1>
 				</div>
 			</div>
+			<!-- FINE intestazione -->
 
-			<!-- barra di progressione -->
+			<!-- INIZIO dati -->
+			<div class="row">
+
+					<!-- INIZIO primo pannello -->
+					<div class="col-lg-6 col-md-12">
+						<div class="well well-sm">
+
+							<div class='row'>
+								<div class="col-md-3">
+									<%= image_tag("info-icon_258x258.png", size: '128x128') %>
+								</div>
+								<div class="col-md-9">
+									<div class="row center">
+										<div class="col-md-12"><h3>Informazioni</h3></div>
+									</div>
+
+									<div classs="row">
+										<div class="col-lg-5 col-xs-6">
+											Cliente
+										</div>
+										<div class="col-lg-7 col-xs-6">
+											<%= @cliente.nome %>
+										</div>
+									</div>
+
+									<div classs="row">
+										<div class="col-md-5">
+											Data Inserimento
+										</div>
+										<div class="col-md-7">
+											<%= @intervento.data.strftime("%d/%m/%Y") %>
+										</div>
+									</div>
+
+									<div classs="row">
+										<div class="col-md-5">
+											JustOne
+										</div>
+										<div class="col-md-7">
+											<%= @cod_cliente %> - <%= @cod_intervento %>
+										</div>
+									</div>									
+
+								</div>
+							</div>
+
+						</div>
+					</div>
+					<!-- FINE primo pannello -->
+
+
+					<!-- INIZIO secondo pannello -->
+					<div class="col-lg-6 col-md-12">
+						<div class="well well-sm">
+
+							<div class="row">
+								<div class="col-lg-3 col-xs-6">
+									<%= image_tag("operator-256.png", size: '128x128') %>
+								</div>
+								<div class="col-lg-9 col-xs-6">
+										<div class="row center">
+											<div class="col-xs-12">
+												<h3>Tecnico Assegnato</h3>
+											</div>
+										</div>
+										<div class="row">
+											<div>
+												<div class="col-lg-6 col-xs-12">
+												<% if !@tecnico %>
+													Tecnico non assegnato
+												<% else %>
+												<h3><%= @tecnico.nome %>  </h3>
+												<% end %>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+					<!-- FINE secondo pannello -->
+
+			</div>
+			<!-- FINE dati -->
+
+			<!-- INIZIO barra di progressione -->
 			<div class='row'>
 				<div class='col-md-12'>
 					<div class="swMain">
@@ -67,39 +153,8 @@
 					</div> 
 				</div>
 			</div>
+			<!-- FINE barra di progressione -->
 
-			<!-- dati -->
-			<div class="row">
-				<div class="col-lg-6 col-md-12">
-					<div class="well well-sm">
-
-						<div class="row">
-							<div class="col-lg-3 col-xs-6">
-								<%= image_tag("operator-256.png", size: '128x128') %>
-							</div>
-							<div class="col-lg-9 col-xs-6">
-									<div class="row center">
-										<div class="col-xs-12">
-											<h3>Tecnico Assegnato</h3>
-										</div>
-									</div>
-									<div class="row">
-										<div>
-											<div class="col-lg-6 col-xs-12">
-											<% if !@tecnico %>
-												Tecnico non assegnato
-											<% else %>
-											<h3><%= @tecnico.nome %>  </h3>
-											<% end %>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</div>
 
 
 			<!-- dati sporchi -->

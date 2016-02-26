@@ -39,6 +39,8 @@
 				</div>
 				<div class="col-md-6">
 					<%= link_to '<i class="fa fa-comments-o"></i>Contratti <span class="badge badge-success"> 44 </span>'.html_safe, clienti_contrattis_path(:clienti_id => @clienti.id), class: 'btn btn-icon btn-block' %>
+
+					<%= button_tag 'prova',  {:type => 'button', :controller => "interventi", :action => "index", :clienti_id => @clienti.id } %>
 				</div>
 			</div>
 			<div class="row"></div>
