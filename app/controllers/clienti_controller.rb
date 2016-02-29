@@ -13,6 +13,9 @@ class ClientiController < ApplicationController
 		@titolo = "Dettagli Anagrafica"
 		@clienti = Clienti.find(params[:id])
 
+		# generare variabili per interventi aperti e ore da contratto residue
+		#@aperti = Clienti.Interventi
+
 		rescue ActiveRecord::RecordNotFound  
 		 flash[:errore] = "Errore nella query - clienti"
 		 redirect_to :controller => "welcome", :action => "index"

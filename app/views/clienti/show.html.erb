@@ -35,12 +35,18 @@
 		<div class="well well-lg">
 			<div class="row">
 				<div class="col-md-6">
-					<%= button_tag '<i class="fa fa-comments-o"></i>Interventi <span class="badge badge-danger"> 33 </span>'.html_safe, class: 'btn btn-icon btn-block' %>
+
+					<button onclick="location.href='<%= clienti_interventi_index_path(:clienti_id => @clienti.id) %>';" class="btn btn-icon btn-block" id="pulsanteInterventi" name="button" type="submit">
+						<i class="fa fa-comments-o"></i>Interventi <span class="badge badge-danger"> 33 </span>
+					</button>
+
 				</div>
 				<div class="col-md-6">
-					<%= link_to '<i class="fa fa-comments-o"></i>Contratti <span class="badge badge-success"> 44 </span>'.html_safe, clienti_contrattis_path(:clienti_id => @clienti.id), class: 'btn btn-icon btn-block' %>
 
-					<%= button_tag 'prova',  {:type => 'button', :controller => "interventi", :action => "index", :clienti_id => @clienti.id } %>
+					<button onclick="location.href='<%= clienti_contrattis_path(:clienti_id => @clienti.id) %>';" class="btn btn-icon btn-block" id="pulsanteInterventi" name="button" type="submit">
+						<i class="fa fa-comments-o"></i>Contratti <span class="badge badge-success"> 33 </span>
+					</button>
+
 				</div>
 			</div>
 			<div class="row"></div>
@@ -57,8 +63,8 @@
 <div class="row">
 	<div class="col-lg-12">
 		<%= link_to 'Indietro', clienti_index_path, class: 'btn btn-danger' %>
-		<%= link_to 'Gestione Contratti', clienti_contrattis_path(:clienti_id => @clienti.id), class: 'btn btn-purple' %>
-		<%= link_to 'Elenco Interventi', clienti_interventi_index_path(:clienti_id => @clienti.id), class: 'btn btn-primary' %>
+		<%#= link_to 'Gestione Contratti', clienti_contrattis_path(:clienti_id => @clienti.id), class: 'btn btn-purple' %>
+		<%#= link_to 'Elenco Interventi', clienti_interventi_index_path(:clienti_id => @clienti.id), class: 'btn btn-primary' %>
 		<%= link_to 'Nuovo Intervento', new_clienti_interventi_path(:clienti_id => @clienti.id), class: 'btn btn-success' %>
 		<%= link_to '<i class="fa clip-user-3"></i> Associa Login'.html_safe, new_utenti_path( :varcliente => @clienti.id), class: 'btn btn-bricky' if !@clienti.utenti %>
 	</div>
