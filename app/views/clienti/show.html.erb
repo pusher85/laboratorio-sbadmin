@@ -1,9 +1,9 @@
 <div class="row">
 	<div class="col-lg-6">
 		<div class="well well-lg">
-
-				
-				<!-- -->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- -->
 					<div class="dropdown pull-right">
 					  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 					    Azioni
@@ -15,20 +15,19 @@
 					    <!--<li><%= link_to 'Invia Comunicazione', root_path %></li> -->
 					  </ul>
 					</div>
+				 	<!-- 	-->
+				 	<h4 class="center">Cliente: <%= @clienti.nome %></h4>
 
-			 	<!-- 	-->
-			 	<h4>Cliente: <%= @clienti.nome %></h4>
-
-			 	<ul class="list-unstyled">
-					<li><span>P.iva: </span><%= @clienti.piva%></li>
-					<li><span>C.F.: </span><%= @clienti.codfisc%></li>
-					<li><span>E-Mail: </span><%= @clienti.email%></li>
-					<li><span>Telefono: </span><%= @clienti.telefono%></li>
-					<li><span>Login: </span>
-						<%= @clienti.utenti ? @clienti.utenti.id : "---ATTENZIONE--- Nessuna login associata !!".html_safe %>
-					</li>
-				</ul>
-
+				 	<dl class="dl-horizontal">
+						<dt><strong>P.iva: </strong></dt><dd><%= @clienti.piva%></dd>
+						<dt><strong>C.F.: </strong></dt><dd><%= @clienti.codfisc%></dd>
+						<dt><strong>E-Mail: </strong></dt><dd><%= @clienti.email%></dd>
+						<dt><strong>Telefono: </strong></dt><dd><%= @clienti.telefono%></dd>
+						<dt><strong>Login: </strong></dt><dd><%= @clienti.utenti ? @clienti.utenti.id : "---ATTENZIONE--- Nessuna login associata !!".html_safe %>
+						</dd>
+					</dl>
+				</div>
+			</div>
 		</div>
 	</div>
 	<div class="col-lg-6">
@@ -36,14 +35,14 @@
 			<div class="row">
 				<div class="col-md-6">
 
-					<button onclick="location.href='<%= clienti_interventi_index_path(:clienti_id => @clienti.id) %>';" class="btn btn-icon btn-block" id="pulsanteInterventi" name="button" type="submit">
-						<i class="fa fa-comments-o"></i>Interventi <span class="badge badge-danger"> 33 </span>
+					<button onclick="location.href='<%= clienti_interventi_index_path(:clienti_id => @clienti.id) %>';" class="btn btn-icon btn-block" id="pulsanteInterventi" name="pulsanteInterventi" type="submit">
+						<i class="fa fa-comments-o"></i><%= @intervtot %> Interventi <span class="badge badge-danger"> <%= @intervaperti %> </span>
 					</button>
 
 				</div>
 				<div class="col-md-6">
 
-					<button onclick="location.href='<%= clienti_contrattis_path(:clienti_id => @clienti.id) %>';" class="btn btn-icon btn-block" id="pulsanteInterventi" name="button" type="submit">
+					<button onclick="location.href='<%= clienti_contrattis_path(:clienti_id => @clienti.id) %>';" class="btn btn-icon btn-block" id="pulsanteContratti" name="pulsanteContratti" type="submit">
 						<i class="fa fa-comments-o"></i>Contratti <span class="badge badge-success"> 33 </span>
 					</button>
 

@@ -118,6 +118,15 @@ class InterventiController < ApplicationController
 		end
 	end
 
+	def elimina_allegato
+	@clienti = Clienti.find(params[:clienti_id])
+	@interventi = Interventi.find(params[:interventi_id])
+	@interventi.rapportino = nil
+	@interventi.save
+	redirect_to clienti_interventi_path(:id => @interventi)
+
+
+	end
 
 
 	

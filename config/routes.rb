@@ -38,6 +38,7 @@ Rails.application.routes.draw do
       get :sms
       get :allega
       patch :salva_allegato
+      get :elimina_allegato
         resources :comunicazioni
     end
   end

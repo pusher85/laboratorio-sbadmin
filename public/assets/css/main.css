@@ -4244,6 +4244,11 @@ body.header-default .daterangepicker {
 	border-color: #b33426;
 	color: #ffffff;
 }
+.circle-icon.circle-fuxia {
+	background-color: #ff33ff;
+	border-color: #b33426;
+	color: #ffffff;
+}
 .core-box {
 	margin-bottom: 20px;
 	display: inline-block;

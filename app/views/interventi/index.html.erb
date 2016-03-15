@@ -14,12 +14,13 @@
 					<thead>
 						<tr>
 							<th>Data</th>
-							<th>Intervento</th>
-							<th>vedi</th>
-							<th>stato</th>
+							<th>Descrizione</th>
+							<th>Apri</th>
+							<th>Stato</th>
 							<th>Tecnico Assegnato</th>
+							<th>Allegato</th>
 							<th>MSG</th>
-							<th></th>
+							<th>MSG-Count</th>
 						</tr>
 					</thead>
 
@@ -29,14 +30,18 @@
 						<tr>
 							<td><%= intervento.data.strftime("%d/%m/%Y") %></td>
 							<td><%= intervento.intervento %></td>
-							<td><%= link_to '<i class="material-icons">pageview</i>'.html_safe, clienti_interventi_path(:id => intervento.id) %></td>
+							<td><%= link_to '<i class="fa fa-folder-open"></i>'.html_safe, clienti_interventi_path(:id => intervento.id), :class => 'btn btn-blue' %></td>
 							<td><% if intervento.chiuso == false %>
-								<%= image_tag("warning_32.png", size: '25x25') %>
+								<%= image_tag("warning_32.png", size: '25x25', alt: 'Intervento Aperto') %>
 								<% end %>
 							</td>
 							<td><%= Utenti.find(intervento.operator_id ).nome if intervento.operator_id?		%></td>
+							<td class="center">
+								<% if intervento.rapportino.exists? %>
+									<%= link_to '<i class="clip-attachment"></i>'.html_safe, intervento.rapportino.url, target: '_blank', :class => 'btn btn-green' %>
+								<% end %>
+							</td>
 							<td>
-								<%#= link_to 'spedisci', clienti_interventi_sms_path(:interventi_id => intervento.id) %>
 								<%= link_to '<i class="material-icons" title="Invia Comunicazione">textsms</i>'.html_safe, new_clienti_interventi_comunicazioni_path(:interventi_id => intervento.id) %>
 							</td>
 							<td>

@@ -12,6 +12,8 @@ class ClientiController < ApplicationController
 	def show
 		@titolo = "Dettagli Anagrafica"
 		@clienti = Clienti.find(params[:id])
+		@intervtot = Interventi.where(cliente_id: @clienti).count
+		@intervaperti = Interventi.where(cliente_id: @clienti, chiuso: '0').count
 
 		# generare variabili per interventi aperti e ore da contratto residue
 		#@aperti = Clienti.Interventi
