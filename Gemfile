@@ -47,6 +47,10 @@ gem 'therubyracer',  platforms: :ruby
 #skebby
 gem 'skuby'
 
+# paperclip per gestione upload
+#gem 'paperclip'
+gem "paperclip", "~> 3.5.3"
+
 # autenticazione utenti
 gem 'devise'
 gem 'devise-i18n'

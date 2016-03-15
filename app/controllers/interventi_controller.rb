@@ -93,6 +93,31 @@ class InterventiController < ApplicationController
 		end
 	end
 
+# ----------------------------GESTIONE ALLEGATI
+	def allega
+		@titolo = "Allega Rapportino"
+		@clienti = Clienti.find(params[:clienti_id])
+		#@interventi = Interventi.where(cliente_id: @clienti).find(params[:id])
+		@interventi = Interventi.find(params[:interventi_id])
+		#rescue ActiveRecord::RecordNotFound  
+		# flash[:errore] = "Errore nella query - interventi"
+		# redirect_to :controller => "welcome", :action => "index"
+		#return
+	end
+
+	def salva_allegato
+		@clienti = Clienti.find(params[:clienti_id])
+		#@interventi = Interventi.where(cliente_id: @clienti).find(params[:id])
+		@interventi = Interventi.find(params[:interventi_id])
+		if @interventi.update(parametri_allegato)
+		#if @interventi.update(params[:rapportino])
+		#if @interventi.update
+			redirect_to clienti_interventi_path(:id => @interventi)
+		else
+			render 'allega'
+		end
+	end
+
 
 
 	
@@ -104,6 +129,10 @@ class InterventiController < ApplicationController
 
 		def parametri_tecnico
 			params.require(interventi).permit(operator_id)
+		end
+
+		def parametri_allegato
+			params.require(:interventi).permit(:rapportino)
 		end
 
 		
