@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160314144958) do
+ActiveRecord::Schema.define(version: 20160317184713) do
 
   create_table "clientis", force: true do |t|
     t.string   "nome"
@@ -102,6 +102,10 @@ ActiveRecord::Schema.define(version: 20160314144958) do
     t.text     "note"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "schedawork_file_name"
+    t.string   "schedawork_content_type"
+    t.integer  "schedawork_file_size"
+    t.datetime "schedawork_updated_at"
   end
 
 end

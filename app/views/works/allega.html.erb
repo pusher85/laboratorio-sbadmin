@@ -1,0 +1,22 @@
+<%#= render'gestione_errori' %>
+
+<%= form_for :work, url: clienti_interventi_work_salva_allegato_path , :method => 'patch', html: { multipart: true } do |f| %>
+
+<div class="row">
+	<div class="col-lg-4">
+
+		<div class="form-group">
+	    <%= f.label :schedawork %>
+	    <%= f.file_field :schedawork, class: 'form-control' %>
+	  </div>
+
+
+	</div>
+</div>
+
+<%= link_to 'Indietro', clienti_interventi_path(:id => @interventi), class: 'btn btn-danger' %>
+<%= f.submit 'Upload', class: 'btn btn-primary' %>
+
+<% end %>
+
+<%= debug(params) %>

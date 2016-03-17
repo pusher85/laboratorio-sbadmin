@@ -200,7 +200,7 @@
 
 
 			<!-- INIZIO modal per scheda intervento -->
-			<div id="responsive2" class="modal fade" tabindex="-1" data-width="760" style="display: none;">
+			<div id="responsive3" class="modal fade" tabindex="-1" data-width="760" style="display: none;">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
 						&times;
@@ -250,6 +250,63 @@
 		<% end %>
 
 
+
+
+		<!-- *************************************************************************************** -->
+		<% if params[:controller] == 'works' && params[:action] == 'show' %>
+
+		<!-- INIZIO modal per allegato al works -->
+			<div id="responsive4" class="modal fade" tabindex="-1" data-width="760" style="display: none;">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						&times;
+					</button>
+					<h4 class="modal-title">Scheda Work</h4>
+						<div class="dropdown pull-right">
+						  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Azioni <span class="caret"></span></button>
+						  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+						    <li><%= link_to 'Sostituisci', clienti_interventi_work_allega_path(:work_id => @work) %></li>
+						    <li><%= link_to 'Elimina', clienti_interventi_work_elimina_allegato_path(:work_id => @work), data: { confirm: 'Sicuro di voler eliminare?' } %></li>
+						  </ul>
+						</div>
+				</div>
+				<div class="modal-body">
+					<div class="modal-body">
+						<div class="row">
+							<div class="col-md-12">
+								<dl class="dl-horizontal">
+									<dt><strong>Nome File: </strong></dt><dd><%= @work.schedawork.original_filename %></dd>
+									<dt><strong>Tipologia: </strong></dt><dd><%= @work.schedawork.content_type %></dd>
+									<dt><strong>Dimensione: </strong></dt><dd><%= number_to_human_size(@work.schedawork.size) %></dd>
+								
+									<dt><strong>Ultima Modifica: </strong></dt><dd><%= @work.updated_at %></dd>
+								</dl>
+								<%= link_to 'Apri Allegato <i class="fa fa-arrow-circle-right"></i>'.html_safe, @work.schedawork.url, class: 'btn btn-green btn-block', target: '_blank' %>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" data-dismiss="modal" class="btn btn-light-grey">Chiudi</button>
+				</div>
+			</div>
+			<!-- FINE modal per scheda intervento -->
+
+			<%= stylesheet_link_tag "/assets/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css", media: "all" %>
+		 	<%= stylesheet_link_tag "/assets/plugins/bootstrap-modal/css/bootstrap-modal.css", media: "all" %>
+			<%= javascript_include_tag "/assets/plugins/bootstrap-modal/js/bootstrap-modal.js" %>
+			<%= javascript_include_tag "/assets/plugins/bootstrap-modal/js/bootstrap-modalmanager" %>
+			<%= javascript_include_tag "/assets/js/ui-modals" %>
+			<script>
+					jQuery(document).on('page:change', function() {
+					Main.init();
+					UIModals.init();
+				});
+			</script>
+
+		<% end %>
+		<!-- *************************************************************************************** -->
 
 
 		<% if (params[:controller] == 'interventi' && (params[:action] == 'new' || params[:action] =='create')) ||  (params[:controller] == 'contrattis' && (params[:action] == 'new' || params[:action] =='create')) || (params[:controller] == 'works' && (params[:action] == 'new' || params[:action] =='create')) %>

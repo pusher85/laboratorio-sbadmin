@@ -63,6 +63,45 @@ class WorksController < ApplicationController
     redirect_to clienti_interventi_path(:clienti_id => @clienti, :id => @interventi), notice: "Rapportino Eliminato"
   end
 
+  # ----------------------------GESTIONE ALLEGATI
+  def allega
+    @titolo = "Allega Scheda al Work"
+    @clienti = Clienti.find(params[:clienti_id])
+    #@interventi = Interventi.where(cliente_id: @clienti).find(params[:id])
+    @interventi = Interventi.find(params[:interventi_id])
+    @work = Work.find(params[:work_id])
+    #rescue ActiveRecord::RecordNotFound  
+    # flash[:errore] = "Errore nella query - interventi"
+    # redirect_to :controller => "welcome", :action => "index"
+    #return
+  end
+
+  def salva_allegato
+    @clienti = Clienti.find(params[:clienti_id])
+    #@interventi = Interventi.where(cliente_id: @clienti).find(params[:id])
+    @interventi = Interventi.find(params[:interventi_id])
+    @work = Work.find(params[:work_id])
+    if @work.update(parametri_allegato)
+    #if @interventi.update(params[:rapportino])
+    #if @interventi.update
+      #redirect_to clienti_interventi_path(:clienti_id => @clienti, :id => @interventi), notice: "Scheda Work Caricata con successo"
+      redirect_to clienti_interventi_work_path(:clienti_id => @clienti, :interventi_id => @interventi, :id => @work), notice: "Scheda Work Caricata con successo"
+      
+    else
+      render 'allega'
+    end
+  end
+
+  def elimina_allegato
+    @clienti = Clienti.find(params[:clienti_id])
+    @interventi = Interventi.find(params[:interventi_id])
+    @work = Work.find(params[:work_id])
+    @work.schedawork = nil
+    @work.save
+    redirect_to clienti_interventi_work_path(:clienti_id => @clienti, :interventi_id => @interventi, :id => @work), notice: "Scheda Work EIMINATA con successo"
+  end
+
+
   private
     def set_work
       @work = Work.find(params[:id])
@@ -70,5 +109,9 @@ class WorksController < ApplicationController
 
     def work_params
       params.require(:work).permit(:data, :durata, :descrizione, :note, :interventi_id, :operator_id)
+    end
+
+    def parametri_allegato
+      params.require(:work).permit(:schedawork)
     end
 end

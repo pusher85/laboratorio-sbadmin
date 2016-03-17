@@ -1,4 +1,8 @@
 class Work < ActiveRecord::Base
+
+	has_attached_file :schedawork
+	validates_attachment_content_type :schedawork, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif", "application/pdf"]
+
 	belongs_to :interventi
 
 	#creata per relazione clienti-works

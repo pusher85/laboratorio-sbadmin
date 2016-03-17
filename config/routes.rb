@@ -34,12 +34,17 @@ Rails.application.routes.draw do
     #devise_for :utentis
     resources :contrattis
     resources :interventi do
-      resources :works
+      
       get :sms
       get :allega
       patch :salva_allegato
       get :elimina_allegato
         resources :comunicazioni
+        resources :works do
+          get :allega
+          patch :salva_allegato
+          get :elimina_allegato
+        end
     end
   end
 
