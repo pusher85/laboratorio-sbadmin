@@ -15,14 +15,17 @@
   <%= @work.descrizione %>
 </p>
 
-<%= link_to 'Edit', edit_clienti_interventi_work_path(:interventi_id => @interventi) %> |
-<%= link_to 'Back', clienti_interventi_path(:id => @interventi ) %>
+<%= link_to 'Indietro', clienti_interventi_path(:id => @interventi ), class: 'btn btn-danger' %>
+<%= link_to 'Modifica', edit_clienti_interventi_work_path(:interventi_id => @interventi), class: 'btn btn-green' %>
 <%= link_to 'Elimina', clienti_interventi_work_path, :method => 'delete', class: 'btn btn-warning', data: { confirm: 'Sicuro di voler eliminare il lavoro? Non è reversibile' } %>
+
 <% if !@work.schedawork.exists? %>
 	<%= link_to 'Allega Scheda Lavoro', clienti_interventi_work_allega_path(:work_id => @work), class: 'btn btn-red' %>
 <% else %>
 	<%= link_to 'Apri Scheda <i class="fa fa-external-link"></i>'.html_safe, '#responsive4', "data-toggle" => "modal", class: "btn btn-purple"	%>
 <% end %>
+
+<%= link_to 'test', '#', :id => 'add-regular', :class => 'btn btn-teal' %>
 
 <br>
 <%= debug(params) %>

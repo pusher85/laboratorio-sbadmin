@@ -111,9 +111,9 @@
 		<!-- JS Generici FINE -->
 
 
-		<!-- Javascript specifici per la pagina -->
+		<!-- Javascript specifici per le azioni INDEX -->
 
-		<% if params[:controller] == 'clienti' && params[:action] == 'index' %>
+		<% if (params[:controller] == 'clienti' && params[:action] == 'index') || (params[:controller] == 'utentis' && params[:action] == 'index') || (params[:controller] == 'interventi' && params[:action] == 'index') %>
 			<!-- 	JS Specifici per clienti#index	-->
 			<%= javascript_include_tag "/assets/plugins/bootbox/bootbox.min" %>
 			<%= javascript_include_tag "/assets/plugins/jquery-mockjax/jquery.mockjax" %>
@@ -125,29 +125,7 @@
 		<% end %>
 
 
-
-		<% if params[:controller] == 'utentis' && params[:action] == 'index' %>
-			<!-- 	JS Specifici per utentis_path	-->
-			<%= javascript_include_tag "/assets/plugins/bootbox/bootbox.min" %>
-			<%= javascript_include_tag "/assets/plugins/jquery-mockjax/jquery.mockjax" %>
-			<%= javascript_include_tag "/assets/plugins/select2/select2.min" %>
-			<%= javascript_include_tag "/assets/plugins/DataTables/media/js/jquery.dataTables.min" %>
-			<%= javascript_include_tag "/assets/plugins/DataTables/media/js/DT_bootstrap" %>
-			<%= javascript_include_tag "/assets/js/table-data" %>
-		<% end %>
-
-
-		
-		<% if params[:controller] == 'interventi' && params[:action] == 'index' %>
-
-			<%= javascript_include_tag "/assets/plugins/bootbox/bootbox.min" %>
-			<%= javascript_include_tag "/assets/plugins/jquery-mockjax/jquery.mockjax" %>
-			<%= javascript_include_tag "/assets/plugins/select2/select2.min" %>
-			<%= javascript_include_tag "/assets/plugins/DataTables/media/js/jquery.dataTables.min" %>
-			<%= javascript_include_tag "/assets/plugins/DataTables/media/js/DT_bootstrap" %>
-			<%= javascript_include_tag "/assets/js/table-data" %>
-		<% end %>
-
+		<!-- Javascript specifici per le azioni NEW -->
 
 		<% if (params[:controller] == 'interventi' && params[:action] == 'new') || (params[:controller] == 'contrattis' && params[:action] == 'new') || (params[:controller] == 'works' && params[:action] == 'new') %>
 			<!-- 	JS Specifici per new_clienti_interventi_path	-->
@@ -170,6 +148,8 @@
 			<%= javascript_include_tag "/assets/plugins/ckeditor/adapters/jquery" %>
 		<% end %>
 
+
+		<!-- Javascript e modal specifici per interventi/show -->
 
 		<% if params[:controller] == 'interventi' && params[:action] == 'show' %>
 			<!-- 	JS Specifici per modal in show per tecnico	-->
@@ -293,14 +273,26 @@
 			</div>
 			<!-- FINE modal per scheda intervento -->
 
+
+
 			<%= stylesheet_link_tag "/assets/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css", media: "all" %>
 		 	<%= stylesheet_link_tag "/assets/plugins/bootstrap-modal/css/bootstrap-modal.css", media: "all" %>
+		 	<%= stylesheet_link_tag "/assets/plugins/gritter/css/jquery.gritter.css", media: "all" %>
+
+			<%= javascript_include_tag "/assets/plugins/bootstrap-paginator/src/bootstrap-paginator.js" %>
+			<%= javascript_include_tag "/assets/plugins/jquery.pulsate/jquery.pulsate.min.js" %>
+
 			<%= javascript_include_tag "/assets/plugins/bootstrap-modal/js/bootstrap-modal.js" %>
 			<%= javascript_include_tag "/assets/plugins/bootstrap-modal/js/bootstrap-modalmanager" %>
 			<%= javascript_include_tag "/assets/js/ui-modals" %>
+			
+			<%= javascript_include_tag "/assets/plugins/gritter/js/jquery.gritter.min" %>
+			<%= javascript_include_tag "/assets/js/ui-elements-fra" %>
+
 			<script>
 					jQuery(document).on('page:change', function() {
 					Main.init();
+					UIElements.init();
 					UIModals.init();
 				});
 			</script>
@@ -310,7 +302,7 @@
 
 
 		<% if (params[:controller] == 'interventi' && (params[:action] == 'new' || params[:action] =='create')) ||  (params[:controller] == 'contrattis' && (params[:action] == 'new' || params[:action] =='create')) || (params[:controller] == 'works' && (params[:action] == 'new' || params[:action] =='create')) %>
-			<!-- aggiunte parentesi di raggruppamento -->
+			
 			<!-- personalizzazioni calendario per interventi -->
 			<script>
 		    $('.date-picker').datepicker({
@@ -327,8 +319,6 @@
 		  });
 		  </script>
 	  <% end %>
-
-
 
 		<script>
 			jQuery(document).ready(function() {

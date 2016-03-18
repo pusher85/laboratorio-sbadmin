@@ -133,10 +133,10 @@
 							<td><%= w.note %></td>
 							<td>
 								<%#= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_clienti_interventi_work_path(:interventi_id => @interventi, :id => w.id), class: 'btn btn-primary' %>
-								<%= link_to '<i class="fa fa-edit"></i>'.html_safe, clienti_interventi_work_path(:interventi_id => @interventi, :id => w.id), class: 'btn btn-primary' %>
 								<% if w.schedawork.exists? %>
 									<%= link_to '<i class="clip clip-attachment"></i>'.html_safe, w.schedawork.url, target: '_blank', class: 'btn btn-purple' %>
 								<% end %>
+								<%= link_to '<i class="fa fa-edit"></i>'.html_safe, clienti_interventi_work_path(:interventi_id => @interventi, :id => w.id), class: 'btn btn-primary' %>
 							</td>	
 						</tr>
 						<% end %>
