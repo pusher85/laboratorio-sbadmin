@@ -21,7 +21,8 @@ class InterventiController < ApplicationController
 		@titolo = "Dettaglio Intervento"
 		@clienti = Clienti.find(params[:clienti_id])
 		@interventi = Interventi.where(cliente_id: @clienti).find(params[:id])
-		@tecnico = Utenti.find(@interventi.operator_id) if @interventi.operator_id 
+		@tecnico = Utenti.find(@interventi.operator_id) if @interventi.operator_id
+		@allegati = Intallegati.where(:interventi_id => @interventi)
 
 		@tecnici = Utenti.where(operatore: '1')
 
@@ -116,6 +117,10 @@ class InterventiController < ApplicationController
 		else
 			render 'allega'
 		end
+	end
+
+	def vediallegato
+
 	end
 
 	def elimina_allegato

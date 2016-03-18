@@ -50,7 +50,8 @@ gem 'skuby'
 # paperclip per gestione upload
 #gem 'paperclip'
 #gem "paperclip", "~> 4.0.0"
-gem "paperclip", "~> 3.5.3"
+#gem "paperclip", "~> 3.5.3"
+gem "paperclip", "3.5.3"
 
 # autenticazione utenti
 gem 'devise'

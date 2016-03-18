@@ -3,6 +3,8 @@ class Interventi < ActiveRecord::Base
   belongs_to :clienti
   has_many :comunicazionis, :dependent => :destroy
   has_many :works, :dependent => :destroy
+  #allegati intervento
+  has_many :intallegatis, :dependent => :destroy
   has_attached_file :rapportino#, { url: "/system/:hash.:extension", hash_secret: "longSecretString" }
   #do_not_validate_attachment_file_type :rapportino
   validates_attachment_content_type :rapportino, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif", "application/pdf"]

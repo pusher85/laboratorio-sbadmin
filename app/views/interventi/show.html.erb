@@ -1,27 +1,28 @@
 <div class="row space12">
 	<ul class="mini-stats col-sm-12">
-		<li class="col-sm-3 col-xs-3">
+		<li class="col-sm-4 col-xs-4">
 			<div class="values">
 				<i class="clip-user-4 circle-icon circle-green"></i>
 				<strong>Cliente</strong>
 				<%= @clienti.nome %>
 			</div>
 		</li>
-		<li class="col-sm-3 col-xs-3">
+		<li class="col-sm-4 col-xs-4">
 			<div class="values">
 				<i class="clip-settings circle-icon circle-bricky"></i>
 				<strong>Codice Cliente</strong>
 				<%= @interventi.cliente_id %>
 			</div>
 		</li>
-		<li class="col-sm-3 col-xs-3">
+		<li class="col-sm-4 col-xs-4">
 			<div class="values">
 				<i class="clip-target circle-icon circle-teal"></i>
 				<strong>Codice Intervento</strong>
 				<%= @interventi.codice %>
 			</div>
 		</li>
-				<li class="col-sm-3 col-xs-3">
+		<!--
+		<li class="col-sm-3 col-xs-3">
 			<div class="values">
 				<i class="clip-clip circle-icon circle-fuxia"></i>
 				<strong>
@@ -33,15 +34,15 @@
 						<%= link_to 'Apri <i class="fa fa-external-link"></i>'.html_safe, '#responsive2', "data-toggle" => "modal"	%>
 					<% end %>
 				</strong>
-				
 			</div>
 		</li>
+		-->
 	</ul>
 </div>
 <div class="divider"></div>
 <!-- 		-->
 <div class="row">
-	<div class="col-lg-6">
+	<div class="col-lg-4">
 		<div class="well well-sm">
 			<div class="row center">
 				<div class="col-lg-10">
@@ -74,7 +75,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-lg-6 col-xs-12">
+	<div class="col-lg-4 col-xs-12">
 		<div class="well well-sm">
 			<div class="row">
 				<div class="col-lg-3 col-xs-6">
@@ -101,6 +102,37 @@
 			</div>
 		</div>
 	</div>
+	<div class="col-lg-4 col-xs-12">
+		<div class="well well-sm">
+			<div class="row center">
+				<div class="col-md-12"><h3>Allegati</h3></div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<table class="table table-hover" id="dataTables-allegati">
+						<thead>
+							<tr>
+								<th>Nome File</th>
+								<th>Tipologia</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<% @allegati.each do |a| %>
+								<tr>
+									<td><%= a.titolo %></td>
+									<td><%= a.allegatoint_content_type %></td>
+									<td><%= link_to 'apri', clienti_interventi_vediallegato_path(:interventi_id => @interventi), remote: true %></td>
+								</tr>
+							<% end %>
+						</tbody>
+					</table>
+					<%= link_to '<i class="fa fa-plus"></i> Aggiungi'.html_safe, new_clienti_interventi_intallegati_path(:interventi_id => @interventi), class: 'btn btn-green btn-block' %>
+				</div>
+			</div>
+		</div>
+	</div>
+
 </div>
 <div class="row"><!-- riga works -->
 	<div class="col-lg-12">

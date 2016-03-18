@@ -1,0 +1,35 @@
+<%= form_for :intallegatis, url: url, method: method do |f| %> 
+
+	<div class="row">
+		<div class="col-md-4">
+			<div class="form-group">
+				<%= f.label :titolo %>
+				<%= f.text_field :titolo, :class => 'form-control' %>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			<div class="form-group">
+				<%= f.label :descrizione %>
+				<%= f.text_field :descrizione, :class => 'form-control' %>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			<div class="form-group">
+				<%= f.label 'File da allegare' %>
+				<%= f.file_field :allegatoint, :class => 'form-control' %>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-4">
+			<%= f.submit 'Carica', class: 'btn btn-primary' %>
+			<%= link_to 'Indietro', clienti_interventi_path(:id => @intervento), class: 'btn btn-danger' %>
+		</div>
+	</div>
+
+<% end %>

@@ -37,8 +37,10 @@ Rails.application.routes.draw do
       
       get :sms
       get :allega
+      get :vediallegato
       patch :salva_allegato
       get :elimina_allegato
+        resources :intallegatis
         resources :comunicazioni
         resources :works do
           get :allega

@@ -1,0 +1,11 @@
+<%#= render'gestione_errori' %>
+
+
+<%#= render 'form' %>
+<%= render 'form', {url: clienti_interventi_intallegatis_path, method: 'nessuno', html: { multipart: true }} %>
+
+
+<div class="divider"></div>
+
+
+<%= debug(params) %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160317184713) do
+ActiveRecord::Schema.define(version: 20160318173611) do
 
   create_table "clientis", force: true do |t|
     t.string   "nome"
@@ -41,6 +41,19 @@ ActiveRecord::Schema.define(version: 20160317184713) do
     t.text     "note"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "intallegatis", force: true do |t|
+    t.integer  "interventi_id"
+    t.string   "titolo"
+    t.text     "descrizione"
+    t.integer  "autore"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "allegatoint_file_name"
+    t.string   "allegatoint_content_type"
+    t.integer  "allegatoint_file_size"
+    t.datetime "allegatoint_updated_at"
   end
 
   create_table "interventis", force: true do |t|
