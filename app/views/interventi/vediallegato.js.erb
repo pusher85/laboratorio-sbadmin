@@ -1,2 +1,2 @@
-$("#allegato-modal").html("<%= escape_javascript(render 'allegatoshowmodal') %>")
+$("#allegato-modal").html("<%= escape_javascript(render template: 'intallegatis/show', :locals => { :var_allegato => @variab_allegato } ) %>")
 $("#allegato-modal").modal("show")

@@ -23,6 +23,18 @@ class IntallegatisController < ApplicationController
 		end
 	end
 
+	def show
+		#@idallegato =  params[:var_allegato]
+		#@allegato = Intallegati.where(id: @idallegato)
+	end
+
+	def destroy
+		@cliente = params[:clienti_id]
+		@intervento = params[:interventi_id]
+		@allegato = Intallegati.where(interventi_id: @intervento).find(params[:id])
+		@allegato.destroy
+		redirect_to clienti_interventi_path(:clienti_id => @cliente, :id => @intervento)
+	end
 
 
 	private

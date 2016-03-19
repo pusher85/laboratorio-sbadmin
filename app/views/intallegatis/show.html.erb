@@ -1,0 +1,33 @@
+<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+		&times;
+	</button>
+	<h4 class="modal-title">Dettagli allegato</h4>
+
+	<div class="dropdown pull-right">
+  	<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Azioni <span class="caret"></span></button>
+	  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+	    <li><%= link_to 'Elimina file', clienti_interventi_intallegati_path(:id => @allegato.id),method: :delete, data: { confirm: 'Sicuro di voler eliminare?' } %></li>
+	  </ul>
+</div>
+
+</div>
+<div class="modal-body">
+	<div class="row">
+		<div class="col-md-12">
+			<dl class="dl-horizontal">
+				<dt><strong>Nome File: </strong></dt><dd><%= @allegato.titolo %></dd>
+				<dt><strong>Descrizione: </strong></dt><dd><%= @allegato.descrizione %></dd>
+				<dt><strong>Tipologia: </strong></dt><dd><%= @allegato.allegatoint_content_type %></dd>
+				<dt><strong>Dimensione: </strong></dt><dd><%= number_to_human_size(@allegato.allegatoint.size) %></dd>
+				<dt><strong>Autore: </strong></dt><dd><%= @autore %></dd>
+				<dt><strong>Ultimo Aggiornamento: </strong></dt><dd><%= (@allegato.allegatoint_updated_at).strftime("%d-%m-%Y - %H:%M") %></dd>
+			</dl>
+			<%= link_to 'Apri Allegato <i class="fa fa-arrow-circle-right"></i>'.html_safe, @allegato.allegatoint.url, class: 'btn btn-green btn-block', target: '_blank' %>
+		</div>
+	</div>
+</div>
+<div class="modal-footer">
+	<button type="button" data-dismiss="modal" class="btn btn-light-grey">Chiudi</button>
+</div>
+<%#= debug(params) %>
