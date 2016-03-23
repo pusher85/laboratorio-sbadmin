@@ -54,15 +54,20 @@
 
     <div class="row">
       <div class="col-md-4">
-        
-        
-                <label class="checkbox-inline">
-          
+        <label class="checkbox-inline">
          <%= f.check_box :chiuso, class: 'flat-green' %>
           Intervento Chiuso ?
         </label>
-
       </div>
+      <div class=" row">
+        <div class="col-md-4">
+          <label class="checkbox-inline">
+            <%= f.check_box :monteore, class: 'flat-green' %>
+            Ore a scalare dal monteore?
+        </label>
+        </div>
+      </div>    
+
     </div>
 
     <div class="divider"></div>

@@ -141,7 +141,7 @@ class InterventiController < ApplicationController
 	private
 		def parametri_intervento
 			#params.require(:interventi).permit(:cliente_id, :data, :apparecchiatura, :intervento, :durata, :note, :chiuso, :codice, :operator_id)
-			params.require(:interventi).permit(:cliente_id, :data, :apparecchiatura, :intervento, :note, :chiuso, :codice, :operator_id)
+			params.require(:interventi).permit(:cliente_id, :data, :apparecchiatura, :intervento, :note, :chiuso, :codice, :operator_id, :monteore)
 		end
 
 		def parametri_tecnico

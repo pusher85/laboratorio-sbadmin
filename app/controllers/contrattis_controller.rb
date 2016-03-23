@@ -18,7 +18,7 @@ class ContrattisController < ApplicationController
     
     totaleore = Array.new
 
-    Interventi.where(cliente_id: @clienti).each do |int|
+    Interventi.where(cliente_id: @clienti, :monteore => '1').each do |int|
       totaleore.push(Work.where(:interventi_id => int.id).sum(:durata))
     end
 

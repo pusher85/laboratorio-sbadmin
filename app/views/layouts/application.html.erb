@@ -127,7 +127,7 @@
 
 		<!-- Javascript specifici per le azioni NEW -->
 
-		<% if (params[:controller] == 'interventi' && params[:action] == 'new') || (params[:controller] == 'contrattis' && params[:action] == 'new') || (params[:controller] == 'works' && params[:action] == 'new') %>
+		<% if (params[:controller] == 'interventi' && params[:action] == 'new') || (params[:controller] == 'contrattis' && params[:action] == 'new') || (params[:controller] == 'contrattis' && params[:action] == 'edit') || (params[:controller] == 'contrattis' && params[:action] == 'create') || (params[:controller] == 'works' && params[:action] == 'new') %>
 			<!-- 	JS Specifici per new_clienti_interventi_path	-->
 			<%= javascript_include_tag "/assets/js/form-elements" %>
 			<%= javascript_include_tag "/assets/plugins/jquery-inputlimiter/jquery.inputlimiter.1.3.1.min" %>

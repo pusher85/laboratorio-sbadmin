@@ -34,20 +34,26 @@
 								<th><i class="material-icons">drafts</i>Email</th>
 								<th class="hidden-xs"><i class="material-icons">phone</i>Telefono</th>
 								<th>Login</th>
-								<th>Visualizza</th>
+								<!-- <th>Visualizza</th> -->
 						  </tr>
 					  </thead>
 					 
 					 	<tbody>
 						  <% @clienti.each do |cliente| %>
 								<tr>
-									<td><%= cliente.nome %></td>
+									<td><%#= cliente.nome %>
+										<%= link_to cliente.nome, clienti_path(cliente) 	%>
+									</td>
 									<td><%= cliente.email %></td>
 									<td class="hidden-xs"><%= cliente.telefono %></td>
-									<td><%= cliente.utenti ? "<span class='label label-success'><i class='fa clip-user-3'></i> #{cliente.utenti.email}</span>".html_safe : (link_to '<i class="fa fa-chain-broken"></i> Associa Login'.html_safe, new_utenti_path( :varcliente => cliente.id), class: 'btn btn-xs btn-bricky') %></td>
+									<td><%#= cliente.utenti ? "<span class='label label-success'><i class='fa clip-user-3'></i> #{cliente.utenti.email}</span>".html_safe : (link_to '<i class="fa fa-chain-broken"></i> Associa Login'.html_safe, new_utenti_path( :varcliente => cliente.id), class: 'btn btn-xs btn-bricky') %>
 
+										<%= cliente.utenti ? cliente.utenti.email : (link_to '<i class="fa fa-chain-broken"></i> Associa Login'.html_safe, new_utenti_path( :varcliente => cliente.id), class: 'btn btn-xs btn-bricky') %>
+
+									</td>
+									<!--
 									<td align="center"><%= link_to '<i class="fa fa-folder-open-o"></i>'.html_safe, clienti_path(cliente), class: 'btn btn-xs btn-teal tooltips', "data-placement" => 'top', "data-original-title" => 'Dettagli Cliente' %></td>
-									
+									-->
 								</tr>
 						  <% end %>
 					  </tbody>

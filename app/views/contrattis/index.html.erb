@@ -1,8 +1,31 @@
 <div class="row">
-  <div class="col-ms-12">
-    <div class="col s8 offset-s2" align="center">
-      <span class="flow-text"><h3>Elenco Contratti: <br><%= @clienti.nome %></h3></span>
-      <hr>
+  <div class="col-md-6">
+    <div class="well well-lg">
+      <div class="row">
+        <div class="col-md-12 center">
+          <h4>Dettaglio Contratti per cliente</h4>
+          <h3><%= @clienti.nome %></h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="well well-lg">
+      <div class="row">
+        <div class="col-md-12 center">
+          <h4>Riepilogo Ore</h4>
+          <table class="table">
+            <tr>
+              <th class="text-primary">Acquistate:</th>
+              <td class="text-primary"><%= @acquistate %></td>
+              <th class="text-danger">| Utilizzate:</th>
+              <td class="text-danger"><%= @ore_usate %></td>
+              <th class="text-success">| Residue:</th>
+              <td class="text-success"><%= @ore_rimanenti %></td>
+            </tr>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -13,8 +36,7 @@
     <table class="table  table-hover" id="dataTables-contratti">
       <thead>
         <tr>
-          <th>Clienti</th>
-          <th>Acquisto</th>
+          <th>Data di acquisto</th>
           <th>Ore</th>
           <th>Note</th>
           <th colspan="3"></th>
@@ -24,7 +46,6 @@
       <tbody>
         <% @contrattis.each do |contratti| %>
           <tr>
-            <td><%= contratti.clienti_id %></td>
             <td><%= contratti.acquisto %></td>
             <td><%= contratti.ore %></td>
             <td><%= contratti.note %></td>
@@ -45,17 +66,6 @@
   <div class="col-md-12">
     <%= link_to 'Indietro', clienti_path(@clienti.id), class: 'btn btn-danger' %>
     <%= link_to 'Nuovo Contratto', new_clienti_contratti_path, class: 'btn btn-green' %>
-  </div>
-</div>
-
-<br>
-<div class="divider"></div>
-
-<div class='row'>
-  <div class="col-md-12">
-    <p>Totale ore acquistate = <%= @acquistate %></p>
-    <p>Totale ore usate = <%= @ore_usate %></p>
-    <p>Ore rimanenti = <%= @ore_rimanenti %></p>
   </div>
 </div>
 
