@@ -25,13 +25,13 @@
 			<div class="values">
 				<i class="clip-clip circle-icon circle-fuxia"></i>
 				<strong>
-					<% if !@interventi.rapportino.exists? %>
+					<%# if !@interventi.rapportino.exists? %>
 						<%= link_to 'Rapportino Mancante', clienti_interventi_allega_path(:interventi_id => @interventi), class: 'btn btn-bricky' %>
-					<% else %>
+					<%# else %>
 						<%#= link_to 'Scheda Intervento', @interventi.rapportino.url %>
 						<strong>Allegato Presente</strong>
 						<%= link_to 'Apri <i class="fa fa-external-link"></i>'.html_safe, '#responsive2', "data-toggle" => "modal"	%>
-					<% end %>
+					<%# end %>
 				</strong>
 			</div>
 		</li>
@@ -83,16 +83,16 @@
 				<div class="col-lg-9 col-xs-6">
 						<div class="row center">
 							<div class="col-xs-12">
-								<h3>Tecnico</h3>
+								<h3>Tecnico Assegnato</h3><%= link_to '<i class="fa fa-external-link"></i>'.html_safe, '#responsive', "data-toggle" => "modal"	%>
 							</div>
 						</div>
 						<div class="row">
 							<div>
-								<div class="col-lg-6 col-xs-12">
+								<div class="col-lg-6 col-xs-12 center">
 								<% if !@tecnico %>
 									<%= link_to 'Assegna', '#responsive', "data-toggle" => "modal", class: 'btn btn-bricky btn-lg' %>
 								<% else %>
-								<h3><%= @tecnico.nome %>  </h3><%= link_to '<i class="fa fa-external-link"></i>'.html_safe, '#responsive', "data-toggle" => "modal"	%>
+								<h4><%= @tecnico.nome %></h4>
 								<% end %>
 							</div>
 						</div>
@@ -157,8 +157,11 @@
 					<tbody>
 						<% @interventi.works.order("data asc").each do |w| %>
 						<tr>
-							<td><%= w.data.strftime("%d/%m/%Y") %></td>
-							<td><%= w.operator_id %></td>
+							<td><%= link_to w.data.strftime("%d/%m/%Y"), clienti_interventi_work_path(:interventi_id => @interventi, :id => w.id) %></td>
+							<td>
+								<%#= w.operator_id %>
+								<%= Utenti.find(w.operator_id).nome %>
+							</td>
 							<td><%= w.durata %> ore</td>
 							<td><%= w.descrizione %></td>
 							<td><%= w.note %></td>
@@ -167,7 +170,7 @@
 								<% if w.schedawork.exists? %>
 									<%= link_to '<i class="clip clip-attachment"></i>'.html_safe, w.schedawork.url, target: '_blank', class: 'btn btn-purple' %>
 								<% end %>
-								<%= link_to '<i class="fa fa-edit"></i>'.html_safe, clienti_interventi_work_path(:interventi_id => @interventi, :id => w.id), class: 'btn btn-primary' %>
+								<%#= link_to '<i class="fa fa-edit"></i>'.html_safe, clienti_interventi_work_path(:interventi_id => @interventi, :id => w.id), class: 'btn btn-primary' %>
 							</td>	
 						</tr>
 						<% end %>

@@ -13,12 +13,12 @@
 				<table class="table table-hover" id="dataTables-interventi">
 					<thead>
 						<tr>
-							<th>Data</th>
 							<th>Descrizione</th>
-							<th>Apri</th>
+							<th>Data</th>
+							<!--<th>Apri</th>-->
 							<th>Stato</th>
-							<th>Tecnico Assegnato</th>
-							<th>Allegato</th>
+							<th>Operatore</th>
+							<!--<th>Allegato</th>-->
 							<th>MSG</th>
 							<th>MSG-Count</th>
 						</tr>
@@ -28,19 +28,20 @@
 						<% @interventi.each do |intervento| %>
 						<% @sms = Comunicazioni.where(interventi_id: intervento.id ).count(:id) if Comunicazioni.where(interventi_id: intervento.id ) %>
 						<tr>
+							<td><%= link_to intervento.intervento, clienti_interventi_path(:id => intervento.id) %></td>
 							<td><%= intervento.data.strftime("%d/%m/%Y") %></td>
-							<td><%= intervento.intervento %></td>
-							<td><%= link_to '<i class="fa fa-folder-open"></i>'.html_safe, clienti_interventi_path(:id => intervento.id), :class => 'btn btn-blue' %></td>
-							<td><% if intervento.chiuso == false %>
-								<%= image_tag("warning_32.png", size: '25x25', alt: 'Intervento Aperto') %>
+							<!--<td><%= link_to '<i class="fa fa-folder-open"></i>'.html_safe, clienti_interventi_path(:id => intervento.id), :class => 'btn btn-blue' %></td>-->
+							<td class="center"><% if intervento.chiuso == false %>
+								<%#= image_tag("warning_32.png", size: '25x25', alt: 'Intervento Aperto') %>
+								<span class="label label-danger"> <i class="fa fa-exclamation-circle"></i></span>
 								<% end %>
 							</td>
 							<td><%= Utenti.find(intervento.operator_id ).nome if intervento.operator_id?		%></td>
-							<td class="center">
-								<% if intervento.rapportino.exists? %>
-									<%= link_to '<i class="clip-attachment"></i>'.html_safe, intervento.rapportino.url, target: '_blank', :class => 'btn btn-green' %>
-								<% end %>
-							</td>
+							<!--<td class="center">
+								<%# if intervento.rapportino.exists? %>
+									<%#= link_to '<i class="clip-attachment"></i>'.html_safe, intervento.rapportino.url, target: '_blank', :class => 'btn btn-green' %>
+								<%# end %>
+							</td>-->
 							<td>
 								<%= link_to '<i class="material-icons" title="Invia Comunicazione">textsms</i>'.html_safe, new_clienti_interventi_comunicazioni_path(:interventi_id => intervento.id) %>
 							</td>

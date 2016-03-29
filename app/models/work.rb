@@ -1,6 +1,9 @@
 class Work < ActiveRecord::Base
 
-	has_attached_file :schedawork
+	#has_attached_file :schedawork
+	has_attached_file :schedawork,
+		:path => ":rails_root/uploads/:class/:id/:basename.:extension"
+
 	validates_attachment_content_type :schedawork, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif", "application/pdf"]
 
 	belongs_to :interventi

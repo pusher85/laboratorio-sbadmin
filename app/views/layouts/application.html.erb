@@ -180,7 +180,7 @@
 
 
 			<!-- INIZIO modal per scheda intervento -->
-			<div id="responsive3" class="modal fade" tabindex="-1" data-width="760" style="display: none;">
+			<!--<div id="responsive3" class="modal fade" tabindex="-1" data-width="760" style="display: none;">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
 						&times;
@@ -199,13 +199,13 @@
 						<div class="row">
 							<div class="col-md-12">
 								<dl class="dl-horizontal">
-									<dt><strong>Nome File: </strong></dt><dd><%= @interventi.rapportino.original_filename %></dd>
-									<dt><strong>Tipologia: </strong></dt><dd><%= @interventi.rapportino.content_type %></dd>
-									<dt><strong>Dimensione: </strong></dt><dd><%= number_to_human_size(@interventi.rapportino.size) %></dd>
+									<dt><strong>Nome File: </strong></dt><dd><%#= @interventi.rapportino.original_filename %></dd>
+									<dt><strong>Tipologia: </strong></dt><dd><%#= @interventi.rapportino.content_type %></dd>
+									<dt><strong>Dimensione: </strong></dt><dd><%#= number_to_human_size(@interventi.rapportino.size) %></dd>
 								
-									<dt><strong>Ultima Modifica: </strong></dt><dd><%= @interventi.updated_at %></dd>
+									<dt><strong>Ultima Modifica: </strong></dt><dd><%#= @interventi.updated_at %></dd>
 								</dl>
-								<%= link_to 'Apri Allegato <i class="fa fa-arrow-circle-right"></i>'.html_safe, @interventi.rapportino.url, class: 'btn btn-green btn-block', target: '_blank' %>
+								<%#= link_to 'Apri Allegato <i class="fa fa-arrow-circle-right"></i>'.html_safe, @interventi.rapportino.url, class: 'btn btn-green btn-block', target: '_blank' %>
 							</div>
 
 						</div>
@@ -214,7 +214,7 @@
 				<div class="modal-footer">
 					<button type="button" data-dismiss="modal" class="btn btn-light-grey">Chiudi</button>
 				</div>
-			</div>
+			</div>-->
 			<!-- FINE modal per scheda intervento -->
 
 
@@ -266,7 +266,8 @@
 								
 									<dt><strong>Ultima Modifica: </strong></dt><dd><%= @work.updated_at %></dd>
 								</dl>
-								<%= link_to 'Apri Allegato <i class="fa fa-arrow-circle-right"></i>'.html_safe, @work.schedawork.url, class: 'btn btn-green btn-block', target: '_blank' %>
+								<%#= link_to 'Apri Allegato <i class="fa fa-arrow-circle-right"></i>'.html_safe, @work.schedawork.url, class: 'btn btn-green btn-block', target: '_blank' %>
+								<%= link_to 'Apri Allegato <i class="fa fa-arrow-circle-right"></i>'.html_safe, clienti_interventi_work_vedi_allegato_path(:work_id => @work), class: 'btn btn-green btn-block', target: '_blank' %>
 							</div>
 
 						</div>

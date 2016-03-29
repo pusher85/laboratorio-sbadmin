@@ -46,6 +46,7 @@ Rails.application.routes.draw do
           get :allega
           patch :salva_allegato
           get :elimina_allegato
+          get :vedi_allegato
         end
     end
   end

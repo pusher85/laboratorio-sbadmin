@@ -1,4 +1,6 @@
 class WorksController < ApplicationController
+  before_filter :authenticate_utenti!
+  before_filter :is_admin?, :except => :show
   before_action :set_work, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
@@ -101,6 +103,13 @@ class WorksController < ApplicationController
     redirect_to clienti_interventi_work_path(:clienti_id => @clienti, :interventi_id => @interventi, :id => @work), notice: "Scheda Work EIMINATA con successo"
   end
 
+  def vedi_allegato
+    @clienti = Clienti.find(params[:clienti_id])
+    @interventi = Interventi.find(params[:interventi_id])
+    @work = Work.find(params[:work_id])
+
+    send_file @work.schedawork.path, :type => @work.schedawork.content_type, :disposition => 'inline' 
+  end
 
   private
     def set_work

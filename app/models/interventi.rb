@@ -5,9 +5,12 @@ class Interventi < ActiveRecord::Base
   has_many :works, :dependent => :destroy
   #allegati intervento
   has_many :intallegatis, :dependent => :destroy
-  has_attached_file :rapportino#, { url: "/system/:hash.:extension", hash_secret: "longSecretString" }
+  #has_attached_file :rapportino#, { url: "/system/:hash.:extension", hash_secret: "longSecretString" }
+  
   #do_not_validate_attachment_file_type :rapportino
-  validates_attachment_content_type :rapportino, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif", "application/pdf"]
+  #validates_attachment_content_type :rapportino, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif", "application/pdf"]
+  
+
   #validates_attachment_content_type :rapportino, content_type: /.pdf\Z/
   #validates_attachment_file_name :rapportino, :matches => [/png\Z/, /jpe?g\Z/, /pdf\Z/, /gif\Z/, /jpg\Z/]
   #validates_attachment_content_type :rapportino, content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif", "application/pdf"]
