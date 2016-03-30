@@ -21,6 +21,7 @@ class WorksController < ApplicationController
   end
 
   def new
+    @titolo = "Registrazione nuovo Work"
     @clienti = Clienti.find(params[:clienti_id])
     @interventi = Interventi.find(params[:interventi_id])
     @work = Work.new

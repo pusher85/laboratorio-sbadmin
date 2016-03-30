@@ -5,6 +5,7 @@ class IntallegatisController < ApplicationController
 	end
 
 	def new
+		@titolo = "Nuovo allegato per l'intervento"
 		@cliente = params[:clienti_id]
 		@intervento = params[:interventi_id]
 		@allegato = Intallegati.new
