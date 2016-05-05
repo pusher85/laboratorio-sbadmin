@@ -13,26 +13,26 @@
   <% end %>
 
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-3">
       <div class="form-group">
-        <%= f.label :data %>
+        <%= f.label 'data lavoro' %>
         <%= f.text_field :data, :class => "date-picker form-control input-mini", :value => Time.now.strftime("%Y/%m/%d"), readonly: true %>
       </div>
     </div>
-
     <div class="col-md-2">
       <div class="form-group">
         <%= f.label :durata %>
         <%= f.number_field :durata, maxlength: 2, class: 'form-control limited' %>
       </div>
     </div>
-
   </div>
 
   <div class="row">
     <div class='col-md-8'>
-      <%= f.label :descrizione %>
-      <%= f.text_area :descrizione, maxlength: 200, class: 'form-control limited' %>
+      <div class="form-group">
+        <%= f.label 'lavori effettuati' %>
+        <%= f.text_area :descrizione, maxlength: 200, class: 'form-control limited' %>
+      </div>
     </div>
   </div>
 
@@ -40,7 +40,6 @@
     <div class="col-md-12">
       <div class="form-group">
         <%= link_to 'Indietro', clienti_interventi_path(:id => @interventi), class: 'btn btn-danger' %>
-        
         <%= f.submit 'Salva', :class => 'btn btn-success' %>
       </div>
     </div>
