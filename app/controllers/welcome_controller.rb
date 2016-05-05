@@ -110,7 +110,10 @@ class WelcomeController < ApplicationController
     @clienti = current_utenti.clienti_id
     @interventi = Interventi.new(parametri_intervento)
     @interventi.codice = SecureRandom.hex(2)
+    @nomecliente = current_utenti.nome
     if @interventi.save
+      #invio email
+      UserTicket.richiesta(@nomecliente).deliver
       flash[:notice] = 'Nuova richiesta di  intervento inserita !!'
       redirect_to welcome_elenco_path
     else
