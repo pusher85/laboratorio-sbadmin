@@ -1,3 +1,11 @@
+<% if !flash[:notice].blank? %>
+   <div class = "alert alert-info">
+      <%= flash[:notice] %>
+ </div>
+ <% end %>
+
+
+
 
 <div class="row">
 	<div class="col-md-12">
@@ -9,6 +17,7 @@
 					<!--<th>Apri</th>-->
 					<th>Stato</th>
 					<th>Operatore</th>
+					<th>Codice JustOne</th>
 					<!--<th>Allegato</th>
 					<th>MSG</th>
 					<th>MSG-Count</th> -->
@@ -30,6 +39,7 @@
 					<td><%= intervento.chiuso ? 'Chiuso' : 'Aperto' %></td>
 					<!--<td><%= intervento.operator_id if intervento.operator_id.presence %></td>-->
 					<td><%= @tecnico %></td>
+					<td><%= intervento.codice %></td>
 				</tr>
 				<% end %>
 			</tbody>

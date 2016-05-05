@@ -326,6 +326,17 @@
 		  </script>
 	  <% end %>
 
+
+	  <% if params[:controller] == 'welcome' && params[:action] == 'elenco' %>
+	  <%= javascript_include_tag "/assets/plugins/bootbox/bootbox.min" %>
+		<%= javascript_include_tag "/assets/plugins/jquery-mockjax/jquery.mockjax" %>
+		<%= javascript_include_tag "/assets/plugins/select2/select2.min" %>
+		<%= javascript_include_tag "/assets/plugins/DataTables/media/js/jquery.dataTables.min" %>
+		<%= javascript_include_tag "/assets/plugins/DataTables/media/js/DT_bootstrap" %>
+		<%= javascript_include_tag "/assets/js/table-data" %>
+
+	  <% end %>
+
 		<script>
 			jQuery(document).ready(function() {
 				Main.init();

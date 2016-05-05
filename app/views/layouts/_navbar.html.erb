@@ -36,7 +36,15 @@
 
 			<% if @sono_user %>
 				<li>
-					<%= link_to '<i class="clip-folder"></i><span class="title"> Utente-Interventi</span>'.html_safe, welcome_elenco_path %>
+					<%= link_to '<i class="clip-folder"></i><span class="title"> I miei Ticket</span>'.html_safe, welcome_elenco_path %>
+				</li>
+				<li>
+					<%= link_to '<i class="clip-folder"></i><span class="title"> Richiedi Intervento</span>'.html_safe, welcome_richiedi_path %>
+				</li>
+
+
+				<li>
+					<a href="#"><span class="title">Codice Cliente: <%= current_utenti.clienti_id %></span></a>
 				</li>
 			<% end %>
 

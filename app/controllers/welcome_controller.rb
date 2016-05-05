@@ -80,10 +80,51 @@ class WelcomeController < ApplicationController
 
   end
 
+  def richiedi
+    if !@sono_user
+      redirect_to root_path
+      return
+    end
+
+    @titolo = "Richiedi Intervento"
+    @interventi = Interventi.new
+    @clienti = current_utenti.clienti_id
+
+    # ------------------------------------------------
+    # Calcolo ore residue per contratti acquistati
+    @contrattis = Contratti.where(clienti_id: @clienti)
+    @acquistate = Contratti.where(clienti_id: @clienti).sum(:ore)
+    totaleore = Array.new
+    Interventi.where(cliente_id: @clienti, :monteore => '1').each do |int|
+      totaleore.push(Work.where(:interventi_id => int.id).sum(:durata))
+    end
+    @ore_usate = totaleore.sum
+    @ore_rimanenti = @acquistate-@ore_usate
+    # ------------------------------------------------
+
+  end
+
+
+  #metodo per salvataggio richiesta di intervento
+  def richiesta
+    @clienti = current_utenti.clienti_id
+    @interventi = Interventi.new(parametri_intervento)
+    @interventi.codice = SecureRandom.hex(2)
+    if @interventi.save
+      flash[:notice] = 'Nuova richiesta di  intervento inserita !!'
+      redirect_to welcome_elenco_path
+    else
+      render 'richiedi'
+    end
+  end
 
 
   ###############################
+  private
 
+  def parametri_intervento
+    params.require(:interventi).permit(:cliente_id, :data, :apparecchiatura, :intervento, :note, :chiuso, :codice, :operator_id, :monteore)
+  end
 
 
 end
