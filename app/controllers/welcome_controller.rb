@@ -31,7 +31,8 @@ class WelcomeController < ApplicationController
 	end
 
   def elenco
-
+    @titolo ="I miei Interventi"
+    @interventi = Interventi.where(cliente_id: current_utenti.clienti_id)
   end  
 
 

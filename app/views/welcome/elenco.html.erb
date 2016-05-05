@@ -1,1 +1,66 @@
-tutti gli interventi appartenenti al cliente
+
+<div class="row">
+	<div class="col-md-12">
+		<table class="table table-hover" id="dataTables-interventi">
+			<thead>
+				<tr>
+					<th>Data</th>
+					<th>Descrizione</th>
+					<!--<th>Apri</th>-->
+					<th>Stato</th>
+					<th>Operatore</th>
+					<!--<th>Allegato</th>
+					<th>MSG</th>
+					<th>MSG-Count</th> -->
+				</tr>
+			</thead>
+
+			<tbody>
+				<% @interventi.each do |intervento| %>
+				<%
+					if intervento.operator_id 
+						@tecnico = Utenti.find(intervento.operator_id).nome 
+					else 
+						@tecnico = "Non Assegnato"
+					end
+				%>
+				<tr>
+					<td><%= intervento.data %></td>
+					<td><%= intervento.intervento %></td>
+					<td><%= intervento.chiuso ? 'Chiuso' : 'Aperto' %></td>
+					<!--<td><%= intervento.operator_id if intervento.operator_id.presence %></td>-->
+					<td><%= @tecnico %></td>
+				</tr>
+				<% end %>
+			</tbody>
+			
+
+
+		</table>
+	</div>
+</div>
+
+<script>
+	$(document).ready(function() {
+		$( '#dataTables-interventi' ).dataTable({
+				responsive: true,
+				//sort: "Proprietario"
+				//"order": [[ 0, "desc" ]],
+				 "oLanguage": {
+								"sLengthMenu": "Visualizza _MENU_ records per pagina",
+								"sZeroRecords": "Nessun risultato - spiacente",
+								"sInfo": "Stai visualizzando i record da _START_ a _END_ (_TOTAL_ in totale)",
+								"sInfoEmpty": "Nessun record disponibile",
+								"sInfoFiltered": "(filtrati fra _MAX_ record totali)",
+								"oPaginate": {
+											  "sNext": "Successiva",
+											  "sPrevious": "Precedente"
+											}
+							}
+		});
+	});
+</script>
+
+
+
+<%= debug(params) %>
