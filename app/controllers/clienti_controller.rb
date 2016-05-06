@@ -12,8 +12,10 @@ class ClientiController < ApplicationController
 	def show
 		@titolo = "Dettagli Anagrafica"
 		@clienti = Clienti.find(params[:id])
-		@intervtot = Interventi.where(cliente_id: @clienti).count
-		@intervaperti = Interventi.where(cliente_id: @clienti, chiuso: '0').count
+		#@intervtot = Interventi.where(cliente_id: @clienti).count
+		@intervtot = @clienti.interventi.count
+		#@intervaperti = Interventi.where(cliente_id: @clienti, chiuso: '0').count
+		@intervaperti = @clienti.interventi.where(chiuso: '0').count
 
 		# generare variabili per interventi aperti e ore da contratto residue
 		#@aperti = Clienti.Interventi
@@ -61,9 +63,9 @@ class ClientiController < ApplicationController
 
 	def destroy
 		@clienti = Clienti.find(params[:id])
-	  	@clienti.destroy
-	   	#redirect_to clienti_path
-	   	redirect_to clienti_index_path, notice: "Cliente eliminato"
+	  @clienti.destroy
+	  #redirect_to clienti_path
+	  redirect_to clienti_index_path, notice: "Cliente eliminato"
 	end
 
 	private

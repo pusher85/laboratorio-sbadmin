@@ -11,7 +11,7 @@
 					  </button>
 					  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
 					    <li><%= link_to 'Modifica', edit_clienti_path(@clienti) %></li>
-					    <li><%= link_to 'Elimina', clienti_path(@clienti), method: :delete, data: { confirm: 'Sicuro di voler eliminare il cliente? Non è reversibile' } %></li>
+					    <li><%= link_to 'Elimina', clienti_path(@clienti.id), method: :delete, data: { confirm: 'Sicuro di voler eliminare il cliente? Non è reversibile' } %></li>
 					    <!--<li><%= link_to 'Invia Comunicazione', root_path %></li> -->
 					  </ul>
 					</div>

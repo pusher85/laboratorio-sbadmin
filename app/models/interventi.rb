@@ -1,6 +1,5 @@
 class Interventi < ActiveRecord::Base
-  #belongs_to :clienti, :foreign_key => "cliente_id"
-  belongs_to :clienti
+  belongs_to :clienti, :foreign_key => "cliente_id"
   has_many :comunicazionis, :dependent => :destroy
   has_many :works, :dependent => :destroy
   #allegati intervento
@@ -9,7 +8,6 @@ class Interventi < ActiveRecord::Base
   
   #do_not_validate_attachment_file_type :rapportino
   #validates_attachment_content_type :rapportino, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif", "application/pdf"]
-  
 
   #validates_attachment_content_type :rapportino, content_type: /.pdf\Z/
   #validates_attachment_file_name :rapportino, :matches => [/png\Z/, /jpe?g\Z/, /pdf\Z/, /gif\Z/, /jpg\Z/]
@@ -17,7 +15,6 @@ class Interventi < ActiveRecord::Base
   #validates_attachment :rapportino, :content_type => {:content_type => %w(image/jpeg image/jpg image/png application/pdf application/msword application/vnd.openxmlformats-officedocument.wordprocessingml.document)}
 
   #do_not_validate_attachment_file_type :rapportino
-
 
   #has_one :utenti, :foreign_key => "operator_id"
 
