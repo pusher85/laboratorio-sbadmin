@@ -53,8 +53,8 @@ Rails.application.configure do
 
   Skuby.setup do |config|
     config.method = 'send_sms_classic' #default
-    config.username = 'francescobucci'
-    config.password = 'stocazzo'
+    config.username = '__USERNAME__'
+    config.password = '__PASSWORD__'
     config.sender_string = 'company' #optional
     config.sender_number = '39329900000' #optional
     config.charset = 'UTF-8' #skebby default is ISO-8859-1
