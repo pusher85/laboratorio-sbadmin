@@ -161,35 +161,3 @@
 			
 		</div>
 		<!-- end: MAIN CONTAINER -->
-		
-
-
-
-					<!--		Inizio Modal -->
-			<div id="responsive" class="modal fade" tabindex="-1" data-width="760" style="display: none;">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-						&times;
-					</button>
-					<h4 class="modal-title">Just<i class="clip-seven-segment-1"></i> One - Controlla il tuo intervento</h4>
-				</div>
-				<div class="modal-body">
-					<div class="row">
-						<div class="col-md-12">
-							<%= form_for :justone, url: welcome_justone_path  do |f| %>
-
-								<%= f.label "Codice Cliente" %>
-								<%= f.number_field :cod_cli, class: 'form-control' %>
-
-								<%= f.label "Codice Intervento" %>
-								<%= f.text_field :cod_int, class: 'form-control' %>
-
-						</div>
-					</div>	
-				</div>
-				<div class="modal-footer">
-								<%= f.submit 'Cerca', :class => 'btn btn-success' %>
-							<% end %>
-				</div>
-			</div>
-			<!-- 	Fine Modal -->

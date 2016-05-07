@@ -27,6 +27,8 @@ Rails.application.routes.draw do
   get 'welcome/elenco', :path => 'elenco'
   get 'welcome/richiedi', :path => 'richiedi'
   post 'welcome/richiesta'
+  post 'welcome/registrazione', :path => 'registrazione'
+
   #post 'interventi/sms'
   
 

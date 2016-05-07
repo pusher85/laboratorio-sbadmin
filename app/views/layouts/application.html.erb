@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-<% if !current_page?('/welcome/prelogin') && !current_page?(welcome_login_path) &&  !(params[:controller] == 'welcome' && params[:action] == 'justone') %>
+<% if !current_page?('/welcome/prelogin') && !current_page?(welcome_login_path) &&  !(params[:controller] == 'welcome' && params[:action] == 'justone') && !current_page?(welcome_registrazione_path)  %>
 	<!--	Se non siamo nella pagina di login (welcome#prelogin o welcome#login)	-->
 	<head>
 	  <title>Gestione Assistenza</title>

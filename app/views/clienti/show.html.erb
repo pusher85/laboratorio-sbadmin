@@ -13,6 +13,13 @@
 					    <li><%= link_to 'Modifica', edit_clienti_path(@clienti) %></li>
 					    <li><%= link_to 'Elimina', clienti_path(@clienti.id), method: :delete, data: { confirm: 'Sicuro di voler eliminare il cliente? Non è reversibile' } %></li>
 					    <!--<li><%= link_to 'Invia Comunicazione', root_path %></li> -->
+					    <li class="divider"></li>
+					    <li>
+					    	<% if @clienti.utenti %>
+					    		<%= link_to 'Abilita Accesso', '#' if !@clienti.utenti.approved %>
+					    		<%= link_to 'Blocca Accesso', '#' if @clienti.utenti.approved %>
+					    	<% end %>
+					    </li>
 					  </ul>
 					</div>
 				 	<!-- 	-->
@@ -23,9 +30,14 @@
 						<dt><strong>C.F.: </strong></dt><dd><%= @clienti.codfisc%></dd>
 						<dt><strong>E-Mail: </strong></dt><dd><%= @clienti.email%></dd>
 						<dt><strong>Telefono: </strong></dt><dd><%= @clienti.telefono%></dd>
-						<dt><strong>Login: </strong></dt><dd><%= @clienti.utenti ? @clienti.utenti.id : "---ATTENZIONE--- Nessuna login associata !!".html_safe %>
+						<dt><strong>Login: </strong></dt><dd><%= @clienti.utenti ? @clienti.utenti.email : "---ATTENZIONE--- Nessuna login associata !!".html_safe %>
 						</dd>
 					</dl>
+					
+					<% if @clienti.utenti && !@clienti.utenti.approved %>
+						<div align="center"><span class="label label-danger"> Utenza registrata dal Front-End in attesa di approvazione o comunque disabilitata</span></div>
+					<% end %>
+
 				</div>
 			</div>
 		</div>

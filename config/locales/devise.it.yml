@@ -20,6 +20,7 @@ it:
       timeout: "La tua sessione è scaduta, accedi nuovamente per continuare."
       unauthenticated: "Devi accedere o registrarti per continuare."
       unconfirmed: "Devi confermare il tuo indirizzo email per continuare."
+      not_approved: 'Il tuo account non è ancora stato approvato da un amministratore.'
     mailer:
       confirmation_instructions:
         subject: "Istruzioni per la conferma"
@@ -44,6 +45,7 @@ it:
       signed_up_but_unconfirmed: "Ti sei registrato correttamente. Un messaggio con il link per confermare il tuo account è stato inviato al tuo indirizzo email."
       update_needs_confirmation: "Il tuo account è stato aggiornato, tuttavia è necessario verificare il tuo nuovo indirizzo email. Entro qualche minuto riceverai un messaggio email con le istruzioni per confermare il tuo nuovo indirizzo email."
       updated: "Il tuo account è stato aggiornato."
+      signed_up_but_not_approved: 'Registrazione avvenuta con successo, account in attesa di approvazione da parte di un amministratore'
     sessions:
       signed_in: "Accesso effettuato con successo."
       signed_out: "Sei uscito correttamente."

@@ -122,7 +122,12 @@ class InterventiController < ApplicationController
 	def vediallegato
 		@id_allegato = params[:allegato]
 		@allegato = Intallegati.find(@id_allegato)
-		@autore = Utenti.find(@allegato.autore).nome
+		
+		if @allegato.autore
+			@autore = Utenti.find(@allegato.autore).nome
+		else
+			@autore = 'N/A'
+		end
 		#find(params[:clienti_id])
 	end
 

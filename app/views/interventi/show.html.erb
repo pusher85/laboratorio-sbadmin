@@ -159,8 +159,7 @@
 						<tr>
 							<td><%= link_to w.data.strftime("%d/%m/%Y"), clienti_interventi_work_path(:interventi_id => @interventi, :id => w.id) %></td>
 							<td>
-								<%#= w.operator_id %>
-								<%= Utenti.find(w.operator_id).nome %>
+								<%=w.operator_id ? Utenti.find(w.operator_id).nome : 'N/A' %>
 							</td>
 							<td><%= w.durata %> ore</td>
 							<td><%= w.descrizione %></td>

@@ -34,6 +34,15 @@
 				</li>
 			<% end %>
 
+
+			<% if utenti_signed_in? && current_utenti.admin %>
+				<li class="<%# if current_page?(:controller => '/admin', :action => 'index') %> <%#= "active open" %> <%# end %>">
+					<%= link_to '<i class="clip-folder"></i><span class="title"> Setup'.html_safe, welcome_assegnati_path %>
+				</li>
+			<% end %>
+
+
+
 			<% if @sono_user %>
 				<li>
 					<%= link_to '<i class="clip-folder"></i><span class="title"> I miei Ticket</span>'.html_safe, welcome_elenco_path %>

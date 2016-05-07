@@ -41,8 +41,7 @@
 					 	<tbody>
 						  <% @clienti.each do |cliente| %>
 								<tr>
-									<td><%#= cliente.nome %>
-										<%= link_to cliente.nome, clienti_path(cliente) 	%>
+									<td><%= link_to cliente.nome, clienti_path(cliente) %> <%= ('<span class="label label-danger"> Pending Approvation</span>'.html_safe if !cliente.utenti.approved) if cliente.utenti %> 
 									</td>
 									<td><%= cliente.email %></td>
 									<td class="hidden-xs"><%= cliente.telefono %></td>
